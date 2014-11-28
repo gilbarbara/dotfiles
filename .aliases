@@ -11,9 +11,6 @@ alias -- -="cd -"
 alias please=sudo
 alias hosts='sudo $EDITOR /etc/hosts'   # yes I occasionally 127.0.0.1 twitter.com ;)
 
-# handy things
-alias vlc="osascript ~/code/VLCControl/VLCControl.scpt"
-
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
 	colorflag="--color"
@@ -93,8 +90,8 @@ alias nog='npm outdated -g --depth=0'
 alias nug='npm update -g'
 alias ns='npm search'
 alias ni='npm install'
-alias nid='npm install --save-dev'
-alias nls='npm list -g --depth=0'
+alias nis='npm install --save-dev'
+alias nls='npm ls -g --depth=0 "$@" 2>/dev/null'
 
 # File size
 alias fs="stat -f \"%z bytes\""

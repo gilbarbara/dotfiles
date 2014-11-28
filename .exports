@@ -18,5 +18,5 @@ export HISTIGNORE="ls:ls *:cd:cd -:pwd;exit:date:* --help"
 
 export HOMEBREW=/usr/local
 
-export ANDROID_HOME=/usr/local/Cellar/android-sdk/23.0.2
-export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+#export ANDROID_HOME=/usr/local/Cellar/android-sdk/23.0.2
+#export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
