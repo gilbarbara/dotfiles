@@ -1,0 +1,14 @@
+.ackrc
+.aliases
+.bash_profile
+.bash_prompt
+.bashrc
+.exports
+.functions
+.gitattributes
+.gitconfig
+.gitignore
+.inputrc
+.osx
+.vim
+.vimrc

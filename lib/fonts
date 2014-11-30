@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# Install native fonts
+run_fonts() {
+	
+	brew tap caskroom/fonts          
+
+	brew cask install font-source-code-pro
+	brew cask install font-dejavu-sans
+	brew cask install font-inconsolata
+	brew cask install font-inconsolata-dz
+	brew cask install font-ubuntu
+}
+

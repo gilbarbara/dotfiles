@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+npm_packages=(bower express generator-webapp grunt-cli iectrl jscs jshint nodemon npm-check-updates yeoman-generator yo)
+
+# Install node packages
+run_npm() {
+
+	#get version npm -j -g ls *** | jq -r '.[][] .version'
+
+	for i in "${npm_packages[@]}"; do
+    	if [ ! $( npm -j -g --depth=0 ls $i | jq -r '.[][] .version' ) ]; then
+    		e_process "Installing $i"
+			npm install -g $i
+		else
+			e_warning "$i already installed"
+		fi
+	done
+}

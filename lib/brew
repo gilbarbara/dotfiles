@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+
+# Install command-line tools using Homebrew
+run_brew() {
+	
+	# Make sure we’re using the latest Homebrew
+	brew update
+
+	brew tap caskroom/cask
+	brew install brew-cask
+
+	# Install GNU core utilities (those that come with OS X are outdated)
+	brew install coreutils
+	echo "Don’t forget to add $(brew --prefix coreutils)/libexec/gnubin to \$PATH."
+	# Install GNU `find`, `locate`, `updatedb`, and `xargs`, g-prefixed
+	brew install findutils
+	brew install ngrep
+
+	# Install Bash 4
+	brew install bash
+	brew install bash-completion2
+
+
+	# Install more recent versions of some OS X tools
+	brew install vim --override-system-vi
+	brew tap homebrew/dupes
+	brew tap homebrew/versions
+	brew install homebrew/dupes/grep
+	brew install homebrew/dupes/screen
+
+	brew tap homebrew/homebrew-php
+	brew install php56 php56-imagick php56-mcrypt php56-mongo
+
+	#Databases
+	brew install mysql
+	brew install mongodb
+
+	# Install wget with IRI support
+	brew install wget --with-iri
+
+	# Install other useful binaries
+	brew install ack
+	brew install git
+	brew install hub
+	brew install jq
+	brew install imagemagick --with-webp
+	brew install node # This installs `npm` too using the recommended installation method
+	brew install rename
+	brew install tree
+	brew install wp-cli
+	#brew install android-platform-tools
+
+	#brew link openssl --force
+
+	# Remove outdated versions from the cellar
+	brew cleanup
+}

@@ -1,4 +1,4 @@
-# Easier navigation: .., ..., ~ and -
+ # Easier navigation: .., ..., ~ and -
 alias ..="cd .."
 alias cd..="cd .."
 alias ...="cd ../.."
@@ -92,6 +92,8 @@ alias ns='npm search'
 alias ni='npm install'
 alias nis='npm install --save-dev'
 alias nls='npm ls -g --depth=0 "$@" 2>/dev/null'
+
+alias cask='brew cask'
 
 # File size
 alias fs="stat -f \"%z bytes\""
