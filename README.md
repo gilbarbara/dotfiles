@@ -17,16 +17,13 @@ Toss it into a file called `.extra` which you do not commit to this repo and jus
 ## PATH like a bawss
       PATH=/opt/local/bin
 PATH=$PATH:/opt/local/sbin
-
 PATH=$PATH:/bin
-
 PATH=$PATH:~/.rvm/bin
-
 PATH=$PATH:~/code/git-friendly
+# ...
 
 export PATH
 ```
-
 
 ## Sensible OS X defaults
 
@@ -36,16 +33,12 @@ When setting up a new Mac, you may want to set some sensible OS X defaults:
 ./.osx
 ```
 
-## Similar projects
-
-I recommend getting a [`.jshintrc`](https://github.com/jshint/node-jshint/blob/master/.jshintrc) and [`.editorconfig`](http://editorconfig.org/) defined for all your projects.
-
-
 ## Overview of files
 
 ####  Automatic config
 * `.vimrc`, `.vim` - vim config, obv.
 * `.ackrc`
+* `.editorconfig`
 
 #### shell environment
 * `.aliases`
@@ -74,4 +67,11 @@ I recommend getting a [`.jshintrc`](https://github.com/jshint/node-jshint/blob/m
 git clone https://github.com/gilbarbara/dotfiles.git && cd dotfiles && ./install.sh
 ```
 
-To update later on, just run the sync again.
+Also you can install the modules individually
+```bash
+./install.sh module_name
+```
+
+Modules: apps, brew, dotfiles, fonts, npm, quicklook, ruby and sublime
+
+To update later on, just run the install again.

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-libs=(apps brew fonts npm quicklook ruby sublime)
+libs=(apps brew dotfiles fonts npm quicklook ruby sublime)
 
 # Help text
 source ./lib/help
@@ -41,10 +41,10 @@ fi
 
 #  _____
 # /__  /
-#   / / 
+#   / /
 #  / /__
 # /____/
-#       
+#
 
 if [ ! -f /usr/local/z/z.sh ]; then
 
@@ -58,11 +58,11 @@ if [ ! -f /usr/local/z/z.sh ]; then
     # also consider moving over your current .z file if possible. it's painful to rebuild :)
 fi
 
-#     __  __                     __                     
+#     __  __                     __
 #    / / / /___  ____ ___  ___  / /_  ________ _      __
 #   / /_/ / __ \/ __ `__ \/ _ \/ __ \/ ___/ _ \ | /| / /
-#  / __  / /_/ / / / / / /  __/ /_/ / /  /  __/ |/ |/ / 
-# /_/ /_/\____/_/ /_/ /_/\___/_.___/_/   \___/|__/|__/  
+#  / __  / /_/ / / / / / /  __/ /_/ / /  /  __/ |/ |/ /
+# /_/ /_/\____/_/ /_/ /_/\___/_.___/_/   \___/|__/|__/
 
 
 # Check for Homebrew
@@ -74,12 +74,12 @@ if ! type_exists 'brew'; then
     run_brew
 fi
 
-#     ____        __         
+#     ____        __
 #    / __ \__  __/ /_  __  __
 #   / /_/ / / / / __ \/ / / /
-#  / _, _/ /_/ / /_/ / /_/ / 
-# /_/ |_|\__,_/_.___/\__, /  
-#                   /____/   
+#  / _, _/ /_/ / /_/ / /_/ /
+# /_/ |_|\__,_/_.___/\__, /
+#                   /____/
 
 # Check for rvm
 if ! type_exists 'rvm'; then
@@ -93,9 +93,9 @@ fi
 
 #     _   ______  __  ___
 #    / | / / __ \/  |/  /
-#   /  |/ / /_/ / /|_/ / 
-#  / /|  / ____/ /  / /  
-# /_/ |_/_/   /_/  /_/   
+#   /  |/ / /_/ / /|_/ /
+#  / /|  / ____/ /  / /
+# /_/ |_/_/   /_/  /_/
 #
 
 # Ask before potentially overwriting files
@@ -114,12 +114,12 @@ sudo easy_install Pygments
 
 e_success "All packages have been installed"
 
-#     ____             __  
-#    / __ )____ ______/ /_ 
+#     ____             __
+#    / __ )____ ______/ /_
 #   / __  / __ `/ ___/ __ \
 #  / /_/ / /_/ (__  ) / / /
-# /_____/\__,_/____/_/ /_/ 
-#                         
+# /_____/\__,_/____/_/ /_/
+#
 
 if [ -f /usr/local/bin/bash ]; then
     seek_confirmation "Do you want to link brew bash to your shell"
@@ -134,11 +134,11 @@ if [ -f /usr/local/bin/bash ]; then
     fi
 fi
 
-#        __      __  _____ __         
+#        __      __  _____ __
 #   ____/ /___  / /_/ __(_) /__  _____
 #  / __  / __ \/ __/ /_/ / / _ \/ ___/
-# / /_/ / /_/ / /_/ __/ / /  __(__  ) 
-# \__,_/\____/\__/_/ /_/_/\___/____/  
+# / /_/ / /_/ / /_/ __/ / /  __(__  )
+# \__,_/\____/\__/_/ /_/_/\___/____/
 
 
 # Ask before potentially overwriting files
@@ -147,12 +147,7 @@ seek_confirmation "Overwrite your existing dotfiles"
 if is_confirmed; then
     # Symlink all necessary files
 
-    for i in $( cat lib/dotfiles ); do
-        rm -rf ~/$i
-        ln -s .dotfiles/$i ~
-    done
-
-    source ~/.bash_profile
+    run_dotfiles
 
     e_success "All files have been symlinked"
 
@@ -160,12 +155,12 @@ else
     e_error "This step is required.  When you're ready, run this script to start up again"
 fi
 
-#    ____  _____    _  __    ___                    
+#    ____  _____    _  __    ___
 #   / __ \/ ___/   | |/ /   /   |  ____  ____  _____
 #  / / / /\__ \    |   /   / /| | / __ \/ __ \/ ___/
-# / /_/ /___/ /   /   |   / ___ |/ /_/ / /_/ (__  ) 
-# \____//____/   /_/|_|  /_/  |_/ .___/ .___/____/  
-#                              /_/   /_/            
+# / /_/ /___/ /   /   |   / ___ |/ /_/ / /_/ (__  )
+# \____//____/   /_/|_|  /_/  |_/ .___/ .___/____/
+#                              /_/   /_/
 
 # Ask installing OS X Applications?
 seek_confirmation "Do you want to install Mac OS X Apps and stuff"
@@ -174,7 +169,7 @@ if is_confirmed; then
 
     e_process "Installing Mac OS X Applications"
     run_apps
-    
+
     e_process "Installing Mac OS X fonts"
     run_fonts
 

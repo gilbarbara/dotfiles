@@ -55,7 +55,7 @@ function usernamehost() {
 	if [ $USER != $default_username ]; then
 		echo "${MAGENTA}$USER ${WHITE}at ${ORANGE}$HOSTNAME $WHITEin "
 	else
-		echo "${MAGENTA}${ORANGE}$(name) $WHITEin"
+		echo "${MAGENTA}${ORANGE}$(scutil --get ComputerName) $WHITEin"
 	fi
 }
 

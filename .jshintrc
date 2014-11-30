@@ -1,0 +1,33 @@
+{
+    "bitwise": true,
+    "browser": true,
+    "camelcase": false,
+    "curly": true,
+    "eqeqeq": true,
+    "esnext": true,
+    "immed": true,
+    "indent": 4,
+    "jquery": true,
+    "latedef": true,
+    "newcap": true,
+    "noarg": true,
+    "node": true,
+    "quotmark": "single",
+    "strict": true,
+    "trailing": true,
+    "undef": true,
+    "unused": true,
+    "globals": {
+        "Favstagram": true,
+		"Modernizr": false,
+        "_": false,
+        "Backbone": false,
+        "JST": false,
+        "beforeEach": false,
+        "describe": false,
+        "it": false,
+        "assert": true,
+        "expect": true,
+        "should": true
+    }
+}

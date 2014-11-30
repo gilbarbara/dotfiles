@@ -6,11 +6,19 @@ cat <<EOT
 
 
 Options:
-    -h, --help      Print this help text
-    --no-log       Suppress verbose logging
-    --no-apps       Suppress application installs
+    -h, --help		Print this help text
+    --no-log		Suppress verbose logging
+    --no-apps		Suppress application installs
+    apps			Install apps only
+    brew			Install brew packages
+    dotfiles		Symlink dotfiles
+    fonts			Install fonts
+    npm				Install NPM global packages
+    quicklook		Install QL plugins
+    ruby			Install gems
+    sublime			Install basic plugins and preferences
 
-Documentation can be found at https://github.com/rauluranga/powerbook/
+Documentation can be found at https://github.com/gilbarbara/dotfiles
 
 EOT
 }
