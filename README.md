@@ -1,6 +1,6 @@
 # Gil's dotfiles & setup
 
-[mathias's readme](https://github.com/mathiasbynens/dotfiles/) is awesome. go read it.
+[Mathias's readme](https://github.com/mathiasbynens/dotfiles/) is awesome. go read it.
 
 This is a mashup between [Paul Irish's dotfiles](https://github.com/paulirish/dotfiles) and [Raúl Uranga's powerbook](https://github.com/rauluranga/powerbook)
 
@@ -15,7 +15,7 @@ Toss it into a file called `.extra` which you do not commit to this repo and jus
 
 ```shell
 ## PATH like a bawss
-      PATH=/opt/local/bin
+PATH=/opt/local/bin
 PATH=$PATH:/opt/local/sbin
 PATH=$PATH:/bin
 PATH=$PATH:~/.rvm/bin
@@ -39,6 +39,7 @@ When setting up a new Mac, you may want to set some sensible OS X defaults:
 * `.vimrc`, `.vim` - vim config, obv.
 * `.ackrc`
 * `.editorconfig`
+* `.jshintrc`
 
 #### shell environment
 * `.aliases`

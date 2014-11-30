@@ -24,7 +24,6 @@ alias l="ls -l ${colorflag}"
 # List all files colorized in long format, including dot files
 alias la="ls -la ${colorflag}"
 
-
 # List only directories
 alias lsd='ls -l ${colorflag} | grep "^d"'
 
@@ -39,17 +38,6 @@ fi
 # `cat` with beautiful colors. requires Pygments installed.
 # 							   sudo easy_install Pygments
 alias c='pygmentize -O style=monokai -f console256 -g'
-
-# GIT STUFF
-
-# Undo a `git push`
-alias undopush="git push -f origin HEAD^:master"
-
-# git root
-alias gr='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`'
-
-# git log
-alias gl='git log --oneline --all --graph --decorate'
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
@@ -78,6 +66,17 @@ alias trimcopy="tr -d '\n' | pbcopy"
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
 
+# GIT STUFF
+
+# Undo a `git push`
+alias undopush="git push -f origin HEAD^:master"
+
+# git root
+alias gr='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`'
+
+# git log
+alias gl='git log --oneline --all --graph --decorate'
+
 # Shortcuts
 alias g="git"
 alias v="vim"
@@ -93,7 +92,11 @@ alias ni='npm install'
 alias nis='npm install --save-dev'
 alias nls='npm ls -g --depth=0 "$@" 2>/dev/null'
 
+# Since I don't use cask..
 alias cask='brew cask'
+
+# ping only once and die
+alias ping="ping -o"
 
 # File size
 alias fs="stat -f \"%z bytes\""

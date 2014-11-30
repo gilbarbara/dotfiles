@@ -98,19 +98,22 @@ fi
 # /_/ |_/_/   /_/  /_/
 #
 
-# Ask before potentially overwriting files
-seek_confirmation "Do you want to install npm global packages"
+e_process "Installing NPM Packages"
+run_npm
 
-if is_confirmed; then
-
-    e_process "Installing NPM Packages"
-    run_npm
-fi
+#    ______            __
+#   /_  __/___  ____  / /____
+#    / / / __ \/ __ \/ / ___/
+#   / / / /_/ / /_/ / (__  )
+#  /_/  \____/\____/_/____/
+#
 
 e_process "Installing other tools"
 
 bash < <( curl https://raw.github.com/jamiew/git-friendly/master/install.sh)
 sudo easy_install Pygments
+
+
 
 e_success "All packages have been installed"
 
@@ -122,16 +125,15 @@ e_success "All packages have been installed"
 #
 
 if [ -f /usr/local/bin/bash ]; then
-    seek_confirmation "Do you want to link brew bash to your shell"
-
-    if is_confirmed; then
-        if grep -Fxq "/usr/local/bin/bash" /etc/shells; then
-            echo ""
-        else
-            sudo echo -e '/usr/local/bin/bash' >> /etc/shells
-        fi
-        chsh -s /usr/local/bin/bash
+    if grep -Fxq "/usr/local/bin/bash" /etc/shells; then
+        echo ""
+    else
+        sudo echo -e '/usr/local/bin/bash' >> /etc/shells
     fi
+
+    if [[ $SHELL != '/usr/local/bin/bash' ]]; then
+    	chsh -s /usr/local/bin/bash
+	fi
 fi
 
 #        __      __  _____ __
@@ -185,5 +187,3 @@ if is_confirmed; then
 fi
 
 e_success "Your MAC is ready to rock!"
-
-
