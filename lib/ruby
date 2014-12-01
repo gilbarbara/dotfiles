@@ -2,6 +2,8 @@
 
 run_ruby() {
 
+    source ~/.rvm/scripts/rvm
+
     e_process "Updating to latest Rubygems version ..."
       gem update --system
 
