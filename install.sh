@@ -128,7 +128,7 @@ if [ -f /usr/local/bin/bash ]; then
     if grep -Fxq "/usr/local/bin/bash" /etc/shells; then
         echo ""
     else
-        sudo echo -e '/usr/local/bin/bash' >> /etc/shells
+        sudo sh lib/bash
     fi
 
     if [[ $SHELL != '/usr/local/bin/bash' ]]; then
@@ -186,4 +186,4 @@ if is_confirmed; then
     e_warning "Please consider using cask commands for Updating/Upgrading or Uninstalling a Mac OS X Application"
 fi
 
-e_success "Your MAC is ready to rock!"
+e_success "Your Mac is ready to rock!"
