@@ -6,11 +6,11 @@ export SUBL_PACKAGES="${SUBL}/Packages"
 export USER_SETTINGS="${SUBL_PACKAGES}/User"
 
 run_sublime() {
-	
+
 	if [ ! -d "${SUBL_PACKAGES}/Package Control" ]; then
-		
+
 		e_process "Installing Package Control"
-		
+
 		mkdir -p "${INSTALED_PACKAGES}"
 		mkdir -p "${USER_SETTINGS}"
 
@@ -22,4 +22,9 @@ run_sublime() {
 
 	e_process "Setting Sublime Text User preferences"
 	cp -fr ./lib/files/Preferences.sublime-settings "${USER_SETTINGS}/Preferences.sublime-settings"
+
+	e_process "Installing Snippets"
+	mkdir -p "${USER_SETTINGS}/Snippets"
+	cp -fr ./lib/files/snippets/* "${USER_SETTINGS}/Snippets"
+
 }
