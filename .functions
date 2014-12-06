@@ -3,7 +3,6 @@ function md() {
 	mkdir -p "$@" && cd "$@"
 }
 
-
 # find shorthand
 function f() {
     find . -name "$1"
@@ -12,14 +11,6 @@ function f() {
 # cd into whatever is the forefront Finder window.
 cdf() {  # short for cdfinder
   cd "`osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)'`"
-}
-
-
-# lets toss an image onto my server and pbcopy that bitch.
-function scpp() {
-    scp "$1" aurgasm@aurgasm.us:~/gilbarbara.com/i;
-    echo "http://gilbarbara.com/i/$1" | pbcopy;
-    echo "Copied to clipboard: http://gilbarbara.com/i/$1"
 }
 
 # Start an HTTP server from a directory, optionally specifying the port
@@ -44,12 +35,10 @@ AWK
   )" | less -F
 }
 
-
 # Copy w/ progress
 cp_p () {
   rsync -WavP --human-readable --progress $1 $2
 }
-
 
 # Test if HTTP compression (RFC 2616 + SDCH) is enabled for a given URL.
 # Send a fake UA string for sites that sniff it instead of using the Accept-Encoding header. (Looking at you, ajax.googleapis.com!)
@@ -68,14 +57,11 @@ function json() {
 	fi
 }
 
-
 # take this repo and copy it to somewhere else minus the .git stuff.
 function gitexport(){
 	mkdir -p "$1"
 	git archive master | tar -x -C "$1"
 }
-
-
 
 # get gzipped size
 function gz() {
@@ -137,22 +123,5 @@ function extract() {
 	else
 		echo "'$1' is not a valid file"
 	fi
-}
-
-
-# animated gifs from any video
-# from alex sexton   gist.github.com/SlexAxton/4989674
-gifify() {
-  if [[ -n "$1" ]]; then
-    if [[ $2 == '--good' ]]; then
-      ffmpeg -i $1 -r 10 -vcodec png out-static-%05d.png
-      time convert -verbose +dither -layers Optimize -resize 600x600\> out-static*.png  GIF:- | gifsicle --colors 128 --delay=5 --loop --optimize=3 --multifile - > $1.gif
-      rm out-static*.png
-    else
-      ffmpeg -i $1 -s 600x400 -pix_fmt rgb24 -r 10 -f gif - | gifsicle --optimize=3 --delay=3 > $1.gif
-    fi
-  else
-    echo "proper usage: gifify <input_movie.mov>. You DO need to include extension."
-  fi
 }
 

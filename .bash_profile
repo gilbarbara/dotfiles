@@ -6,7 +6,7 @@ done
 unset file
 
 # init z   https://github.com/rupa/z
-. /usr/local/z/z.sh
+. /usr/local/etc/profile.d/z.sh
 
 # init rvm
 source ~/.rvm/scripts/rvm

@@ -39,25 +39,6 @@ if ! type_exists 'gcc'; then
     exit 1
 fi
 
-#  _____
-# /__  /
-#   / /
-#  / /__
-# /____/
-#
-
-if [ ! -f /usr/local/z/z.sh ]; then
-
-    e_process "Installing z"
-
-    # https://github.com/rupa/z
-    # z, oh how i love you
-    mkdir /usr/local/z
-    git clone https://github.com/rupa/z.git /usr/local/z
-    chmod +x /usr/local/z/z.sh
-    # also consider moving over your current .z file if possible. it's painful to rebuild :)
-fi
-
 #     __  __                     __
 #    / / / /___  ____ ___  ___  / /_  ________ _      __
 #   / /_/ / __ \/ __ `__ \/ _ \/ __ \/ ___/ _ \ | /| / /
@@ -112,7 +93,6 @@ e_process "Installing other tools"
 
 bash < <( curl https://raw.github.com/jamiew/git-friendly/master/install.sh)
 sudo easy_install Pygments
-
 
 
 e_success "All packages have been installed"
@@ -178,8 +158,8 @@ if is_confirmed; then
     e_process "Installing Mac OS X Quick Look plugins for developers"
     run_quicklook
 
-    e_process "Installing ST2 plugins"
-    #run_sublime
+    e_process "Installing Sublime Text plugins"
+    run_sublime
 
     e_success "All Mac OS X Applications have been installed"
 

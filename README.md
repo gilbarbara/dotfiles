@@ -6,7 +6,7 @@ This is a mashup between [Paul Irish's dotfiles](https://github.com/paulirish/do
 
 ## install the necessary apps
 
-The basic setup is deployed in `install.sh` which adds a ton of stuff: homebrew (node, php, mongo, mysql), cask, rvm, npm global packages, z, etc.
+The basic setup is deployed in `install.sh` which adds a ton of stuff: [brew](https://github.com/gilbarbara/dotfiles/blob/master/lib/apps) (node, php, mongo, mysql), [cask](https://github.com/gilbarbara/dotfiles/blob/master/lib/apps), rvm and some [gems](https://github.com/gilbarbara/dotfiles/blob/master/lib/ruby), [npm global packages](https://github.com/gilbarbara/dotfiles/blob/master/lib/npm) and more.
 
 ## private config
 
@@ -33,13 +33,14 @@ When setting up a new Mac, you may want to set some sensible OS X defaults:
 ./.osx
 ```
 
-## Overview of files
+## Overview of dotfiles
 
 ####  Automatic config
 * `.vimrc`, `.vim` - vim config, obv.
 * `.ackrc`
 * `.editorconfig`
 * `.jshintrc`
+* `.jscsrc`
 
 #### shell environment
 * `.aliases`
@@ -60,7 +61,6 @@ When setting up a new Mac, you may want to set some sensible OS X defaults:
 * `.gitignore`
 
 * `.inputrc` - config for bash readline
-
 
 ## Installation
 

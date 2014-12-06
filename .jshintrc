@@ -18,11 +18,9 @@
     "undef": true,
     "unused": true,
     "globals": {
-        "Favstagram": true,
 		"Modernizr": false,
         "_": false,
         "Backbone": false,
-        "JST": false,
         "beforeEach": false,
         "describe": false,
         "it": false,

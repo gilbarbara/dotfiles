@@ -49,6 +49,7 @@ run_brew() {
 	brew install rename
 	brew install tree
 	brew install wp-cli
+	brew install z
 	#brew install android-platform-tools
 
 	#brew link openssl --force

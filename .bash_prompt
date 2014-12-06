@@ -36,7 +36,6 @@ else
 	RESET="\033[m"
 fi
 
-
 function git_info() {
 	# check if we're in a git repo
 	git rev-parse --is-inside-work-tree &>/dev/null || return
