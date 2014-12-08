@@ -13,6 +13,13 @@ bin/
 target
 gen/
 
+# Caches
+###########################
+.sublime-gulp.cache
+.sass-cache
+.tmp
+
+
 # Built Application Files
 ###########################
 *.apk
