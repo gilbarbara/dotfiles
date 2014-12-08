@@ -1,10 +1,16 @@
 [alias]
+	br = branch
 	c = commit -am
-	up = pull
+	co = checkout
+	cp = cherry-pick
+	df = diff --color --color-words --abbrev
+	dl = pull
+	f = "!git ls-files | grep -i"
+	la = "!git config -l | grep alias | cut -c 7-"
+	ll = log --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --numstat
+	ls = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	p = push
 	s = status -s
-	df = diff --color --color-words --abbrev
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
 [color]
 	ui = always
 [core]
