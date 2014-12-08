@@ -41,8 +41,6 @@ run_brew() {
 	# Install other useful binaries
 	brew install ack
 	brew install git
-	brew install hub
-	brew install tig
 	brew install jq
 	brew install imagemagick --with-webp
 	brew install node # This installs `npm` too using the recommended installation method
@@ -51,6 +49,11 @@ run_brew() {
 	brew install wp-cli
 	brew install z
 	#brew install android-platform-tools
+
+	# Install git tools
+	brew install hub
+	brew install tig
+	brew install git-extras
 
 	#brew link openssl --force
 
