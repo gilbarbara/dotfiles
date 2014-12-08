@@ -79,6 +79,7 @@ alias gl='git log --oneline --all --graph --decorate'
 
 # Shortcuts
 alias g="git"
+alias gh="github"
 alias v="vim"
 
 alias bs='bower search'
@@ -89,6 +90,7 @@ alias nog='npm outdated -g --depth=0'
 alias nug='npm update -g'
 alias ns='npm search'
 alias ni='npm install'
+alias nig='npm install -g'
 alias nis='npm install --save-dev'
 alias nls='npm ls -g --depth=0 "$@" 2>/dev/null'
 
