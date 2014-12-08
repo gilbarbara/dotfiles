@@ -158,12 +158,24 @@ if is_confirmed; then
     e_process "Installing Mac OS X Quick Look plugins for developers"
     run_quicklook
 
-    e_process "Installing Sublime Text plugins"
-    run_sublime
-
     e_success "All Mac OS X Applications have been installed"
 
     e_warning "Please consider using cask commands for Updating/Upgrading or Uninstalling a Mac OS X Application"
+fi
+
+#     _____       __    ___
+#    / ___/__  __/ /_  / (_)___ ___  ___
+#    \__ \/ / / / __ \/ / / __ `__ \/ _ \
+#   ___/ / /_/ / /_/ / / / / / / / /  __/
+#  /____/\__,_/_.___/_/_/_/ /_/ /_/\___/
+#
+
+# Ask installing Sublime packages
+seek_confirmation "Do you want to install Sublime Packages and Preferences"
+
+if is_confirmed; then
+    e_process "Installing Sublime package"
+    run_sublime
 fi
 
 e_success "Your Mac is ready to rock!"
