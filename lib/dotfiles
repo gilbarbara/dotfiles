@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-dotfiles=(.ackrc .aliases .bash_profile .bash_prompt .bashrc .exports .editorconfig .functions .gitattributes .gitconfig .gitignore .inputrc .jscsrc .jshintrc .osx .vim .vimrc)
+dotfiles=(.ackrc .aliases .bash_profile .bash_prompt .bashrc .exports .editorconfig .functions .gitattributes .gitconfig .gitignore .inputrc .jscsrc .jshintrc .osx .scss-lint.yml .vim .vimrc)
 
 # Install dotfiles
 run_dotfiles() {
