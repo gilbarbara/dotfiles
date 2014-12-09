@@ -21,6 +21,8 @@
 		"Modernizr": false,
         "_": false,
         "Backbone": false,
+        "require": false,
+        "module": false,
         "beforeEach": false,
         "describe": false,
         "it": false,

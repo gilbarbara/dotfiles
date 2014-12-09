@@ -8,8 +8,8 @@ if [[ "$1" == "-h" || "$1" == "--help" ]]; then
     run_help
     exit
 fi
-source ./lib/utils
 
+source ./lib/utils
 # Source the necessary files and helper scripts
 for i in "${libs[@]}"; do
     source ./lib/$i
