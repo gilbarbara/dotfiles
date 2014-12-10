@@ -9,9 +9,9 @@ local.properties
 
 # Generic Android ignores #
 ###########################
-bin/
-target
-gen/
+#bin/
+#target
+#gen/
 
 # Caches
 ###########################
