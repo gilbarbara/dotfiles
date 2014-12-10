@@ -26,7 +26,7 @@ if array_contains "$1" "${libs[@]}"; then
 fi
 
 sudo -v
-sudo chown $USER /usr/local/
+sudo chown -R $USER /usr/local/
 
 git pull
 
@@ -91,7 +91,7 @@ run_npm
 
 e_process "Installing other tools"
 
-bash < <( curl https://raw.github.com/jamiew/git-friendly/master/install.sh)
+sudo bash < <( curl https://raw.github.com/jamiew/git-friendly/master/install.sh)
 sudo easy_install Pygments
 
 
