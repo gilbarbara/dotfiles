@@ -94,6 +94,8 @@ alias nig='npm install -g'
 alias nis='npm install --save-dev'
 alias nls='npm ls -g --depth=0 "$@" 2>/dev/null'
 
+alias dk='cd ~/Desktop'
+
 # Since I don't use cask..
 alias cask='brew cask'
 
