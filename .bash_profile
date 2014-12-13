@@ -5,11 +5,12 @@ for file in ~/.{bash_prompt,exports,aliases,functions,extra}; do
 done
 unset file
 
-# init z   https://github.com/rupa/z
-. /usr/local/etc/profile.d/z.sh
-
 # init rvm
 source ~/.rvm/scripts/rvm
+if hash fasd 2>/dev/null; then
+	eval "$(fasd --init auto)"
+	_fasd_bash_hook_cmd_complete sb
+fi
 
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob
