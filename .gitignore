@@ -7,27 +7,18 @@
 out/
 local.properties
 
-# Generic Android ignores #
-###########################
-#bin/
-#target
-#gen/
-
-# Caches
+# Modules and Caches
 ###########################
 .sublime-gulp.cache
 .sass-cache
 .tmp
-
+node_modules
+bower_components
 
 # Built Application Files
 ###########################
 *.apk
 *.ap_
-
-# Files for the dex VM
-###########################
-*.dex
 
 # Compiled source #
 ###################

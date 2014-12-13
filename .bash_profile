@@ -5,8 +5,6 @@ for file in ~/.{bash_prompt,exports,aliases,functions,extra}; do
 done
 unset file
 
-# init rvm
-source ~/.rvm/scripts/rvm
 if hash fasd 2>/dev/null; then
 	eval "$(fasd --init auto)"
 	_fasd_bash_hook_cmd_complete sb
@@ -30,6 +28,9 @@ export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+# init rvm
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 eval "$(hub alias -s)"
 

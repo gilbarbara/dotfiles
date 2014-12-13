@@ -5,8 +5,12 @@ dotfiles=(.ackrc .aliases .bash_profile .bash_prompt .bashrc .exports .editorcon
 # Install dotfiles
 run_dotfiles() {
 	for i in "${dotfiles[@]}"; do
-		rm -rf ~/$i
-		ln -s .dotfiles/$i ~
+		if [[ "$i" == ".gitconfig" && -f ~/.gitconfig && "$USER" != "gilbarbara" ]]; then
+			e_warning ".gitconfig already exists, do it manually"
+		else
+			rm -rf ~/$i
+			ln -s .dotfiles/$i ~
+		fi
 	done
 
 	source ~/.bash_profile
