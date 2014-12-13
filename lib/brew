@@ -6,8 +6,10 @@ run_brew() {
 	# Make sure we’re using the latest Homebrew
 	brew update
 
-	brew tap caskroom/cask
-	brew install brew-cask
+	# Taps
+	brew tap homebrew/dupes
+	brew tap homebrew/versions
+	brew tap homebrew/homebrew-php
 
 	# Install GNU core utilities (those that come with OS X are outdated)
 	brew install coreutils
@@ -22,18 +24,16 @@ run_brew() {
 
 	# Install more recent versions of some OS X tools
 	brew install vim --override-system-vi
-	brew tap homebrew/dupes
-	brew tap homebrew/versions
 	brew install homebrew/dupes/grep
 	brew install homebrew/dupes/screen
 
-	brew tap homebrew/homebrew-php
-	brew install php56 php56-imagick php56-mcrypt php56-mongo
-	brew install composer
-
-	#Databases
+	# Databases
 	brew install mysql
 	brew install mongodb
+
+	# PHP Stuff
+	brew install php56 php56-imagick php56-mcrypt php56-mongo
+	brew install composer
 
 	# Install wget with IRI support
 	brew install wget --with-iri

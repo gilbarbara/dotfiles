@@ -2,7 +2,11 @@
 
 # Install native apps
 run_apps() {
-	
+
+	brew tap caskroom/cask
+	brew tap caskroom/versions
+	brew install brew-cask
+
 	#utils
 	brew cask install alfred
 	brew cask install cakebrew
@@ -18,6 +22,9 @@ run_apps() {
 	brew cask install vlc
 
 	# dev
+	brew cask install apikitchen
+	brew cask install bettertouchtool
+	brew cask install couleurs
 	brew cask install cyberduck
 	brew cask install firefox
 	brew cask install github
@@ -35,6 +42,9 @@ run_apps() {
 	brew cask install textwrangler
 	brew cask install vagrant
 	brew cask install virtualbox
+
+	# colorpickers
+	brew cask install colorpicker-antetype colorpicker-skalacolor colorpicker-propicker
 
 	brew cask alfred link
 }
