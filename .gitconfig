@@ -57,19 +57,19 @@
 [push]
 	default = simple
 [diff]
-	tool = Kaleidoscope
+	tool = kaleidoscope
 [difftool]
 	prompt = false
-[difftool "Kaleidoscope"]
+[difftool "kaleidoscope"]
 	cmd = ksdiff \"$LOCAL\" \"$REMOTE\"
 [difftool "p4mergetool"]
 	cmd = ~/Applications/p4merge.app/Contents/Resources/launchp4merge $LOCAL $REMOTE
 [merge]
 	log = true
-	tool = p4mergetool
+	tool = kaleidoscope
 [mergetool]
 	keepBackup = false
-[mergetool "Kaleidoscope"]
+[mergetool "kaleidoscope"]
 	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
 	trustExitCode = true
 [mergetool "p4mergetool"]

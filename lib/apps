@@ -32,6 +32,7 @@ run_apps() {
 	brew cask install imagealpha
 	brew cask install imageoptim
 	brew cask install jewelrybox
+	brew cask install ksdiff # Kaleidoscope command line
 	brew cask install mou
 	brew cask install p4merge
 	brew cask install poedit
