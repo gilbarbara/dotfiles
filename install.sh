@@ -30,7 +30,6 @@ sudo chown -R $USER /usr/local/
 
 git pull
 
-
 # Before relying on Homebrew, check that packages can be compiled
 if ! type_exists 'gcc'; then
     e_error "The XCode Command Line Tools must be installed first."
@@ -89,10 +88,15 @@ run_npm
 #  /_/  \____/\____/_/____/
 #
 
-e_process "Installing other tools"
+if ! type_exists 'push'; then
+	e_process "Installing git-friendly"
+	sudo bash < <( curl https://raw.github.com/jamiew/git-friendly/master/install.sh)
+fi
 
-sudo bash < <( curl https://raw.github.com/jamiew/git-friendly/master/install.sh)
-sudo easy_install Pygments
+if ! type_exists 'pygmentize'; then
+	e_process "Installing pygments"
+	sudo easy_install Pygments
+fi
 
 
 e_success "All packages have been installed"
