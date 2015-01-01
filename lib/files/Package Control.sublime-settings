@@ -22,6 +22,7 @@
 		"Seti_UI",
 		"SideBarEnhancements",
 		"SublimeLinter",
+		"SublimeLinter-contrib-eslint",
 		"SublimeLinter-jshint",
 		"SublimeLinter-jscs",
 		"SublimeLinter-json",
