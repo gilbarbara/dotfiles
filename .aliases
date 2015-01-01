@@ -82,18 +82,25 @@ alias g="git"
 alias gh="github"
 alias v="vim"
 
+# bower aliases
 alias bs='bower search'
 alias bi='bower install'
 alias bis='bower install --save'
+alias bp='bower prune'
+alias bibp='bower install && bower prune'
 
+# npm aliases
+alias ns='npm search'
+alias nls='npm ls -g --depth=0 "$@" 2>/dev/null'
 alias nog='npm outdated -g --depth=0'
 alias nug='npm update -g'
-alias ns='npm search'
 alias ni='npm install'
 alias nig='npm install -g'
 alias nis='npm install --save'
 alias nisd='npm install --save-dev'
-alias nls='npm ls -g --depth=0 "$@" 2>/dev/null'
+
+alias np='npm prune'
+alias ninp='npm install && npm prune'
 
 alias dk='cd ~/Desktop'
 

@@ -4,8 +4,27 @@ function md() {
 }
 
 # find shorthand
-function f() {
+function fd() {
+	if [ -z $1 ]; then
+		echo "Please specify a file pattern"
+		return 1
+	fi
     find . -name "$1"
+}
+
+# Find files recursively and pipe to command
+function ff() {
+	if [ -z $1 ]; then
+		echo "Please specify a search path"
+		return 1
+	fi
+
+	local files=$(find "$1" -type f)
+	if [ $2 ]; then
+		 $2 $files
+	else
+		echo $files
+	fi
 }
 
 # cd into whatever is the forefront Finder window.
@@ -27,9 +46,9 @@ function gf() {
   local remote="$(git remote -v | awk '/^origin.*\(push\)$/ {print $2}')"
   [[ "$remote" ]] || return
   local user_repo="$(echo "$remote" | perl -pe 's/.*://;s/\.git$//')"
-  git log $* --name-status --color | awk "$(cat <<AWK
-    /^.*commit [0-9a-f]{40}/ {sha=substr(\$2,1,7)}
-    /^[MA]\t/ {printf "%s\thttps://github.com/$user_repo/blob/%s/%s\n", \$1, sha, \$2; next}
+  git log $* --name-status --no-color | awk "$(cat <<AWK
+    /^.*$(tput setaf 9)commit [0-9a-f]{40}/ {sha=substr(\$2,1,7)}
+    /^[MA]\t/ {printf "%s\thttps:$user_repo/blob/%s/%s\n", \$1, sha, \$2; next}
     /.*/ {print \$0}
 AWK
   )" | less -F
