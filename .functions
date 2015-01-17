@@ -84,9 +84,9 @@ function gitexport(){
 
 # get gzipped size
 function gz() {
-	echo "orig size    (bytes): "
+	echo "${GREEN}orig size    (bytes): "
 	cat "$1" | wc -c
-	echo "gzipped size (bytes): "
+	echo "${MAGENTA}gzipped size (bytes): "
 	gzip -c "$1" | wc -c
 }
 
