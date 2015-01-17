@@ -46,14 +46,6 @@ log/
 *.sql
 *.sqlite
 
-# OS generated files #
-######################
-.DS_Store
-.DS_Store?
-ehthumbs.db
-Icon?
-Desktop.ini
-
 # Thumbnail cache files
 ._*
 Thumbs.db
@@ -76,3 +68,13 @@ xcuserdata/
 # Files that might appear on external disks
 .Spotlight-V100
 .Trashes
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+ehthumbs.db
+Desktop.ini
+# REMINDER: do not edit Icon^M^M Carriage Returns
+Icon
+# END REMINDER
