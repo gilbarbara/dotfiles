@@ -93,6 +93,7 @@ alias bibp='bower install && bower prune'
 alias ns='npm search'
 alias nls='npm ls -g --depth=0 "$@" 2>/dev/null'
 alias nog='npm outdated -g --depth=0'
+alias nu='npm update'
 alias nug='npm update -g'
 alias ni='npm install'
 alias nig='npm install -g'
@@ -100,7 +101,7 @@ alias nis='npm install --save'
 alias nisd='npm install --save-dev'
 
 alias np='npm prune'
-alias ninp='npm install && npm prune'
+alias nip='npm install && npm prune'
 
 alias dk='cd ~/Desktop'
 
