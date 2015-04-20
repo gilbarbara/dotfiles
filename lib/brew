@@ -48,6 +48,7 @@ run_brew() {
 	brew install tree
 	brew install wp-cli
 	brew install fasd
+	brew install pow
 	#brew install android-platform-tools
 
 	# Install git tools

@@ -23,6 +23,7 @@ run_apps() {
 
 	# dev
 	brew cask install apikitchen
+	brew cask install anvil
 	brew cask install bettertouchtool
 	brew cask install couleurs
 	brew cask install cyberduck
