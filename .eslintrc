@@ -1,20 +1,33 @@
 {
   "ecmaFeatures": {
-    "jsx": true
+    "jsx": true,
+    "destructuring": true
   },
   "env": {
     "browser": true,
     "mocha": true,
-    "node": true
+    "node": true,
+    "jquery": true
   },
   "globals": {
-    "module": false
+    "$": true,
+    "module": false,
+    "define": false
   },
   "rules": {
     "block-scoped-var": 1,
-    "brace-style": [1, "stroustrup", { "allowSingleLine": true }],
-    "camelcase": 1,
-    "comma-style": [1, "last"],
+    "brace-style": [
+      1,
+      "stroustrup",
+      {
+        "allowSingleLine": true
+      }
+    ],
+    "camelcase": 0,
+    "comma-style": [
+      1,
+      "last"
+    ],
     "comma-spacing": 1,
     "curly": 1,
     "default-case": 1,
@@ -35,36 +48,77 @@
     "no-lonely-if": 1,
     "no-loop-func": 0,
     "no-mixed-requires": 0,
-    "no-mixed-spaces-and-tabs": [1, "smart-tabs"],
-    "no-multi-spaces": 1,
+    "no-mixed-spaces-and-tabs": [
+      1,
+      "smart-tabs"
+    ],
+    "no-multi-spaces": [
+      1,
+      {
+        "exceptions": {
+          "VariableDeclarator": true
+        }
+      }
+    ],
     "no-multi-str": 1,
-    "no-multiple-empty-lines": [1, { "max": 1 }],
+    "no-multiple-empty-lines": [
+      1,
+      {
+        "max": 1
+      }
+    ],
     "no-new": 2,
     "no-redeclare": 1,
     "no-space-before-semi": 1,
     "no-extra-semi": 1,
+    "no-script-url": 0,
     "no-shadow": 1,
     "no-trailing-spaces": 1,
-    "no-undefined": 1,
-    "no-underscore-dangle": 1,
+    "no-undefined": 0,
+    "no-underscore-dangle": 0,
     "no-unused-expressions": 1,
-    "no-unused-vars": [1, {"vars": "all", "args": "after-used"}],
+    "no-unused-vars": [
+      0,
+      {
+        "vars": "all",
+        "args": "after-used"
+      }
+    ],
     "no-use-before-define": 2,
-    "quote-props": [1, "as-needed"],
-    "quotes": [1, "single"],
+    "quote-props": [
+      1,
+      "as-needed"
+    ],
+    "quotes": [
+      1,
+      "single"
+    ],
     "radix": 2,
     "semi": 1,
-    "space-after-keywords": [1, "always", { "checkFunctionKeyword": false } ],
+    "space-after-keywords": 1,
     "space-before-blocks": 1,
-    "space-in-brackets": [1, "always", {
-      "singleValue": false,
-      "arraysInArrays": false,
-      "propertyName": false
-    }],
+    "space-before-function-parentheses": 1,
+    "space-in-brackets": [
+      0,
+      "always",
+      {
+        "singleValue": false,
+        "arraysInArrays": false,
+        "propertyName": false
+      }
+    ],
     "space-infix-ops": 1,
+    "space-unary-ops": 1,
     "space-return-throw-case": 1,
     "strict": 0,
-    "valid-jsdoc": [2, { "prefer": { "return": "returns"}}],
+    "valid-jsdoc": [
+      2,
+      {
+        "prefer": {
+          "return": "returns"
+        }
+      }
+    ],
     "valid-typeof": 2,
     "wrap-iife": 2
   }
