@@ -84,10 +84,18 @@ function gitexport(){
 
 # get gzipped size
 function gz() {
-	echo "${GREEN}orig size    (bytes): "
-	cat "$1" | wc -c
-	echo "${MAGENTA}gzipped size (bytes): "
-	gzip -c "$1" | wc -c
+
+	if [ -d $1 ]; then
+		echo "${GREEN}orig size: "
+		du -sb "$1" | cut -f1 | numfmt --to=iec --suffix=B --format="%3f"
+		echo "${MAGENTA}gzipped size: "
+		find "$1"  -name "*.*" ! -name "*.gz" | xargs gzip -c | wc -c | numfmt --to=iec --suffix=B --format="%3f"
+	else
+		echo "${GREEN}orig size: "
+		cat "$1" | wc -c | numfmt --to=iec --suffix=B --format="%3f"
+		echo "${MAGENTA}gzipped size: "
+		gzip -c "$1" | wc -c | numfmt --to=iec --suffix=B --format="%3f"
+	fi
 }
 
 # All the dig info
@@ -143,4 +151,3 @@ function extract() {
 		echo "'$1' is not a valid file"
 	fi
 }
-
