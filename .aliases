@@ -117,6 +117,9 @@ alias ping="ping -o"
 # File size
 alias fs="stat -f \"%z bytes\""
 
+alias duh="du -hcs"
+alias dh="df -h"
+
 # ROT13-encode text. Works for decoding, too! ;)
 alias rot13='tr a-zA-Z n-za-mN-ZA-M'
 

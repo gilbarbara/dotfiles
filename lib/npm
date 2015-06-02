@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-npm_packages=(bower browserify disc divshot-cli eslint express generator-gulp-webapp grunt-cli gulp iectrl imagemin jspm live-server nodemon npm-check-updates pageres psi pulldown serve tldr yeoman-generator yo)
+npm_packages=(bower disc eslint express generator-gulp-webapp grunt-cli gulp iectrl imagemin jspm live-server nodemon npm-check-updates pageres psi pulldown serve tldr yeoman-generator yo)
 
 # Install node packages
 run_npm() {

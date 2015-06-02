@@ -48,13 +48,18 @@ run_brew() {
 	brew install tree
 	brew install wp-cli
 	brew install fasd
-	brew install pow
+	#brew install pow
 	#brew install android-platform-tools
 
 	# Install git tools
 	brew install hub
 	brew install tig
 	brew install git-extras
+	
+	# Install Cask
+	brew tap caskroom/cask
+	brew tap caskroom/versions
+	brew install brew-cask
 
 	#brew link openssl --force
 

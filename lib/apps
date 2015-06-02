@@ -3,10 +3,6 @@
 # Install native apps
 run_apps() {
 
-	brew tap caskroom/cask
-	brew tap caskroom/versions
-	brew install brew-cask
-
 	#utils
 	brew cask install alfred
 	brew cask install cakebrew

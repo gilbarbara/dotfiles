@@ -49,10 +49,10 @@ fi
 if ! type_exists 'brew'; then
     e_process "Installing Homebrew..."
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-    e_process "Installing Homebrew packages"
-    run_brew
 fi
+
+e_process "Installing Homebrew packages"
+run_brew
 
 #     ____        __
 #    / __ \__  __/ /_  __  __
@@ -66,10 +66,10 @@ if ! type_exists 'rvm'; then
 
     e_process "Installing RVM..."
     curl -L https://get.rvm.io | bash -s stable --ruby
-
-    e_process "Installing Gems"
-    run_ruby
 fi
+
+e_process "Installing Gems"
+run_ruby
 
 #     _   ______  __  ___
 #    / | / / __ \/  |/  /
