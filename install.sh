@@ -90,7 +90,7 @@ run_npm
 
 if ! type_exists 'push'; then
 	e_process "Installing git-friendly"
-	sudo bash < <( curl https://raw.github.com/jamiew/git-friendly/master/install.sh)
+	sudo bash < <( curl https://raw.githubusercontent.com/jamiew/git-friendly/master/install.sh)
 fi
 
 if ! type_exists 'pygmentize'; then
