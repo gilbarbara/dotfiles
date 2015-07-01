@@ -34,6 +34,8 @@ PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 eval "$(hub alias -s)"
 
+eval "$(gulp --completion=bash)"
+
 if [ -f $(brew --prefix)/share/bash-completion/bash_completion ]; then
 	. $(brew --prefix)/share/bash-completion/bash_completion
 fi
