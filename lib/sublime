@@ -18,13 +18,13 @@ run_sublime() {
 	fi
 
 	e_process "Setting installed packages"
-	cp -fr ./lib/files/Package\ Control.sublime-settings "${USER_SETTINGS}/Package Control.sublime-settings"
+	cp -fr ./files/sublime/Package\ Control.sublime-settings "${USER_SETTINGS}/Package Control.sublime-settings"
 
 	e_process "Setting Sublime Text User preferences"
-	cp -fr ./lib/files/Preferences.sublime-settings "${USER_SETTINGS}/Preferences.sublime-settings"
+	cp -fr ./files/sublime/Preferences.sublime-settings "${USER_SETTINGS}/Preferences.sublime-settings"
 
 	e_process "Installing Snippets"
 	mkdir -p "${USER_SETTINGS}/Snippets"
-	cp -fr ./lib/files/snippets/* "${USER_SETTINGS}/Snippets"
+	cp -fr ./files/sublime/snippets/* "${USER_SETTINGS}/Snippets"
 
 }
