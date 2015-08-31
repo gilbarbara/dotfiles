@@ -1,0 +1,74 @@
+[
+  {
+    "name": "api",
+    "color": "5319e7"
+  },
+  {
+    "name": "back-end",
+    "color": "000000"
+  },
+  {
+    "name": "bug",
+    "color": "F95463"
+  },
+  {
+    "name": "duplicate",
+    "color": "cccccc"
+  },
+  {
+    "name": "enhancement",
+    "color": "84b6eb"
+  },
+  {
+    "name": "feature",
+    "color": "009800"
+  },
+  {
+    "name": "front-end",
+    "color": "fea724"
+  },
+  {
+    "name": "help wanted",
+    "color": "15d6af"
+  },
+  {
+    "name": "invalid",
+    "color": "e6e6e6"
+  },
+  {
+    "name": "mobile",
+    "color": "b5fe24"
+  },
+  {
+    "name": "QA",
+    "color": "207de5"
+  },
+  {
+    "name": "question",
+    "color": "cc317c"
+  },
+  {
+    "name": "task",
+    "color": "333333"
+  },
+  {
+    "name": "to discuss",
+    "color": "006b75"
+  },
+  {
+    "name": "ui",
+    "color": "fbca04"
+  },
+  {
+    "name": "urgent",
+    "color": "ff0000"
+  },
+  {
+    "name": "ux",
+    "color": "eb6420"
+  },
+  {
+    "name": "wontfix",
+    "color": "ffffff"
+  }
+]
