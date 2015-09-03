@@ -55,7 +55,10 @@ run_brew() {
 	brew install hub
 	brew install tig
 	brew install git-extras
-	
+
+	# Install Provision tools
+	brew install docker
+
 	# Install Cask
 	brew tap caskroom/cask
 	brew tap caskroom/versions

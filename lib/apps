@@ -19,18 +19,18 @@ run_apps() {
 
 	# dev
 	brew cask install apikitchen
-	brew cask install anvil
 	brew cask install bettertouchtool
 	brew cask install couleurs
 	brew cask install cyberduck
+	brew cask install dockertoolbox
 	brew cask install firefox
-	brew cask install github
+	brew cask install github-desktop
 	brew cask install google-chrome
 	brew cask install imagealpha
 	brew cask install imageoptim
 	brew cask install jewelrybox
 	brew cask install ksdiff # Kaleidoscope command line
-	brew cask install mou
+	brew cask install macdown
 	brew cask install poedit
 	brew cask install robomongo
 	brew cask install sequel-pro
@@ -42,6 +42,4 @@ run_apps() {
 
 	# colorpickers
 	brew cask install colorpicker-antetype colorpicker-skalacolor colorpicker-propicker
-
-	brew cask alfred link
 }
