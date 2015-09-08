@@ -15,9 +15,12 @@ run_ruby() {
       bundle config --global jobs $((number_of_cores - 1))
 
     e_process "Installing Compass and sass ..."
-    gem install compass
-    gem install sass
-    gem install scss-lint
+	    gem install compass
+	    gem install sass
+	    gem install scss-lint
+
+		e_process "Installing Travis"
+	    gem install travis
 
     [[ $? ]] && e_success "Done"
 }
