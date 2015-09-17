@@ -27,9 +27,12 @@ complete -W "NSGlobalDomain" defaults
 # init rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
+# init nvm
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
+
 # init brew
 PATH=/usr/local/sbin:$PATH
-
 PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 eval "$(hub alias -s)"
