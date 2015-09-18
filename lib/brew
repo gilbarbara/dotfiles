@@ -43,7 +43,9 @@ run_brew() {
 	brew install git
 	brew install jq
 	brew install imagemagick --with-webp
+	brew install lame
 	brew install node # This installs `npm` too using the recommended installation method
+	brew install nvm
 	brew install rename
 	brew install tree
 	brew install wp-cli
