@@ -103,8 +103,6 @@ alias nisd='npm install --save-dev'
 alias np='npm prune'
 alias nip='npm install && npm prune'
 
-alias node6='node --harmony'
-
 alias dk='cd ~/Desktop'
 
 # fasd aliases. remember to add them to fasd init

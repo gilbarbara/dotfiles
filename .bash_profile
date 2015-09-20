@@ -28,7 +28,8 @@ complete -W "NSGlobalDomain" defaults
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # init nvm
-export NVM_DIR=~/.nvm
+export NVM_DIR=/usr/local/nvm
+export NVM_SYMLINK_CURRENT=true
 source $(brew --prefix nvm)/nvm.sh
 
 # init brew
