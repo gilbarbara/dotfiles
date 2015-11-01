@@ -101,7 +101,6 @@ alias nis='npm install --save'
 alias nisd='npm install --save-dev'
 
 alias np='npm prune'
-alias nip='npm install && npm prune'
 
 alias dk='cd ~/Desktop'
 

@@ -14,12 +14,9 @@ run_ruby() {
       number_of_cores=$(sysctl -n hw.ncpu)
       bundle config --global jobs $((number_of_cores - 1))
 
-    e_process "Installing Compass and sass ..."
-	    gem install compass
-	    gem install sass
-	    gem install scss-lint
-
-		e_process "Installing Travis"
+    e_process "Installing utils..."
+	    gem install sass scss-lint
+			gem install wordmove
 	    gem install travis
 
     [[ $? ]] && e_success "Done"

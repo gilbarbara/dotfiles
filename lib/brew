@@ -40,6 +40,7 @@ run_brew() {
 
 	# Install other useful binaries
 	brew install ack
+	brew install fasd
 	brew install git
 	brew install jq
 	brew install imagemagick --with-webp
@@ -49,8 +50,6 @@ run_brew() {
 	brew install rename
 	brew install tree
 	brew install wp-cli
-	brew install fasd
-	#brew install pow
 	#brew install android-platform-tools
 
 	# Install git tools
@@ -62,9 +61,7 @@ run_brew() {
 	brew install docker
 
 	# Install Cask
-	brew tap caskroom/cask
-	brew tap caskroom/versions
-	brew install brew-cask
+	brew install caskroom/cask/brew-cask
 
 	#brew link openssl --force
 

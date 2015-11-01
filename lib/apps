@@ -37,7 +37,6 @@ run_apps() {
 	#brew cask install sublime-text
 	brew cask install textwrangler
 	brew cask install totalterminal
-	brew cask install vagrant
 	brew cask install virtualbox
 
 	# colorpickers
