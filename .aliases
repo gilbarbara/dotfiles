@@ -71,15 +71,13 @@ alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
 # Undo a `git push`
 alias undopush="git push -f origin HEAD^:master"
 
-# git root
-alias gr='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`'
-
-# git log
-alias gl='git log --oneline --all --graph --decorate'
 
 # Shortcuts
 alias g="git"
 alias gh="github"
+alias gl='git log --oneline --all --graph --decorate'
+alias gr='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`'
+alias gs="git status"
 alias v="vim"
 
 # bower aliases
@@ -95,12 +93,15 @@ alias nls='npm ls -g --depth=0 "$@" 2>/dev/null'
 alias nog='npm outdated -g --depth=0'
 alias nu='npm update'
 alias nug='npm update -g'
+
 alias ni='npm install'
 alias nig='npm install -g'
 alias nis='npm install --save'
 alias nisd='npm install --save-dev'
 
 alias np='npm prune'
+
+alias mocha6='mocha --compilers js:babel/register'
 
 alias dk='cd ~/Desktop'
 
