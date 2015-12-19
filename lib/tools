@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+run_tools() {
+		if ! type_exists 'push'; then
+			e_process "Installing git-friendly"
+			sudo bash < <( curl https://raw.githubusercontent.com/jamiew/git-friendly/master/install.sh)
+		fi
+
+		if ! type_exists 'pygmentize'; then
+			e_process "Installing pygments"
+			sudo easy_install Pygments
+		fi
+
+		if ! type_exists 'docker-start'; then
+			e_process "Installing docker-start"
+		  sudo cp -p ./bin/docker-start.sh /usr/local/bin/docker-start
+		fi
+
+		if ! type_exists 'search'; then
+			e_process "Installing search"
+			sudo cp -p ./bin/search.sh /usr/local/bin/search
+		fi
+
+		if ! type_exists 'colors'; then
+			e_process "Installing colors"
+			sudo cp -p ./bin/colors.sh /usr/local/bin/colors
+		fi
+
+		[[ $? ]] && e_success "Done"
+}
