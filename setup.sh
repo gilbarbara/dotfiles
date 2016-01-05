@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-libs=(apps brew dotfiles fonts npm quicklook ruby sublime)
+libs=(apps brew dotfiles fonts npm quicklook ruby sublime tools)
 
 # Help text
 source ./lib/help
