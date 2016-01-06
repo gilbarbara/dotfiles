@@ -21,6 +21,11 @@ run_tools() {
 			sudo cp -p ./bin/search.sh /usr/local/bin/search
 		fi
 
+		if ! type_exists 'chmodr'; then
+			e_process "Installing chmodr"
+			sudo cp -p ./bin/chmodr.sh /usr/local/bin/chmodr
+		fi
+
 		if ! type_exists 'colors'; then
 			e_process "Installing colors"
 			sudo cp -p ./bin/colors.sh /usr/local/bin/colors
