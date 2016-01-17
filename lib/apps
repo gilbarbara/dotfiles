@@ -26,7 +26,6 @@ run_apps() {
 	brew cask install firefox
 	brew cask install github-desktop
 	brew cask install google-chrome
-	brew cask install imagealpha
 	brew cask install imageoptim
 	brew cask install jewelrybox
 	brew cask install ksdiff # Kaleidoscope command line

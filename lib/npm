@@ -4,9 +4,6 @@ npm_packages=(babel-cli babel-preset-es2015 bower disc eslint express generator-
 
 # Install node packages
 run_npm() {
-
-	#get version npm -j -g ls *** | jq -r '.[][] .version'
-
 	for i in "${npm_packages[@]}"; do
     	if [ ! $( npm -j -g --depth=0 ls $i | jq -r '.[][] .version' ) ]; then
     		e_process "Installing $i"
