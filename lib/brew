@@ -10,6 +10,7 @@ run_brew() {
 	brew tap homebrew/dupes
 	brew tap homebrew/versions
 	brew tap homebrew/homebrew-php
+	brew tap homebrew/services
 
 	# Install GNU core utilities (those that come with OS X are outdated)
 	brew install coreutils
@@ -29,7 +30,7 @@ run_brew() {
 	brew install homebrew/dupes/screen
 
 	# Databases
-	brew install mysql
+	brew install mariadb
 	brew install mongodb
 
 	# PHP Stuff
