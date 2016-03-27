@@ -24,9 +24,6 @@ export LANG="en_US"
 # You could just use `-g` instead, but I like being explicit
 complete -W "NSGlobalDomain" defaults
 
-# init rvm
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
 # init nvm
 export NVM_DIR=/usr/local/nvm
 export NVM_SYMLINK_CURRENT=true
@@ -46,3 +43,6 @@ fi
 
 # added by travis gem
 [ -f /Users/gilbarbara/.travis/travis.sh ] && source /Users/gilbarbara/.travis/travis.sh
+
+# init rvm
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
