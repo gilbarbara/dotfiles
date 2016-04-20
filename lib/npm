@@ -1,12 +1,52 @@
 #!/usr/bin/env bash
 
-npm_packages=(babel-cli babel-eslint babel-preset-es2015 babel-preset-stage-1 babel-register bower disc eslint esformatter esformatter-braces esformatter-collapse-objects esformatter-jsx esformatter-limit-linebreaks esformatter-parseint esformatter-quote-props esformatter-quotes esformatter-remove-trailing-commas esformatter-semicolons esformatter-spaced-lined-comment esformatter-var-each github-labels gulp iectrl jsdoc mocha node-sass npm-check-updates pm2 tldr yeoman-generator yo)
+npm_packages=(
+	babel-cli
+	babel-eslint
+	babel-preset-es2015
+	babel-preset-react
+	babel-preset-stage-1
+	babel-register
+	bower
+	disc
+	eslint
+	eslint-config-airbnb
+	eslint-plugin-jsdoc
+	eslint-plugin-jsx-a11y
+	eslint-plugin-react
+	esformatter
+	esformatter-braces
+	esformatter-collapse-objects
+	esformatter-jsx
+	esformatter-limit-linebreaks
+	esformatter-parseint
+	esformatter-quote-props
+	esformatter-quotes
+	esformatter-remove-trailing-commas
+	esformatter-semicolons
+	esformatter-spaced-lined-comment
+	esformatter-var-each
+	github-labels
+	gulp
+	iectrl
+	jsdoc
+	mocha
+	node-sass
+	npm-check-updates
+	pm2
+	tldr
+	yeoman-generator
+	yo
+)
 
 # Install node packages
 run_npm() {
+	e_process "Getting installed packages"
+	packages=$(npm -j -g --depth=0 ls)
+
 	for i in "${npm_packages[@]}"; do
-    	if [ ! $( npm -j -g --depth=0 ls $i | jq -r '.[][] .version' ) ]; then
-    		e_process "Installing $i"
+    if [ ! $( echo $packages | jq -r '.dependencies."$i".version' ) ]; then
+    	e_process "Installing $i"
 			npm install -g $i
 		else
 			e_warning "$i already installed"
