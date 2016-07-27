@@ -11,6 +11,16 @@ run_tools() {
 			sudo easy_install Pygments
 		fi
 
+		if ! type_exists 'chmodr'; then
+			e_process "Installing chmodr"
+			sudo cp -p ./bin/chmodr.sh /usr/local/bin/chmodr
+		fi
+
+		if ! type_exists 'colors'; then
+			e_process "Installing colors"
+			sudo cp -p ./bin/colors.sh /usr/local/bin/colors
+		fi
+
 		if ! type_exists 'docker-start'; then
 			e_process "Installing docker-start"
 		  sudo cp -p ./bin/docker-start.sh /usr/local/bin/docker-start
@@ -21,14 +31,9 @@ run_tools() {
 			sudo cp -p ./bin/search.sh /usr/local/bin/search
 		fi
 
-		if ! type_exists 'chmodr'; then
-			e_process "Installing chmodr"
-			sudo cp -p ./bin/chmodr.sh /usr/local/bin/chmodr
-		fi
-
-		if ! type_exists 'colors'; then
-			e_process "Installing colors"
-			sudo cp -p ./bin/colors.sh /usr/local/bin/colors
+		if ! type_exists 'service'; then
+			e_process "Installing service"
+			sudo cp -p ./bin/service.sh /usr/local/bin/service
 		fi
 
 		[[ $? ]] && e_success "Done"
