@@ -16,6 +16,9 @@ fi
 # line numbers shown by default
 linenums=1
 
+# recursion
+maxdepth=
+
 # ansi colors
 cyan=`echo -e '\033[96m'`
 reset=`echo -e '\033[39m'`
@@ -30,6 +33,7 @@ function usage {
 
     -s, --sensitive         Force case sensitive search.
     -i, --insensitive       Force case insensitive search.
+		-d, --max-depth					  Limit recursion
     -C, --no-colors         Force avoid colors.
     -L, --no-linenums       Hide line numbers.
     -h, --help              This message.
@@ -52,6 +56,9 @@ while [[ "$1" =~ "-" ]]; do
         -L | --no-linenums )
           linenums=
           ;;
+        -d | --max-depth )
+          maxdepth=$2
+          ;;
         -h | --help )
           usage
           exit
@@ -59,6 +66,11 @@ while [[ "$1" =~ "-" ]]; do
     esac
     shift
 done
+
+if [ $maxdepth ]; then
+	maxdepth="-maxdepth $maxdepth"
+  shift
+fi
 
 # check for directory as first parameter
 if [[ "$1" =~ / ]]; then
@@ -99,13 +111,13 @@ fi
 
 # run search
 if [ $colors ]; then
-  find $dir -type f ! -path '*/.git*' ! -path '*/.svn' -print0 \
+  find $dir -type f $maxdepth ! -path '*/.git*' ! -path '*/.svn' -print0 \
     | GREP_COLOR="1;33;40" xargs -0 grep $grepopt "`echo $@`" \
     | sed "s/^\([^:]*:\)\(.*\)/  \\
   $cyan\1$reset  \\
   \2 /"
 else
-  find $dir -type f ! -path '*/.git*' ! -path '*/.svn' -print0 \
+  find $dir -type f $maxdepth ! -path '*/.git*' ! -path '*/.svn' -print0 \
     | xargs -0 grep $grepopt "$@" \
     | sed "s/^\([^:]*:\)\(.*\)/  \\
   \1  \\
