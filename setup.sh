@@ -23,6 +23,12 @@ if array_contains "$1" "${libs[@]}"; then
         run_$1
     fi
     exit
+else
+  seek_confirmation "Do you want to proceed with the installation"
+
+  if ! is_confirmed; then
+    exit
+  fi
 fi
 
 sudo -v
