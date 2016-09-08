@@ -65,7 +65,7 @@ When setting up a new Mac, you may want to set some sensible OS X defaults:
 ## Installation
 
 ```bash
-git clone https://github.com/gilbarbara/dotfiles.git && cd dotfiles && ./setup.sh
+git clone https://github.com/gilbarbara/dotfiles.git ~/.dotfiles && cd ~/.dotfiles && ./setup.sh
 ```
 
 Also you can install the modules individually
