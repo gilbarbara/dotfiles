@@ -105,6 +105,10 @@ alias nisd='npm install --save-dev'
 
 alias np='npm prune'
 
+alias start='npm start'
+alias build='npm run build'
+alias t='npm test'
+
 alias mocha6='mocha --compilers js:babel/register'
 
 alias dk='cd ~/Desktop'
