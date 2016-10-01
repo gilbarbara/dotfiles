@@ -3,30 +3,11 @@
 npm_packages=(
 	babel-cli
 	babel-eslint
-	babel-preset-es2015
+	babel-preset-latest
 	babel-preset-react
 	babel-preset-stage-1
 	babel-register
 	bower
-	disc
-	eslint
-	eslint-config-airbnb
-	eslint-plugin-import
-	eslint-plugin-jsdoc
-	eslint-plugin-jsx-a11y
-	eslint-plugin-react
-	esformatter
-	esformatter-braces
-	esformatter-collapse-objects
-	esformatter-jsx
-	esformatter-limit-linebreaks
-	esformatter-parseint
-	esformatter-quote-props
-	esformatter-quotes
-	esformatter-remove-trailing-commas
-	esformatter-semicolons
-	esformatter-spaced-lined-comment
-	esformatter-var-each
 	github-labels
 	gulp
 	iectrl
@@ -35,10 +16,9 @@ npm_packages=(
 	node-sass
 	npm-check-updates
 	pm2
+	stylelint
 	svgo
 	tldr
-	yeoman-generator
-	yo
 )
 
 # Install node packages
