@@ -109,6 +109,8 @@ alias start='npm start'
 alias build='npm run build'
 alias lint='npm run lint'
 alias t='npm test'
+alias tw='npm run test:watch'
+alias tu='npm run test:ui'
 
 alias mocha6='mocha --compilers js:babel/register'
 
