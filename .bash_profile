@@ -32,6 +32,7 @@ source $(brew --prefix nvm)/nvm.sh
 # init brew
 PATH=/usr/local/sbin:$PATH
 PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+PATH="$PATH:./node_modules/bin"
 
 eval "$(hub alias -s)"
 
@@ -46,3 +47,6 @@ fi
 
 # init rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+# Increase ulimit
+ulimit -n 2048
