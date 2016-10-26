@@ -32,7 +32,7 @@ source $(brew --prefix nvm)/nvm.sh
 # init brew
 PATH=/usr/local/sbin:$PATH
 PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-PATH="$PATH:./node_modules/bin"
+PATH="$PATH:./node_modules/.bin"
 
 eval "$(hub alias -s)"
 
