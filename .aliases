@@ -122,9 +122,6 @@ alias sb='fasd -e subl -d'
 # Since I don't use cask..
 alias cask='brew cask'
 
-# docker aliases
-alias codeclimate='docker run --interactive --tty --rm --env CODE_PATH="$PWD" --volume "$PWD":/code --volume /var/run/docker.sock:/var/run/docker.sock --volume /tmp/cc:/tmp/cc codeclimate/codeclimate'
-
 # ping only once and die
 alias ping="ping -o"
 
