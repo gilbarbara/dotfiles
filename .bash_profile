@@ -10,6 +10,8 @@ if hash fasd 2>/dev/null; then
 	_fasd_bash_hook_cmd_complete sb
 fi
 
+eval $(thefuck --alias)
+
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob
 

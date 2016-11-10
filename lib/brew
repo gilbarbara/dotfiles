@@ -47,11 +47,12 @@ run_brew() {
 	# Install other useful binaries
 	brew install ack
 	brew install fasd
+	brew install fuck
 	brew install git
 	brew install jq
 	brew install imagemagick --with-webp
 	brew install lame
-	brew install node # This installs `npm` too using the recommended installation method
+	brew install node
 	brew install nvm
 	brew install rename
 	brew install tree

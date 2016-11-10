@@ -5,7 +5,7 @@ npm_packages=(
 	babel-eslint
 	babel-preset-latest
 	babel-preset-react
-	babel-preset-stage-1
+	babel-preset-stage-0
 	babel-register
 	bower
 	github-labels
