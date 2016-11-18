@@ -93,7 +93,9 @@ alias bibp='bower install && bower prune'
 
 # npm aliases
 alias ns='npm search'
+alias np='npm prune'
 alias nls='npm ls -g --depth=0 "$@" 2>/dev/null'
+
 alias nog='npm outdated -g --depth=0'
 alias nu='npm update'
 alias nug='npm update -g'
@@ -103,15 +105,17 @@ alias nig='npm install -g'
 alias nis='npm install --save'
 alias nisd='npm install --save-dev'
 
-alias np='npm prune'
-
 alias start='npm start'
 alias build='npm run build'
+alias publish='npm run publish'
+alias deploy='npm run deploy'
+
 alias lint='npm run lint'
 alias lints='npm run lint:styles'
 alias t='npm test'
 alias tw='npm run test:watch'
 alias tu='npm run test:ui'
+alias npc='npm run precommit'
 
 alias mocha6='mocha --compilers js:babel/register'
 
