@@ -111,7 +111,7 @@ alias publish='npm run publish'
 alias deploy='npm run deploy'
 
 alias lint='npm run lint'
-alias lints='npm run lint:styles'
+alias slint='npm run lint:styles'
 alias t='npm test'
 alias tw='npm run test:watch'
 alias tu='npm run test:ui'
