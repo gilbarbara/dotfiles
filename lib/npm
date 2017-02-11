@@ -15,6 +15,7 @@ npm_packages=(
 	mocha
 	node-sass
 	npm-check-updates
+	ntl
 	pm2
 	stylelint
 	svgo
