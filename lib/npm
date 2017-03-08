@@ -28,8 +28,8 @@ run_npm() {
 	packages=$(npm -j -g --depth=0 ls)
 
 	for i in "${npm_packages[@]}"; do
-    if [ ! $( echo $packages | jq -r '.dependencies."$i".version' ) ]; then
-    	e_process "Installing $i"
+    if [[ $( echo $packages | jq -r '.dependencies."'$i'".version' ) == "null" ]]; then
+			e_process "Installing $i"
 			npm install -g $i
 		else
 			e_warning "$i already installed"
