@@ -40,7 +40,8 @@ run_brew() {
 
 	# PHP Stuff
 	brew install httpd24
-	brew install php71 php71-imagick php71-mcrypt
+	brew install php71 --with-httpd24
+	brew install php71-imagick php71-mcrypt
 	brew install composer
 
 	# Install wget with IRI support
