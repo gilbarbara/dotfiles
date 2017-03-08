@@ -37,7 +37,6 @@ bower_components
 *.iso
 *.rar
 *.tar
-*.zip
 
 # Logs and databases #
 ######################
@@ -73,9 +72,8 @@ xcuserdata/
 ######################
 .DS_Store
 .DS_Store?
-ehthumbs.db
+thumbs.db
 Desktop.ini
 # REMINDER: do not edit Icon^M^M Carriage Returns
-Icon
-
+Icon[]
 #REMINDER
