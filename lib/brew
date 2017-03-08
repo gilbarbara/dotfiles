@@ -13,6 +13,8 @@ run_brew() {
 	brew tap homebrew/homebrew-php
 	brew tap homebrew/services
 	brew tap homebrew/completions
+	brew tap caskroom/cask
+	brew tap caskroom/fonts
 
 	# Install GNU core utilities (those that come with OS X are outdated)
 	brew install coreutils
@@ -38,7 +40,7 @@ run_brew() {
 	brew install mariadb
 	brew install mongodb
 
-	# PHP Stuff
+	# Apache/PHP Stuff
 	brew install httpd24
 	brew install php71 --with-httpd24
 	brew install php71-imagick php71-mcrypt
@@ -47,10 +49,10 @@ run_brew() {
 	# Install wget with IRI support
 	brew install wget --with-iri
 
-	# Install other useful binaries
+	# Install useful binaries
 	brew install ack
 	brew install fasd
-	brew install fuck
+	brew install thefuck
 	brew install git
 	brew install jq
 	brew install imagemagick --with-webp
@@ -67,12 +69,9 @@ run_brew() {
 	brew install tig
 	brew install git-extras
 
-	# Install Provision tools
+	# Install other tools
 	brew install docker
-
-	# Install Cask
-	brew tap caskroom/cask
-	brew tap caskroom/fonts
+	brew install watchman
 
 	#brew link openssl --force
 
