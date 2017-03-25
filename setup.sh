@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-libs=(apps brew dotfiles fonts npm quicklook ruby sublime tools)
+libs=(apps binaries brew dotfiles fonts npm quicklook ruby sublime tools)
 
 # Help text
 source ./lib/help
@@ -146,6 +146,23 @@ if is_confirmed; then
 else
     e_error "This step is required.  When you're ready, run this script to start up again"
 fi
+
+#      ____  _                  _
+#     / __ )(_)___  ____ ______(_)__  _____
+#    / __  / / __ \/ __ `/ ___/ / _ \/ ___/
+#   / /_/ / / / / / /_/ / /  / /  __(__  )
+#  /_____/_/_/ /_/\__,_/_/  /_/\___/____/
+
+seek_confirmation "Install useful binaries?"
+
+if is_confirmed; then
+    # Symlink all necessary files
+
+    run_binaries
+
+    e_success "All binaries installed to /usr/local/bin"``
+fi
+
 
 #    ____  _____    _  __    ___
 #   / __ \/ ___/   | |/ /   /   |  ____  ____  _____
