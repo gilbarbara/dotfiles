@@ -64,13 +64,17 @@ run_brew() {
 	brew install wp-cli
 	#brew install android-platform-tools
 
+	# Install code review tools
+	brew tap codeclimate/formulae
+	brew install codeclimate
+
 	# Install git tools
 	brew install hub
 	brew install tig
 	brew install git-extras
 
 	# Install other tools
-	brew install docker
+	brew install docker docker-machine docker-clean
 	brew install watchman
 
 	#brew link openssl --force
