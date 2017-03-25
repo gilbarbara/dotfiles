@@ -46,6 +46,9 @@ run_brew() {
 	brew install php71-imagick php71-mcrypt
 	brew install composer
 
+	#Python
+	brew install python3
+
 	# Install wget with IRI support
 	brew install wget --with-iri
 
@@ -54,6 +57,7 @@ run_brew() {
 	brew install fasd
 	brew install thefuck
 	brew install git
+	brew install httpie
 	brew install jq
 	brew install imagemagick --with-webp
 	brew install lame
