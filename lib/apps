@@ -39,5 +39,5 @@ run_apps() {
 	brew cask install virtualbox
 
 	# colorpickers
-	brew cask install colorpicker-antetype colorpicker-skalacolor colorpicker-propicker
+	brew cask install colorpicker-hex colorpicker-skalacolor colorpicker-propicker
 }
