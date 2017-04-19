@@ -11,6 +11,7 @@ npm_packages=(
 	github-labels
 	gulp
 	iectrl
+	jscodeshift
 	jsdoc
 	mocha
 	node-sass
