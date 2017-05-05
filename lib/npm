@@ -19,6 +19,7 @@ npm_packages=(
 	ntl
 	pm2
 	stylelint
+	surge
 	svgo
 	tldr
 )
