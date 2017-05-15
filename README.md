@@ -2,12 +2,12 @@
 
 [Mathias's readme](https://github.com/mathiasbynens/dotfiles/) is awesome. go read it.
 
-This is a mashup between [Paul Irish's dotfiles](https://github.com/paulirish/dotfiles) and [Raúl Uranga's powerbook](https://github.com/rauluranga/powerbook).  
+This is a mashup between [Paul Irish's dotfiles](https://github.com/paulirish/dotfiles) and [Raúl Uranga's powerbook](https://github.com/rauluranga/powerbook).
 This repo is mostly for me but you're welcome to make suggestions. Fork it!
 
 ## install the necessary apps
 
-The basic setup is executed in `install.sh` which adds a ton of stuff: [brew](https://github.com/gilbarbara/dotfiles/blob/master/lib/brew) (node, php, mongo, mysql), [cask](https://github.com/gilbarbara/dotfiles/blob/master/lib/apps), rvm and some [gems](https://github.com/gilbarbara/dotfiles/blob/master/lib/ruby), [npm global packages](https://github.com/gilbarbara/dotfiles/blob/master/lib/npm) and more.
+The basic setup is executed in `install.sh` which adds a ton of stuff: [brew](https://github.com/gilbarbara/dotfiles/blob/master/lib/brew) (node, php, mongo, mysql, python, ruby), [cask](https://github.com/gilbarbara/dotfiles/blob/master/lib/apps) and some [gems](https://github.com/gilbarbara/dotfiles/blob/master/lib/rubygems), [npm global packages](https://github.com/gilbarbara/dotfiles/blob/master/lib/npm) and more.
 
 ## private config
 
@@ -17,9 +17,9 @@ Toss it into a file called `.extra` which you do not commit to this repo and jus
 ```shell
 ## PATH like a bawss
 PATH=/opt/local/bin
-PATH=$PATH:/opt/local/sbin  
-PATH=$PATH:/bin  
-PATH=$PATH:~/.rvm/bin  
+PATH=$PATH:/opt/local/sbin
+PATH=$PATH:/bin
+PATH=$PATH:~/.rvm/bin
 ...
 
 export PATH
@@ -73,6 +73,6 @@ Also you can install the modules individually
 ./setup.sh module_name
 ```
 
-Modules: apps, brew, dotfiles, fonts, npm, quicklook, ruby and sublime
+Modules: apps, brew, dotfiles, fonts, npm, quicklook, rubygems and sublime
 
 To update later on, just run the install again.

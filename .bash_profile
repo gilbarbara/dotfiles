@@ -47,8 +47,5 @@ fi
 # added by travis gem
 [ -f /Users/gilbarbara/.travis/travis.sh ] && source /Users/gilbarbara/.travis/travis.sh
 
-# init rvm
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
 # Increase ulimit
 ulimit -n 2048

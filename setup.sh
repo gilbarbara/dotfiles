@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-libs=(apps binaries brew dotfiles fonts npm quicklook ruby sublime tools)
+libs=(apps binaries brew dotfiles fonts npm quicklook rubygems sublime tools)
 
 # Help text
 source ./lib/help
@@ -67,15 +67,8 @@ run_brew
 # /_/ |_|\__,_/_.___/\__, /
 #                   /____/
 
-# Check for rvm
-if ! type_exists 'rvm'; then
-
-    e_process "Installing RVM..."
-    curl -L https://get.rvm.io | bash -s stable --ruby
-fi
-
 e_process "Installing Gems"
-run_ruby
+run_rubygems
 
 #     _   ______  __  ___
 #    / | / / __ \/  |/  /

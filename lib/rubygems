@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 
-run_ruby() {
-
-    source ~/.rvm/scripts/rvm
-
+run_rubygems() {
     e_process "Updating to latest Rubygems version ..."
     gem update --system
 
