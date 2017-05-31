@@ -79,9 +79,12 @@ alias undopush="git push -f origin HEAD^:master"
 # Shortcuts
 alias g="git"
 alias gh="github"
-alias gl='git log --oneline --all --graph --decorate'
+alias gl="git log --oneline --all --graph --decorate"
 alias gr='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`'
 alias gs="git status"
+alias gsl="git stash list"
+alias gsp="git stash pop"
+
 alias v="vim"
 
 # bower aliases
