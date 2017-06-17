@@ -18,7 +18,6 @@ run_brew() {
 
 	# Install GNU core utilities (those that come with OS X are outdated)
 	brew install coreutils
-	echo "Don’t forget to add $(brew --prefix coreutils)/libexec/gnubin to \$PATH."
 
 	# Install GNU `find`, `locate`, `updatedb`, and `xargs`, g-prefixed
 	brew install findutils
@@ -41,7 +40,7 @@ run_brew() {
 	brew install mongodb
 
 	# Apache/PHP Stuff
-	brew install httpd24
+	brew install httpd24 --with-privileged-ports --with-http2
 	brew install php71 --with-httpd24
 	brew install php71-imagick php71-mcrypt
 	brew install composer
