@@ -31,6 +31,10 @@ export NVM_DIR=/usr/local/nvm
 export NVM_SYMLINK_CURRENT=true
 source $(brew --prefix nvm)/nvm.sh
 
+# Ruby paths
+export GEM_HOME="$(brew --prefix)/opt/gems"
+export GEM_PATH="$(brew --prefix)/opt/gems"
+
 # init brew
 PATH=/usr/local/sbin:$PATH
 PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
