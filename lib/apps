@@ -11,15 +11,12 @@ run_apps() {
 	brew cask install google-drive
 	brew cask install istat-menus
 	brew cask install launchcontrol
-	brew cask install moom
 	brew cask install soulver
 	brew cask install the-unarchiver
 	brew cask install transmission
 	brew cask install vlc
 
 	# dev
-	brew cask install apikitchen
-	brew cask install bettertouchtool
 	brew cask install couleurs
 	brew cask install cyberduck
 	brew cask install dockertoolbox
@@ -39,5 +36,5 @@ run_apps() {
 	brew cask install virtualbox
 
 	# colorpickers
-	brew cask install colorpicker-hex colorpicker-skalacolor colorpicker-propicker
+	brew cask install colorpicker-materialdesign colorpicker-propicker colorpicker-skalacolor
 }

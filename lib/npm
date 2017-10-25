@@ -2,8 +2,7 @@
 
 npm_packages=(
 	babel-cli
-	babel-eslint
-	babel-preset-latest
+	babel-preset-env
 	babel-preset-react
 	babel-preset-stage-0
 	babel-register
@@ -12,16 +11,13 @@ npm_packages=(
 	gulp
 	iectrl
 	jscodeshift
-	jsdoc
-	mocha
-	node-sass
 	npm-check-updates
 	ntl
 	pm2
-	stylelint
 	surge
 	svgo
 	tldr
+	webpack-bundle-analyzer --help
 )
 
 # Install node packages
