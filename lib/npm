@@ -1,23 +1,34 @@
 #!/usr/bin/env bash
 
 npm_packages=(
+	@sanity
 	babel-cli
 	babel-preset-env
 	babel-preset-react
 	babel-preset-stage-0
 	babel-register
 	bower
+	cost-of-modules
+	create-react-app
 	github-labels
 	gulp
 	iectrl
 	jscodeshift
+	nodemon
 	npm-check-updates
+	npm-consider
 	ntl
+	package-size
 	pm2
+	prettier
+	react-native-cli
+	release
+	source-map-explorer
 	surge
 	svgo
 	tldr
-	webpack-bundle-analyzer --help
+	webpack-bundle-analyzer
+	yarn
 )
 
 # Install node packages

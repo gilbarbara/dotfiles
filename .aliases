@@ -98,15 +98,14 @@ alias bibp='bower install && bower prune'
 alias ns='npm search'
 alias np='npm prune'
 alias nls='npm ls -g --depth=0 "$@" 2>/dev/null'
-
 alias nog='npm outdated -g --depth=0'
-alias nu='npm update'
+alias nig='npm install -g'
 alias nug='npm update -g'
 
 alias ni='npm install'
-alias nig='npm install -g'
-alias nis='npm install --save'
-alias nisd='npm install --save-dev'
+alias nid='npm install --save-dev'
+alias nu='npm update'
+alias nrm='npm rm'
 
 alias start='npm start'
 alias build='npm run build'
@@ -119,8 +118,6 @@ alias t='npm test'
 alias tw='npm run test:watch'
 alias tu='npm run test:ui'
 alias npc='npm run precommit'
-
-alias mocha6='mocha --compilers js:babel/register'
 
 alias dk='cd ~/Desktop'
 
