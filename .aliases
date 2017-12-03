@@ -119,6 +119,9 @@ alias tw='npm run test:watch'
 alias tu='npm run test:ui'
 alias npc='npm run precommit'
 
+alias cra='create-react-app'
+alias crna='create-react-native-app'
+
 alias dk='cd ~/Desktop'
 
 # fasd aliases. remember to add them to fasd init

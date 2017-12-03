@@ -10,6 +10,7 @@ npm_packages=(
 	bower
 	cost-of-modules
 	create-react-app
+	create-react-native-app
 	flow-typed
 	github-labels
 	gulp
