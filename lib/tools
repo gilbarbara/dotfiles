@@ -3,7 +3,7 @@
 run_tools() {
 	if ! type_exists 'push'; then
 		e_process "Installing git-friendly"
-		sudo bash < <( curl https://raw.githubusercontent.com/jamiew/git-friendly/master/install.sh)
+		sudo curl -sS https://raw.githubusercontent.com/jamiew/git-friendly/master/install.sh | bash
 	fi
 
 	if ! type_exists 'pygmentize'; then
