@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 npm_packages=(
-	@sanity
+	@sanity/cli
 	babel-cli
 	babel-preset-env
 	babel-preset-react
@@ -24,6 +24,9 @@ npm_packages=(
 	package-size
 	pm2
 	prettier
+	prop-types
+	react
+	react-dom
 	react-native-cli
 	release
 	serve
