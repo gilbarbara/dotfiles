@@ -33,12 +33,14 @@ source $(brew --prefix nvm)/nvm.sh
 
 # Ruby paths
 export GEM_HOME="$(brew --prefix)/opt/gems"
-export GEM_PATH="$(brew --prefix)/opt/gems"
+export GEM_PATH="$GEM_HOME/bin"
 
 # init brew
 PATH=/usr/local/sbin:$PATH
 PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+PATH=$GEM_PATH:$PATH
 PATH="$PATH:./node_modules/.bin"
+
 
 eval "$(hub alias -s)"
 
