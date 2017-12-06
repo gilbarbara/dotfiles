@@ -35,8 +35,8 @@ run_brew() {
 	brew install mongodb
 
 	# Apache/PHP Stuff
-	brew install httpd --with-privileged-ports --with-http2
-	brew install php71 --with-httpd
+	brew install httpd
+	brew install php71 --with-httpd --with-thread-safety
 	brew install php71-imagick php71-mcrypt
 	brew install composer
 
@@ -52,6 +52,7 @@ run_brew() {
 	# Install useful binaries
 	brew install ack
 	brew install fasd
+	brew install gpg
 	brew install thefuck
 	brew install git
 	brew install httpie

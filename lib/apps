@@ -2,7 +2,6 @@
 
 # Install native apps
 run_apps() {
-
 	#utils
 	brew cask install alfred
 	brew cask install cakebrew
@@ -30,9 +29,9 @@ run_apps() {
 	brew cask install macdown
 	brew cask install robo-3t
 	brew cask install sequel-pro
-	#brew cask install sublime-text
 	# brew cask install textwrangler
 	brew cask install virtualbox
+	brew cask install visual-studio-code
 
 	# colorpickers
 	brew cask install colorpicker-materialdesign colorpicker-propicker colorpicker-skalacolor
