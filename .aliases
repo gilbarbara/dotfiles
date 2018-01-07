@@ -122,7 +122,7 @@ alias npc='npm run precommit'
 alias cra='create-react-app'
 alias crna='create-react-native-app'
 
-alias server='serve -o'
+alias run='serve -o'
 
 alias dk='cd ~/Desktop'
 
