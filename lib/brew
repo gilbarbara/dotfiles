@@ -34,7 +34,7 @@ run_brew() {
 	brew install mariadb
 	brew install mongodb
 
-	# Apache/PHP Stuff
+	# Apache/PHP Stuff - https://gist.github.com/DragonBe/0faebe58deced34744953e3bf6afbec7
 	brew install httpd
 	brew install php71 --with-httpd --with-thread-safety
 	brew install php71-imagick php71-mcrypt

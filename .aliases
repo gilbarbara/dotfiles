@@ -125,15 +125,16 @@ alias crna='create-react-native-app'
 alias run='serve -o'
 
 alias dk='cd ~/Desktop'
+alias ~f='open ~/'
+alias reload='source ~/.bashrc'
 
 # fasd aliases. remember to add them to fasd init
 alias sb='fasd -e subl -d'
 
-# Since I don't use cask..
 alias cask='brew cask'
 
 # ping only once and die
-alias ping="ping -o"
+alias pi="ping -o"
 
 # File size
 alias fs="stat -f \"%z bytes\""
@@ -150,10 +151,6 @@ alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; rm -rfv ~/.Trash"
 # Hide/show all desktop icons (useful when presenting)
 alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
 alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
-
-# Show/Hide Hidden Files i Finder
-alias showfiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
-alias hidefiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
 
 # PlistBuddy alias, because sometimes `defaults` just doesn’t cut it
 alias plistbuddy="/usr/libexec/PlistBuddy"
