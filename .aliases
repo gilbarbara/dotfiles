@@ -75,7 +75,9 @@ alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
 # Undo a `git push`
 alias undopush="git push -f origin HEAD^:master"
 
-# Shortcuts
+# SHORTCUTS
+
+#git aliases
 alias g="git"
 alias gh="github"
 alias gl="git log --oneline --all --graph --decorate"
@@ -83,15 +85,7 @@ alias gr='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup 
 alias gs="git status"
 alias gsl="git stash list"
 alias gsp="git stash pop"
-
-alias v="vim"
-
-# bower aliases
-alias bs='bower search'
-alias bi='bower install'
-alias bis='bower install --save'
-alias bp='bower prune'
-alias bibp='bower install && bower prune'
+alias gss="git stash save"
 
 # npm aliases
 alias ns='npm search'
@@ -115,13 +109,16 @@ alias lint='npm run lint'
 alias slint='npm run lint:styles'
 alias t='npm test'
 alias tw='npm run test:watch'
-alias tu='npm run test:ui'
+alias ta='npm run test:automation'
 alias npc='npm run precommit'
+
+alias v="vim"
 
 alias cra='create-react-app'
 alias crna='create-react-native-app'
 
 alias run='serve -o'
+alias pks='package-size'
 
 alias dk='cd ~/Desktop'
 alias ~f='open ~/'
