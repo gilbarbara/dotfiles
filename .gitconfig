@@ -12,6 +12,7 @@
 	ls = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	p = push
 	s = status -s
+	open = browse
 [color]
 	ui = always
 [core]

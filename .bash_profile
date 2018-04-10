@@ -35,12 +35,15 @@ source $(brew --prefix nvm)/nvm.sh
 export GEM_HOME="$(brew --prefix)/opt/gems"
 export GEM_PATH="$GEM_HOME/bin"
 
-# init brew
-PATH=/usr/local/sbin:$PATH
-PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-PATH=$GEM_PATH:$PATH
-PATH="$PATH:./node_modules/.bin"
+# PHP path
+export PHP_PATH="$(brew --prefix)/opt/php@7.1/bin"
 
+# init brew
+PATH="$PHP_PATH:$PATH"
+PATH="$(brew --prefix)/sbin:$PATH"
+PATH="$(brew --prefix)/opt/coreutils/libexec/gnubin:$PATH"
+PATH="$GEM_PATH:$PATH"
+PATH="$PATH:./node_modules/.bin"
 
 eval "$(hub alias -s)"
 
