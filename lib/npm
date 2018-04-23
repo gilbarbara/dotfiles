@@ -2,19 +2,18 @@
 
 npm_packages=(
 	@sanity/cli
+	aws-sam-local
 	babel-cli
 	babel-preset-env
 	babel-preset-react
 	babel-preset-stage-0
 	babel-register
 	bower
-	cost-of-modules
 	create-react-app
 	create-react-native-app
 	flow-typed
 	github-labels
 	gulp
-	hpm-cli
 	iectrl
 	jscodeshift
 	nodemon
@@ -27,6 +26,7 @@ npm_packages=(
 	prop-types
 	react
 	react-dom
+	serverless
 	react-native-cli
 	release
 	serve
