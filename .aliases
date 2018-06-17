@@ -112,10 +112,12 @@ alias tw='npm run test:watch'
 alias ta='npm run test:automation'
 alias npc='npm run precommit'
 
-alias v="vim"
+alias pipup='pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U'
 
 alias cra='create-react-app'
 alias crna='create-react-native-app'
+
+alias v="vim"
 
 alias run='serve -o'
 alias pks='package-size'
