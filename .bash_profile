@@ -5,12 +5,8 @@ for file in ~/.{bash_colors,bash_prompt,exports,aliases,functions,extra}; do
 done
 unset file
 
-if hash fasd 2>/dev/null; then
-	eval "$(fasd --init auto)"
-	_fasd_bash_hook_cmd_complete sb
-fi
-
-eval $(thefuck --alias)
+# Increase ulimit
+ulimit -n 2048
 
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob
@@ -45,16 +41,27 @@ PATH="$(brew --prefix)/opt/coreutils/libexec/gnubin:$PATH"
 PATH="$GEM_PATH:$PATH"
 PATH="$PATH:./node_modules/.bin"
 
-eval "$(hub alias -s)"
+if hash fasd 2>/dev/null; then
+	eval "$(fasd --init auto)"
+	_fasd_bash_hook_cmd_complete sb
+fi
 
-eval "$(gulp --completion=bash)"
+eval $(thefuck --alias)
+
+eval "$(hub alias -s)"
 
 if [ -f $(brew --prefix)/share/bash-completion/bash_completion ]; then
 	. $(brew --prefix)/share/bash-completion/bash_completion
 fi
 
+eval "$(gulp --completion=bash)"
+
 # travis
 [ -f /Users/gilbarbara/.travis/travis.sh ] && source /Users/gilbarbara/.travis/travis.sh
 
-# Increase ulimit
-ulimit -n 2048
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.bash ] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.bash
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash ] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash
