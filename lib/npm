@@ -9,9 +9,14 @@ npm_packages=(
 	babel-preset-stage-0
 	babel-register
 	bower
+	codesandbox
+	create-next-app
 	create-react-app
 	create-react-native-app
+	dotenv
 	flow-typed
+	gatsby-cli
+	gitbook-cli
 	github-labels
 	gulp
 	iectrl
@@ -34,6 +39,7 @@ npm_packages=(
 	surge
 	svgo
 	tldr
+	vorlon
 	webpack-bundle-analyzer
 	yarn
 )
