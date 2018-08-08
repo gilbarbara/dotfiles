@@ -5,9 +5,6 @@ for file in ~/.{bash_colors,bash_prompt,exports,aliases,functions,extra}; do
 done
 unset file
 
-# Increase ulimit
-ulimit -n 2048
-
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob
 

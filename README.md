@@ -13,9 +13,8 @@ The basic setup is executed in `install.sh` which adds a ton of stuff: [brew](ht
 
 Toss it into a file called `.extra` which you do not commit to this repo and just keep in your `~/`
 
-
 ```shell
-## PATH like a bawss
+## PATH like a boss
 PATH=/opt/local/bin
 PATH=$PATH:/opt/local/sbin
 PATH=$PATH:/bin
@@ -76,3 +75,28 @@ Also you can install the modules individually
 Modules: apps, brew, dotfiles, fonts, npm, quicklook, rubygems and sublime
 
 To update later on, just run the install again.
+
+## Changing ulimit on Mac OS X 10.12 and up 
+
+```bash
+sudo /usr/libexec/PlistBuddy /Library/LaunchAgents/com.launchd.maxfiles.plist \
+-c "add Label string com.launchd.maxfiles" \
+-c "add ProgramArguments array" \
+-c "add ProgramArguments: string launchctl" \
+-c "add ProgramArguments: string limit" \
+-c "add ProgramArguments: string maxfiles" \
+-c "add ProgramArguments: string 10240" \
+-c "add ProgramArguments: string unlimited" \
+-c "add RunAtLoad bool true"
+
+sudo /usr/libexec/PlistBuddy /Library/LaunchAgents/com.launchd.maxproc.plist \
+-c "add Label string com.launchd.maxproc" \
+-c "add ProgramArguments array" \
+-c "add ProgramArguments: string launchctl" \
+-c "add ProgramArguments: string limit" \
+-c "add ProgramArguments: string maxproc" \
+-c "add ProgramArguments: string 2000" \
+-c "add ProgramArguments: string unlimited" \
+-c "add RunAtLoad bool true"
+```
+
