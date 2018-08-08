@@ -35,11 +35,11 @@ export GEM_PATH="$GEM_HOME/bin"
 export PHP_PATH="$(brew --prefix)/opt/php@7.1/bin"
 
 # init brew
-PATH="$PHP_PATH:$PATH"
+PATH="./node_modules/.bin:$PATH"
 PATH="$(brew --prefix)/sbin:$PATH"
 PATH="$(brew --prefix)/opt/coreutils/libexec/gnubin:$PATH"
+PATH="$PHP_PATH:$PATH"
 PATH="$GEM_PATH:$PATH"
-PATH="$PATH:./node_modules/.bin"
 
 if hash fasd 2>/dev/null; then
 	eval "$(fasd --init auto)"
