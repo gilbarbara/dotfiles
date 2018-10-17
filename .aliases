@@ -104,6 +104,7 @@ alias start='npm start'
 alias build='npm run build'
 alias publish='npm run publish'
 alias deploy='npm run deploy'
+alias watch='npm run watch'
 
 alias lint='npm run lint'
 alias slint='npm run lint:styles'
