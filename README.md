@@ -72,7 +72,7 @@ Also you can install the modules individually
 ./setup.sh module_name
 ```
 
-Modules: apps, brew, dotfiles, fonts, npm, quicklook, rubygems and sublime
+Modules: apps, brew, dotfiles, fonts, npm, quicklook and rubygems
 
 To update later on, just run the install again.
 

@@ -16,7 +16,6 @@ Options:
     npm				Install NPM global packages
     quicklook		Install QL plugins
     ruby			Install gems
-    sublime			Install basic plugins and preferences
     tools			Install bash tools
 
 Documentation can be found at https://github.com/gilbarbara/dotfiles

@@ -9,7 +9,6 @@ local.properties
 
 # Modules and Caches
 ###########################
-.sublime-gulp.cache
 .sass-cache
 .tmp
 .vscode
