@@ -25,17 +25,19 @@ export NVM_SYMLINK_CURRENT=true
 source $(brew --prefix nvm)/nvm.sh
 
 # Ruby paths
+export RUBY_PATH="$(brew --prefix)/opt/ruby/bin"
 export GEM_HOME="$(brew --prefix)/opt/gems"
 export GEM_PATH="$GEM_HOME/bin"
 
 # PHP path
-export PHP_PATH="$(brew --prefix)/opt/php@7.1/bin"
+export PHP_PATH="$(brew --prefix)/opt/php/bin"
 
 # init brew
 PATH="./node_modules/.bin:$PATH"
 PATH="$(brew --prefix)/sbin:$PATH"
 PATH="$(brew --prefix)/opt/coreutils/libexec/gnubin:$PATH"
 PATH="$PHP_PATH:$PATH"
+PATH="$RUBY_PATH:$PATH"
 PATH="$GEM_PATH:$PATH"
 
 if hash fasd 2>/dev/null; then

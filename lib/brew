@@ -7,7 +7,6 @@ run_brew() {
 	brew update
 
 	# Taps
-	brew tap homebrew/homebrew-php
 	brew tap homebrew/services
 	brew tap caskroom/cask
 	brew tap caskroom/fonts

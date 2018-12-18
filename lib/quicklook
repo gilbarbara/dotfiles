@@ -2,10 +2,8 @@
 
 # Install Quick Look plugins
 run_quicklook() {
-	brew cask install betterzipql
 	brew cask install qlcolorcode
 	brew cask install qlimagesize
-	#brew cask install qlstephen #broken on Yosemite
 	brew cask install qlmarkdown
 	brew cask install qlprettypatch
 	brew cask install quicklook-csv
