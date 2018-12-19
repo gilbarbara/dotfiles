@@ -11,6 +11,7 @@ run_apps() {
 	brew cask install google-backup-and-sync
 	brew cask install istat-menusq
 	brew cask install little-snitch
+	brew cask install macupdater
 	brew cask install soulver
 	brew cask install the-unarchiver
 	brew cask install transmission
@@ -30,8 +31,10 @@ run_apps() {
 	brew cask install jewelrybox
 	brew cask install ksdiff # Kaleidoscope command line
 	brew cask install macdown
+	brew cask install postman
 	brew cask install robo-3t
 	brew cask install sequel-pro
+	brew cask install typora
 	brew cask install virtualbox
 	brew cask install visual-studio-code
 
