@@ -85,7 +85,7 @@ sudo /usr/libexec/PlistBuddy /Library/LaunchAgents/com.launchd.maxfiles.plist \
 -c "add ProgramArguments: string launchctl" \
 -c "add ProgramArguments: string limit" \
 -c "add ProgramArguments: string maxfiles" \
--c "add ProgramArguments: string 10240" \
+-c "add ProgramArguments: string 20000" \
 -c "add ProgramArguments: string unlimited" \
 -c "add RunAtLoad bool true"
 
@@ -95,7 +95,7 @@ sudo /usr/libexec/PlistBuddy /Library/LaunchAgents/com.launchd.maxproc.plist \
 -c "add ProgramArguments: string launchctl" \
 -c "add ProgramArguments: string limit" \
 -c "add ProgramArguments: string maxproc" \
--c "add ProgramArguments: string 2000" \
+-c "add ProgramArguments: string 2048" \
 -c "add ProgramArguments: string unlimited" \
 -c "add RunAtLoad bool true"
 ```
