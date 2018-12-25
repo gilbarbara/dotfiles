@@ -33,51 +33,52 @@ run_brew() {
 	brew install mariadb
 	brew install mongodb
 
-	# Apache/PHP Stuff - https://gist.github.com/DragonBe/0faebe58deced34744953e3bf6afbec7
+	# Apache/PHP
 	brew install httpd
-	brew install php71
+	brew install php
 	brew install composer
 
-	#Python
+	# Python
 	brew install python3
 
-	#Ruby
+	# Ruby
 	brew install ruby
 
-	# Install wget with IRI support
-	brew install wget --with-iri
-
-	# Install useful binaries
-	brew install ack
-	brew install fasd
-	brew install gpg
-	brew install thefuck
-	brew install git
-	brew install httpie
-	brew install jq
-	brew install imagemagick --with-webp
-	brew install lame
+	# Node
 	brew install node
 	brew install nvm
-	brew install rename
-	brew install tree
-	brew install wp-cli
-	#brew install android-platform-tools
 
-	# Install code review tools
-	brew tap codeclimate/formulae
-	brew install codeclimate
-
-	# Install git tools
+	# Git and tools
+	brew install git
+	brew install git-lfs
 	brew install hub
 	brew install tig
 	brew install git-extras
 
-	# Install other tools
+	# Docker tools
 	brew install docker docker-machine docker-clean
-	brew install watchman
 
-	#brew link openssl --force
+	# Install useful binaries
+	brew install ack
+	#brew install android-platform-tools
+	brew install awscli
+	brew install certbot
+	brew install fasd
+	brew install gpg
+	brew install thefuck
+	brew install httpie
+	brew install jq
+	brew install imagemagick --with-webp
+	brew install lame
+	brew install rename
+	brew install tree
+	brew install watchman
+	brew install wget --with-iri
+	brew install wp-cli
+
+	# Install code review tools
+	brew tap codeclimate/formulae
+	brew install codeclimate
 
 	# Remove outdated versions from the cellar
 	brew cleanup
