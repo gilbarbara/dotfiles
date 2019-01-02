@@ -130,8 +130,6 @@ alias reload='source ~/.bashrc'
 # fasd aliases. remember to add them to fasd init
 alias sb='fasd -e subl -d'
 
-alias cask='brew cask'
-
 # ping only once and die
 alias pi="ping -o"
 

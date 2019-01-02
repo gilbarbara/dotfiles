@@ -80,6 +80,14 @@ function body() {
 	fi
 }
 
+function cask() {
+	if [ "$1" == "search" ]; then
+		brew search "$1"
+	else 
+		brew cask "$1" "$2"
+	fi
+}
+
 # Syntax-highlight JSON strings or files
 function json() {
 	if [ -p /dev/stdin ]; then
