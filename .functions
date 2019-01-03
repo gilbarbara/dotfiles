@@ -82,7 +82,9 @@ function body() {
 
 function cask() {
 	if [ "$1" == "search" ]; then
-		brew search "$1"
+		brew search "$2"
+	elif [ -z "$2" ]; then
+		brew cask "$1"
 	else 
 		brew cask "$1" "$2"
 	fi
