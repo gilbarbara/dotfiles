@@ -79,6 +79,7 @@ alias undopush="git push -f origin HEAD^:master"
 
 #git aliases
 alias g="git"
+complete -F _complete_alias g
 alias gh="github"
 alias gl="git log --oneline --all --graph --decorate"
 alias gr='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`'
@@ -97,6 +98,7 @@ alias ni='npm install'
 alias nid='npm install --save-dev'
 alias nu='npm update'
 alias nrm='npm rm'
+complete -F _complete_alias nrm
 
 alias build='npm run build'
 alias deploy='npm run deploy'
