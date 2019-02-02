@@ -12,10 +12,13 @@ run_apps() {
 	brew cask install istat-menusq
 	brew cask install little-snitch
 	brew cask install macupdater
+	brew cask install rocket
 	brew cask install soulver
+	brew cask install spotify
 	brew cask install the-unarchiver
 	brew cask install transmission
 	brew cask install vlc
+	brew cask install whatsapp
 
 	# dev
 	brew cask install coderunner
@@ -25,12 +28,15 @@ run_apps() {
 	brew cask install firefox
 	brew cask install github
 	brew cask install google-chrome
+	brew cask install graphql-playground
 	brew cask install hyper
+	brew cask install iterm2
 	brew cask install imageoptim
 	brew cask install jetbrains-toolbox
 	brew cask install jewelrybox
 	brew cask install ksdiff # Kaleidoscope command line
 	brew cask install macdown
+	brew cask install now
 	brew cask install postman
 	brew cask install robo-3t
 	brew cask install sequel-pro
