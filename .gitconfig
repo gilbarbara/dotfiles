@@ -10,9 +10,9 @@
 	la = "!git config -l | grep alias | cut -c 7-"
 	ll = log --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --numstat
 	ls = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-	p = push
-	s = status -s
 	open = browse
+	s = status -s
+	up = push
 [color]
 	ui = always
 [core]
