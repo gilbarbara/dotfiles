@@ -119,6 +119,7 @@ alias pipup='pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pi
 
 alias cra='create-react-app'
 alias crna='create-react-native-app'
+alias bpb='bundle-phobia'
 
 alias v="vim"
 
