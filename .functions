@@ -107,6 +107,14 @@ function gitexport(){
 	git archive master | tar -x -C "$1"
 }
 
+function cra() {
+	create-react-app "$@" --use-npm
+}
+
+function crt() {
+	create-react-app "$@" --use-npm --typescript
+}
+
 # get gzipped size
 function gz() {
 	if [ -d $1 ]; then
