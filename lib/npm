@@ -15,9 +15,9 @@ npm_packages=(
 	codesandbox
 	create-next-app
 	create-react-app
-	create-react-native-app
 	dotenv
 	eslint
+	expo-cli
 	flow-bin
 	gatsby-cli
 	gitbook-cli

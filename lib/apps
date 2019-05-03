@@ -9,7 +9,7 @@ run_apps() {
 	brew cask install default-folder-x
 	brew cask install dropbox
 	brew cask install google-backup-and-sync
-	brew cask install istat-menusq
+	brew cask install istat-menus
 	brew cask install little-snitch
 	brew cask install macupdater
 	brew cask install rocket
