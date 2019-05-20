@@ -8,8 +8,7 @@ run_brew() {
 
 	# Taps
 	brew tap homebrew/services
-	brew tap caskroom/cask
-	brew tap caskroom/fonts
+	brew tap homebrew/cask-fonts
 
 	# Install GNU core utilities (those that come with OS X are outdated)
 	brew install coreutils
@@ -22,7 +21,7 @@ run_brew() {
 	brew install bash
 
 	# Completions
-	brew install bash-completion2 gem-completion docker-completion launchctl-completion wpcli-completion
+	brew install bash-completion2 brew-cask-completion gem-completion docker-completion launchctl-completion wpcli-completion yarn-completion
 
 	# Install more recent versions of some OS X tools
 	brew install vim
@@ -64,13 +63,17 @@ run_brew() {
 	brew install awscli
 	brew install certbot
 	brew install fasd
+	brew install geoip
+	brew install geoipupdate
 	brew install gpg
-	brew install thefuck
+	brew install htop
 	brew install httpie
-	brew install jq
 	brew install imagemagick
+	brew install jq
 	brew install lame
 	brew install rename
+	brew install speedtest-cli
+	brew install thefuck
 	brew install tree
 	brew install watchman
 	brew install wget
