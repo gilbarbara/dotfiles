@@ -7,32 +7,29 @@ npm_packages=(
 	@babel/preset-env
 	@babel/preset-react
 	@babel/register
-	@sanity/cli
 	@storybook/cli
 	aws-sam-local
-	babel-upgradead
-	bower
+	babel-upgrade
+	bundle-phobia-cli
 	codesandbox
 	create-next-app
 	create-react-app
+	depcheck
 	dotenv
 	eslint
 	expo-cli
-	flow-bin
 	gatsby-cli
 	gitbook-cli
-	github-labels
 	gulp
 	iectrl
 	jscodeshift
 	nodemon
+	now
 	npm-check-updates
 	npm-consider
 	ntl
-	package-size
 	pm2
 	prettier
-	prop-types
 	react
 	react-dom
 	react-native-cli
@@ -43,8 +40,7 @@ npm_packages=(
 	surge
 	svgo
 	tldr
-	vorlon
-	watch-run
+	ts-node
 	webpack-bundle-analyzer
 	yarn
 )

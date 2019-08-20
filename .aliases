@@ -93,32 +93,30 @@ alias ns='npm search'
 alias np='npm prune'
 alias nig='npm install -g'
 alias nug='npm update -g'
-
 alias ni='npm install'
 alias nid='npm install --save-dev'
 alias nu='npm update'
 alias nrm='npm rm'
 complete -F _complete_alias nrm
 
+alias start='npm start'
+alias watch='npm run watch'
 alias build='npm run build'
 alias deploy='npm run deploy'
-alias format='npm run format'
-alias lint='npm run lint'
 alias publish='npm run publish'
-alias slint='npm run lint:styles'
-alias start='npm start'
+alias format='npm run format'
 alias validate='npm run validate'
-alias watch='npm run watch'
+alias lint='npm run lint'
+alias slint='npm run lint:styles'
 
 alias t='npm test'
 alias tc='npm run test:coverage'
 alias tw='npm run test:watch'
-alias npc='npm run precommit'
 
 alias pipup='pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U'
 
 alias crna='expo init'
-alias bpb='bundle-phobia'
+alias bp='bundle-phobia'
 
 alias v="vim"
 
@@ -128,6 +126,8 @@ alias pks='package-size'
 alias dk='cd ~/Desktop'
 alias ~f='open ~/'
 alias reload='source ~/.bashrc'
+
+alias unused='depcheck'
 
 # fasd aliases. remember to add them to fasd init
 alias sb='fasd -e subl -d'
