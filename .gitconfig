@@ -44,12 +44,12 @@
 	pushInsteadOf = "git://gist.github.com/"
 [url "git://gist.github.com/"]
 	insteadOf = "gist:"
-
 [url "git@github.com:gilbarbara/"]
   insteadOf = "git://github.com/gilbarbara/"
 [user]
 	name = Gil Barbara
 	email = gilbarbara@gmail.com
+	signingkey = 9F0A7FD258FF96E5
 [filter "media"]
 	required = true
 	clean = git media clean %f
@@ -59,7 +59,7 @@
 [push]
 	default = simple
 [diff]
-	tool = kaleidoscope
+	algorithm = patience
 [difftool]
 	prompt = false
 [difftool "kaleidoscope"]

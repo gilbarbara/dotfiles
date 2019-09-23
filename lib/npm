@@ -12,7 +12,6 @@ npm_packages=(
 	babel-upgrade
 	bundle-phobia-cli
 	codesandbox
-	create-next-app
 	create-react-app
 	depcheck
 	dotenv
@@ -47,15 +46,18 @@ npm_packages=(
 
 # Install node packages
 run_npm() {
-	e_process "Getting installed packages"
-	packages=$(npm -j -g --depth=0 ls)
+  e_process "Getting installed packages"
+  packages=$(npm -j -g --depth=0 ls 2>/dev/null)
 
-	for i in "${npm_packages[@]}"; do
-    if [[ $( echo $packages | jq -r '.dependencies."'$i'".version' ) == "null" ]]; then
-			e_process "Installing $i"
-			npm install -g $i
-		else
-			e_warning "$i already installed"
-		fi
-	done
+  for i in "${npm_packages[@]}"; do
+    version=$(echo "$packages" | jq -r '.dependencies."'"$i"'".version')
+    peerMissing=$(echo "$packages" | jq -r '.dependencies."'"$i"'".peerMissing')
+
+    if [[ "$version" == "null" ]] && [[ "$peerMissing" == "null" ]]; then
+      e_process "Installing $i"
+      npm install -g "$i"
+    else
+      e_warning "$i already installed"
+    fi
+  done
 }

@@ -12,8 +12,9 @@ run_rubygems() {
     bundle config --global jobs $((number_of_cores - 1))
 
     e_process "Installing utils..."
-		gem install wordmove
+		gem install colorls
 		gem install travis
+		gem install wordmove
 
     [[ $? ]] && e_success "Done"
 }

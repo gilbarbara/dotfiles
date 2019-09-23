@@ -2,7 +2,6 @@
 
 # Install command-line tools using Homebrew
 run_brew() {
-
 	# Make sure we’re using the latest Homebrew
 	brew update
 
@@ -21,7 +20,7 @@ run_brew() {
 	brew install bash
 
 	# Completions
-	brew install bash-completion2 brew-cask-completion gem-completion docker-completion launchctl-completion wpcli-completion yarn-completion
+	brew install bash-completion2 brew-cask-completion docker-completion gem-completion launchctl-completion wpcli-completion yarn-completion
 
 	# Install more recent versions of some OS X tools
 	brew install vim
@@ -34,11 +33,10 @@ run_brew() {
 
 	# Apache/PHP
 	brew install httpd
-	brew install php
-	brew install composer
+	brew install php composer
 
 	# Python
-	brew install python3
+	brew install python
 
 	# Ruby
 	brew install ruby
@@ -48,11 +46,7 @@ run_brew() {
 	brew install nvm
 
 	# Git and tools
-	brew install git
-	brew install git-lfs
-	brew install hub
-	brew install tig
-	brew install git-extras
+	brew install git git-extras git-lfs hub tig
 
 	# Docker tools
 	brew install docker docker-machine docker-clean
@@ -63,8 +57,6 @@ run_brew() {
 	brew install awscli
 	brew install certbot
 	brew install fasd
-	brew install geoip
-	brew install geoipupdate
 	brew install gpg
 	brew install htop
 	brew install httpie
@@ -74,7 +66,6 @@ run_brew() {
 	brew install rename
 	brew install speedtest-cli
 	brew install thefuck
-	brew install tree
 	brew install watchman
 	brew install wget
 	brew install wp-cli

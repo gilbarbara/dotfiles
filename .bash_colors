@@ -12,13 +12,13 @@ if tput setaf 1 &> /dev/null; then
 		ORANGE=$(tput setaf 172)
 		GREEN=$(tput setaf 10)
 		PURPLE=$(tput setaf 141)
-		WHITE=$(tput setaf 256)
+		WHITE=$(tput setaf 255)
 	else
-		RED=$(tput setaf 3)
+		RED=$(tput setaf 1)
 		MAGENTA=$(tput setaf 5)
-		ORANGE=$(tput setaf 4)
+		ORANGE=$(tput setaf 3)
 		GREEN=$(tput setaf 2)
-		PURPLE=$(tput setaf 1)
+		PURPLE=$(tput setaf 4)
 		WHITE=$(tput setaf 7)
 	fi
 	BOLD=$(tput bold)

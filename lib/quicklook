@@ -9,5 +9,4 @@ run_quicklook() {
 	brew cask install qlprettypatch
 	brew cask install quicklook-csv
 	brew cask install quicklook-json
-	brew cask install suspicious-package
 }

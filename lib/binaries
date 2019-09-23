@@ -1,12 +1,10 @@
 #!/usr/bin/env bash
 
 run_binaries() {
-
 	e_process "Copying binaries"
 	cp ./bin/chmodr.sh /usr/local/bin/chmodr
 	cp ./bin/colors.sh /usr/local/bin/colors
 	cp ./bin/docker-start.sh /usr/local/bin/docker-start
 	cp ./bin/search.sh /usr/local/bin/search
 	cp ./bin/service.sh /usr/local/bin/service
-
 }

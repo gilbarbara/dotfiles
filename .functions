@@ -1,34 +1,43 @@
 # Create a new directory and enter it
 function md() {
-	mkdir -p "$@" && cd "$@"
+  mkdir -p "$@" && cd "$@" || exit
+}
+
+function tree() {
+  if [ -z "$1" ]; then
+    colorls --tree=2
+  else
+    colorls --tree="$1"
+  fi
 }
 
 # Find files recursively and pipe to command
 function ff() {
-	if [ -z $1 ]; then
-		echo "Please specify a search path"
-		return 1
-	fi
+  if [ -z "$1" ]; then
+    echo "Please specify a search path"
+    return 1
+  fi
 
-	local files=$(find "$1" -type f)
-	if [ $2 ]; then
-		 $2 $files
-	else
-		echo $files
-	fi
+  local files=$(find "$1" -type f)
+
+  if [ "$2" ]; then
+    $2 "$files"
+  else
+    echo "$files"
+  fi
 }
 
 # List octal permissions with stat
 function lo() {
-	stat -c "%A %a %n" ${1-*}
+  stat -c "%A %a %n" "${1-*}"
 }
 
 # Add octal permission to ls
 function lso() { ls -lahG "$@" | awk '{k=0;for(i=0;i<=8;i++)k+=((substr($1,i+2,1)~/[rwx]/)*2^(8-i));if(k)printf(" %0o ",k);print}'; }
 
 # cd into whatever is the forefront Finder window.
-function cdf() {  # short for cdfinder
-  cd "`osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)'`"
+function cdf() { # short for cdfinder
+  cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')" || exit
 }
 
 # git log with per-commit cmd-clickable GitHub URLs (iTerm)
@@ -36,7 +45,8 @@ function gf() {
   local remote="$(git remote -v | awk '/^origin.*\(push\)$/ {print $2}')"
   [[ "$remote" ]] || return
   local user_repo="$(echo "$remote" | perl -pe 's/.*://;s/\.git$//')"
-  git log $* --name-status --no-color | awk "$(cat <<AWK
+  git log "$*" --name-status --no-color | awk "$(
+    cat <<AWK
     /^.*$(tput setaf 9)commit [0-9a-f]{40}/ {sha=substr(\$2,1,7)}
     /^[MA]\t/ {printf "%s\thttps:$user_repo/blob/%s/%s\n", \$1, sha, \$2; next}
     /.*/ {print \$0}
@@ -45,146 +55,146 @@ AWK
 }
 
 # Copy w/ progress
-function cp_p () {
-  rsync -WavP --human-readable --progress $1 $2
+function cp_p() {
+  rsync -WavP --human-readable --progress "$1" "$2"
 }
 
 # Test if HTTP compression (RFC 2616 + SDCH) is enabled for a given URL.
 # Send a fake UA string for sites that sniff it instead of using the Accept-Encoding header. (Looking at you, ajax.googleapis.com!)
 function compression() {
-	encoding="$(curl -LIs -H 'User-Agent: Mozilla/5 Gecko' -H 'Accept-Encoding: gzip,deflate,compress,sdch' "$1" | grep '^Content-Encoding:')" && echo "$1 is encoded using ${encoding#* }" || echo "$1 is not using any encoding"
+  encoding="$(curl -LIs -H 'User-Agent: Mozilla/5 Gecko' -H 'Accept-Encoding: gzip,deflate,compress,sdch' "$1" | grep '^Content-Encoding:')" && echo "$1 is encoded using ${encoding#* }" || echo "$1 is not using any encoding"
 }
 
 # Get HTTP headers for a given URL.
 function headers() {
-	curl -X HEAD -I "$1"
+  curl -X HEAD -I "$1"
 }
 
 function body() {
-	URL="$1"
+  URL="$1"
 
-	# store the whole response with the status at the and
-	HTTP_RESPONSE=$(curl --silent --write-out "HTTPSTATUS:%{http_code}" -X POST $URL)
-	# extract the body
-	HTTP_BODY=$(echo $HTTP_RESPONSE | sed -e 's/HTTPSTATUS\:.*//g')
+  # store the whole response with the status at the and
+  HTTP_RESPONSE=$(curl --silent --write-out "HTTPSTATUS:%{http_code}" -X GET "$URL")
+  # extract the body
+  HTTP_BODY=$(echo "$HTTP_RESPONSE" | sed -e 's/HTTPSTATUS\:.*//g')
 
-	# extract the status
-	HTTP_STATUS=$(echo $HTTP_RESPONSE | tr -d '\n' | sed -e 's/.*HTTPSTATUS://')
+  # extract the status
+  HTTP_STATUS=$(echo "$HTTP_RESPONSE" | tr -d '\n' | sed -e 's/.*HTTPSTATUS://')
 
-	# print the body
-	echo "$HTTP_BODY"
+  # print the body
+  echo "$HTTP_BODY"
 
-	# example using the status
-	if [ ! $HTTP_STATUS -eq 200  ]; then
-		echo "Error [HTTP status: $HTTP_STATUS]"
-	fi
+  # example using the status
+  if [ ! "$HTTP_STATUS" -eq 200 ]; then
+    echo "Error [HTTP status: $HTTP_STATUS]"
+  fi
 }
 
 function cask() {
-	if [ "$1" == "search" ]; then
-		brew search "$2"
-	elif [ -z "$2" ]; then
-		brew cask "$1"
-	else 
-		brew cask "$1" "$2"
-	fi
+  if [ "$1" == "search" ]; then
+    brew search "$2"
+  elif [ -z "$2" ]; then
+    brew cask "$1"
+  else
+    brew cask "$1" "$2"
+  fi
 }
 
 # Syntax-highlight JSON strings or files
 function json() {
-	if [ -p /dev/stdin ]; then
-		# piping, e.g. `echo '{"foo":42}' | json`
-		python -mjson.tool | pygmentize -l javascript
-	else
-		# e.g. `json '{"foo":42}'`
-		python -mjson.tool <<< "$*" | pygmentize -l javascript
-	fi
+  if [ -p /dev/stdin ]; then
+    # piping, e.g. `echo '{"foo":42}' | json`
+    python -mjson.tool | pygmentize -l javascript
+  else
+    # e.g. `json '{"foo":42}'`
+    python -mjson.tool <<<"$*" | pygmentize -l javascript
+  fi
 }
 
 # take this repo and copy it to somewhere else minus the .git stuff.
-function gitexport(){
-	mkdir -p "$1"
-	git archive master | tar -x -C "$1"
+function gitexport() {
+  mkdir -p "$1"
+  git archive master | tar -x -C "$1"
 }
 
 function cra() {
-	create-react-app "$@" --use-npm
+  create-react-app "$@" --use-npm
 }
 
 function crt() {
-	create-react-app "$@" --use-npm --typescript
+  create-react-app "$@" --use-npm --typescript
 }
 
 # get gzipped size
 function gz() {
-	if [ -d $1 ]; then
-		echo "${GREEN}orig size: "
-		du -sb "$1" | cut -f1 | numfmt --to=iec --suffix=B --format="%3f"
-		echo "${MAGENTA}gzipped size: "
-		find "$1"  -name "*.*" ! -name "*.gz" | xargs gzip -c | wc -c | numfmt --to=iec --suffix=B --format="%3f"
-	else
-		echo "${GREEN}orig size: "
-		cat "$1" | wc -c | numfmt --to=iec --suffix=B --format="%3f"
-		echo "${MAGENTA}gzipped size: "
-		gzip -c "$1" | wc -c | numfmt --to=iec --suffix=B --format="%3f"
-	fi
+  if [ -d "$1" ]; then
+    echo "${GREEN}orig size: "
+    du -sb "$1" | cut -f1 | numfmt --to=iec --suffix=B --format="%3f"
+    echo "${MAGENTA}gzipped size: "
+    find "$1" -name "*.*" ! -name "*.gz" | xargs gzip -c | wc -c | numfmt --to=iec --suffix=B --format="%3f"
+  else
+    echo "${GREEN}orig size: "
+    cat "$1" | wc -c | numfmt --to=iec --suffix=B --format="%3f"
+    echo "${MAGENTA}gzipped size: "
+    gzip -c "$1" | wc -c | numfmt --to=iec --suffix=B --format="%3f"
+  fi
 }
 
 # All the dig info
 function digga() {
-	dig +nocmd "$1" any +multiline +noall +answer
+  dig +nocmd "$1" any +multiline +noall +answer
 }
 
 # Escape UTF-8 characters into their 3-byte format
 function escape() {
-	printf "\\\x%s" $(printf "$@" | xxd -p -c1 -u)
-	echo # newline
+  printf "\\\x%s" "$(printf "$@" | xxd -p -c1 -u)"
+  echo # newline
 }
 
 # Decode \x{ABCD}-style Unicode escape sequences
 function unidecode() {
-	perl -e "binmode(STDOUT, ':utf8'); print \"$@\""
-	echo # newline
+  perl -e "binmode(STDOUT, ':utf8'); print \"$*\""
+  echo # newline
 }
 
 # Extract archives - use: extract <file>
 # Based on http://dotfiles.org/~pseup/.bashrc
 function extract() {
-	if [ -f "$1" ] ; then
-		local filename=$(basename "$1")
-		local foldername="${filename%%.*}"
-		local fullpath=`perl -e 'use Cwd "abs_path";print abs_path(shift)' "$1"`
-		local didfolderexist=false
-		if [ -d "$foldername" ]; then
-			didfolderexist=true
-			read -p "$foldername already exists, do you want to overwrite it? (y/n) " -n 1
-			echo
-			if [[ $REPLY =~ ^[Nn]$ ]]; then
-				return
-			fi
-		fi
-		mkdir -p "$foldername" && cd "$foldername"
-		case $1 in
-			*.tar.bz2) tar xjf "$fullpath" ;;
-			*.tar.gz) tar xzf "$fullpath" ;;
-			*.tar.xz) tar Jxvf "$fullpath" ;;
-			*.tar.Z) tar xzf "$fullpath" ;;
-			*.tar) tar xf "$fullpath" ;;
-			*.taz) tar xzf "$fullpath" ;;
-			*.tb2) tar xjf "$fullpath" ;;
-			*.tbz) tar xjf "$fullpath" ;;
-			*.tbz2) tar xjf "$fullpath" ;;
-			*.tgz) tar xzf "$fullpath" ;;
-			*.txz) tar Jxvf "$fullpath" ;;
-			*.zip) unzip "$fullpath" ;;
-			*) echo "'$1' cannot be extracted via extract()" && cd .. && ! $didfolderexist && rm -r "$foldername" ;;
-		esac
-	else
-		echo "'$1' is not a valid file"
-	fi
+  if [ -f "$1" ]; then
+    local filename=$(basename "$1")
+    local foldername="${filename%%.*}"
+    local fullpath=$(perl -e 'use Cwd "abs_path";print abs_path(shift)' "$1")
+    local didfolderexist=false
+    if [ -d "$foldername" ]; then
+      didfolderexist=true
+      read -pr "$foldername already exists, do you want to overwrite it? (y/n) " -n 1
+      echo
+      if [[ $REPLY =~ ^[Nn]$ ]]; then
+        return
+      fi
+    fi
+    mkdir -p "$foldername" && cd "$foldername" || exit
+    case $1 in
+    *.tar.bz2) tar xjf "$fullpath" ;;
+    *.tar.gz) tar xzf "$fullpath" ;;
+    *.tar.xz) tar Jxvf "$fullpath" ;;
+    *.tar.Z) tar xzf "$fullpath" ;;
+    *.tar) tar xf "$fullpath" ;;
+    *.taz) tar xzf "$fullpath" ;;
+    *.tb2) tar xjf "$fullpath" ;;
+    *.tbz) tar xjf "$fullpath" ;;
+    *.tbz2) tar xjf "$fullpath" ;;
+    *.tgz) tar xzf "$fullpath" ;;
+    *.txz) tar Jxvf "$fullpath" ;;
+    *.zip) unzip "$fullpath" ;;
+    *) echo "'$1' cannot be extracted via extract()" && cd .. && ! $didfolderexist && rm -r "$foldername" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
 }
 
-docker-cleanup(){
-    docker rm -v $(docker ps --filter status=exited -q 2>/dev/null) 2>/dev/null
-    docker rmi $(docker images --filter dangling=true -q 2>/dev/null) 2>/dev/null
+docker-cleanup() {
+  docker rm -v "$(docker ps --filter status=exited -q 2>/dev/null)" 2>/dev/null
+  docker rmi "$(docker images --filter dangling=true -q 2>/dev/null)" 2>/dev/null
 }

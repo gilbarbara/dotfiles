@@ -12,7 +12,7 @@ fi
 source ./lib/utils
 # Source the necessary files and helper scripts
 for i in "${libs[@]}"; do
-    source ./lib/$i
+    source ./lib/"$i"
 done
 
 if array_contains "$1" "${libs[@]}"; then
@@ -20,7 +20,7 @@ if array_contains "$1" "${libs[@]}"; then
     seek_confirmation "Do you want to install $1"
 
     if is_confirmed; then
-        run_$1
+        run_"$1"
     fi
     exit
 else
@@ -96,7 +96,6 @@ if ! type_exists 'pygmentize'; then
 	e_process "Installing pygments"
 	sudo easy_install Pygments
 fi
-
 
 e_success "All packages have been installed"
 

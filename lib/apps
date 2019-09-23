@@ -8,39 +8,44 @@ run_apps() {
 	brew cask install cakebrew
 	brew cask install default-folder-x
 	brew cask install dropbox
+	brew cask install firefox
+	brew cask install gifox
 	brew cask install google-backup-and-sync
+	brew cask install google-chrome
 	brew cask install istat-menus
 	brew cask install little-snitch
 	brew cask install macupdater
+	brew cask install near-lock
+	brew cask install numi
 	brew cask install rocket
+	brew cask install skype
 	brew cask install soulver
 	brew cask install spotify
+	brew cask install suspicious-package
 	brew cask install the-unarchiver
 	brew cask install transmission
+	brew cask install typora
 	brew cask install vlc
 	brew cask install whatsapp
 
 	# dev
 	brew cask install coderunner
-	brew cask install couleurs
 	brew cask install cyberduck
 	brew cask install docker
-	brew cask install firefox
 	brew cask install github
-	brew cask install google-chrome
+	brew cask install gitkraken
 	brew cask install graphql-playground
-	brew cask install hyper
+	brew cask install insomnia
 	brew cask install iterm2
 	brew cask install imageoptim
 	brew cask install jetbrains-toolbox
-	brew cask install jewelrybox
 	brew cask install ksdiff # Kaleidoscope command line
-	brew cask install macdown
+	brew cask install kitematic
+	brew cask install majestic
 	brew cask install now
 	brew cask install postman
 	brew cask install robo-3t
 	brew cask install sequel-pro
-	brew cask install typora
 	brew cask install virtualbox
 	brew cask install visual-studio-code
 
