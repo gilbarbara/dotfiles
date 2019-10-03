@@ -2,9 +2,10 @@
 
 # Install native fonts
 run_fonts() {
-	
+
 	brew tap caskroom/fonts
 	brew cask install font-fira-code
+	brew cask install font-firacode-nerd-font
 	brew cask install font-source-code-pro
 	brew cask install font-dejavu-sans
 	brew cask install font-inconsolata

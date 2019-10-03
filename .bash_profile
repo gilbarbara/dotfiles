@@ -5,10 +5,6 @@ for file in ~/.{bash_colors,bash_completion,bash_prompt,exports,aliases,function
 done
 unset file
 
-# Set ulimit per session
-ulimit -n 200000
-ulimit -u 2048
-
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob
 
