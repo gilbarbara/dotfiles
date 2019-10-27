@@ -71,6 +71,8 @@ xcuserdata/
 
 # Sensitive data
 .npmrc
+.config/configstore
+.config/gatsby
 
 # OS generated files #
 ######################
