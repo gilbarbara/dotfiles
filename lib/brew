@@ -8,6 +8,7 @@ run_brew() {
 	# Taps
 	brew tap homebrew/services
 	brew tap homebrew/cask-fonts
+	brew tap mongodb/brew
 
 	# Install GNU core utilities (those that come with OS X are outdated)
 	brew install coreutils
@@ -29,7 +30,7 @@ run_brew() {
 
 	# Databases
 	brew install mariadb
-	brew install mongodb
+  brew install mongodb-community
 
 	# Apache/PHP
 	brew install httpd
