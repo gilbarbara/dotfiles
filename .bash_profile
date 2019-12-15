@@ -47,15 +47,14 @@ if hash fasd 2>/dev/null; then
 	_fasd_bash_hook_cmd_complete sb
 fi
 
-eval $(thefuck --alias)
+eval "$(gulp --completion=bash)"
 
 eval "$(hub alias -s)"
 
-if [ -f $(brew --prefix)/share/bash-completion/bash_completion ]; then
-	. $(brew --prefix)/share/bash-completion/bash_completion
-fi
+eval $(thefuck --alias)
 
-eval "$(gulp --completion=bash)"
+export BASH_COMPLETION_COMPAT_DIR="$(brew --prefix)/etc/bash_completion.d"
+[[ -r "$(brew --prefix)/etc/profile.d/bash_completion.sh" ]] && . "$(brew --prefix)/etc/profile.d/bash_completion.sh"
 
 # travis
 [ -f /Users/gilbarbara/.travis/travis.sh ] && source /Users/gilbarbara/.travis/travis.sh
