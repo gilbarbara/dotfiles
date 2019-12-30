@@ -121,8 +121,8 @@ function cra() {
   create-react-app "$@" --use-npm
 }
 
-function crt() {
-  create-react-app "$@" --use-npm --typescript
+function crats() {
+  create-react-app "$@" --use-npm --template typescript
 }
 
 # get gzipped size

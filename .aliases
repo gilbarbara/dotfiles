@@ -98,6 +98,8 @@ alias gs="git status"
 alias gsl="git stash list"
 alias gsp="git stash pop"
 alias gss="git stash save"
+alias stash='git stash'
+complete -F _complete_alias stash
 
 # npm aliases
 alias ns='npm search'
