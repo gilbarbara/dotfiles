@@ -54,11 +54,10 @@ run_brew() {
 
 	# Install useful binaries
 	brew install ack
-	#brew install android-platform-tools
 	brew install awscli
 	brew install certbot
 	brew install fasd
-	brew install gpg
+	brew install gpg pinentry-mac
 	brew install htop
 	brew install httpie
 	brew install imagemagick

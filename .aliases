@@ -122,6 +122,8 @@ alias validate='npm run validate'
 alias lint='npm run lint'
 alias slint='npm run lint:styles'
 
+alias ncus=' ncu --dep=prod,dev'
+
 alias t='npm test'
 alias tc='npm run test:coverage'
 alias tw='npm run test:watch'
