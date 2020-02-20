@@ -76,6 +76,14 @@ Modules: apps, brew, dotfiles, fonts, npm, quicklook and rubygems
 
 To update later on, just run the install again.
 
+## Configure GPG
+
+Set your pinentry program by adding it to `~/.gnupg/gpg-agent.conf`
+
+```bash
+pinentry-program $(brew --prefix)/bin/pinentry-mac
+```
+
 ## Changing ulimit on Mac OS X 10.12 and up 
 
 ```bash
