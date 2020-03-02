@@ -91,7 +91,7 @@ alias undopush="git push -f origin HEAD^:master"
 #git aliases
 alias g="git"
 complete -F _complete_alias g
-alias gh="github"
+alias ghd="github"
 alias gl="git log --oneline --all --graph --decorate"
 alias gr='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`'
 alias gs="git status"
@@ -143,6 +143,7 @@ alias ~f='open ~/'
 alias reload='source ~/.bashrc'
 
 alias unused='depcheck'
+alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
 
 # ping only once and die
 alias pi="ping -o"
