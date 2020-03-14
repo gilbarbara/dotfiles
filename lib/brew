@@ -47,7 +47,7 @@ run_brew() {
 	brew install nvm
 
 	# Git and tools
-	brew install git git-extras git-lfs hub tig
+	brew install git git-extras git-lfs github/gh/gh hub tig
 
 	# Docker tools
 	brew install docker docker-machine docker-clean
