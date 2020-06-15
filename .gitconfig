@@ -101,3 +101,5 @@
 	process = git-lfs filter-process
 [tag]
 	sort = version:refname
+[pull]
+	rebase = true
