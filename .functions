@@ -118,11 +118,11 @@ function gitexport() {
 }
 
 function cra() {
-  create-react-app "$@" --use-npm
+  npx create-react-app "$@" --use-npm --template cra-template-pwa
 }
 
 function crats() {
-  create-react-app "$@" --use-npm --template typescript
+  npx create-react-app "$@" --use-npm --template cra-template-pwa-typescript
 }
 
 # get gzipped size

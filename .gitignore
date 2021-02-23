@@ -74,6 +74,7 @@ xcuserdata/
 .config/configstore
 .config/hub
 .config/gatsby
+.config/firebase
 
 # OS generated files #
 ######################
