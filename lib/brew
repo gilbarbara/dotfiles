@@ -55,8 +55,10 @@ run_brew() {
 	# Install useful binaries
 	brew install ack
 	brew install awscli
+	brew install bat
 	brew install certbot
 	brew install fasd
+	brew install fzf
 	brew install gpg pinentry-mac
 	brew install htop
 	brew install httpie
