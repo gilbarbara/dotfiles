@@ -1,81 +1,13 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 # Install command-line tools using Homebrew
 run_brew() {
 	# Make sure we’re using the latest Homebrew
 	brew update
 
-	# Taps
-	brew tap homebrew/services
-	brew tap homebrew/cask-fonts
-	brew tap mongodb/brew
-
-	# Install GNU core utilities (those that come with OS X are outdated)
-	brew install coreutils
-
-	# Install GNU `find`, `locate`, `updatedb`, and `xargs`, g-prefixed
-	brew install findutils
-	brew install ngrep
-
-	# Install Bash 4
-	brew install bash
-
-	# Completions
-	brew install bash-completion2 brew-cask-completion docker-completion gem-completion launchctl-completion wpcli-completion yarn-completion
-
-	# Install more recent versions of some OS X tools
-	brew install vim
-	brew install grep
-	brew install screen
-
-	# Databases
-	brew install mariadb
-  brew install mongodb-community
-
-	# Apache/PHP
-	brew install httpd
-	brew install php composer
-
-	# Python
-	brew install python
-
-	# Ruby
-	brew install ruby
-
-	# Node
-	brew install node
-	brew install nvm
-
-	# Git and tools
-	brew install git git-extras git-lfs github/gh/gh hub tig
-
-	# Docker tools
-	brew install docker docker-machine docker-clean
-
-	# Install useful binaries
-	brew install ack
-	brew install awscli
-	brew install bat
-	brew install certbot
-	brew install fasd
-	brew install fzf
-	brew install gpg pinentry-mac
-	brew install htop
-	brew install httpie
-	brew install imagemagick
-	brew install jq
-	brew install lame
-	brew install rename
-	brew install speedtest-cli
-	brew install thefuck
-	brew install watchman
-	brew install wget
-	brew install wp-cli
-
-	# Install code review tools
-	brew tap codeclimate/formulae
-	brew install codeclimate
+	brew bundle
 
 	# Remove outdated versions from the cellar
+	e_process "Clean up brew"
 	brew cleanup
 }

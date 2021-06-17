@@ -1,14 +1,9 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 run_tools() {
 	if ! type_exists 'push'; then
 		e_process "Installing git-friendly"
 		sudo curl -sS https://raw.githubusercontent.com/jamiew/git-friendly/master/install.sh | bash
-	fi
-
-	if ! type_exists 'pygmentize'; then
-		e_process "Installing pygments"
-		sudo easy_install Pygments
 	fi
 
 	e_process "Installing chmodr"
@@ -17,8 +12,14 @@ run_tools() {
 	e_process "Installing colors"
 	sudo cp -p ./bin/colors.sh /usr/local/bin/colors
 
+	e_process "Installing create-certificate"
+	sudo cp ./bin/create-certificate.sh /usr/local/bin/create-certificate
+
 	e_process "Installing docker-start"
 	sudo cp -p ./bin/docker-start.sh /usr/local/bin/docker-start
+
+	e_process "Installing npmdump"
+	sudo cp -p ./bin/npmdump.js /usr/local/bin/npmdump
 
 	e_process "Installing search"
 	sudo cp -p ./bin/search.sh /usr/local/bin/search

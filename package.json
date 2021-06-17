@@ -1,0 +1,21 @@
+{
+  "name": "@gilbarbara/dotfiles",
+  "version": "0.1.0",
+  "description": "Gil Barbara's dotfiles",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gilbarbara/dotfiles.git"
+  },
+  "keywords": [
+    "dotfiles"
+  ],
+  "author": "Gil Barbara <gilbarbara@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gilbarbara/dotfiles/issues"
+  },
+  "homepage": "https://github.com/gilbarbara/dotfiles#readme",
+	"scripts": {
+		"dump": "brew bundle dump --force && npmdump"
+	}
+}

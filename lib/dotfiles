@@ -1,6 +1,8 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
-dotfiles=(.ackrc .aliases .bash_colors .bash_completion .bash_profile .bash_prompt .bashrc .config .editorconfig .exports .functions .gitattributes .gitconfig .gitignore .inputrc .npmrc .osx .vim .vimrc)
+dotfiles=(.ackrc .aliases .bash_colors .bash_completion .bash_profile .bash_prompt .bashrc .editorconfig .exports .functions .gitattributes .gitconfig .gitignore .inputrc .nanorc .npmrc .osx .vim .vimrc .zshrc .zshrc_config)
+
+# TODO: update .config setup, create the directory if doesn't exist and symlink the files in this repo
 
 # Install dotfiles
 run_dotfiles() {
@@ -10,10 +12,26 @@ run_dotfiles() {
 		elif [[ "$i" == ".npmrc" && -f ~/.npmrc && "$USER" != "gilbarbara" ]]; then
 			e_warning ".npmrc already exists, do it manually"
 		else
-			rm -rf ~/"$i"
-			ln -s .dotfiles/"$i" ~
+			if [ ! -L "$HOME/$i" ] ; then
+				if [ -e "$HOME/$i" ]; then
+					e_warning "Removing $i"
+
+					rm -rf ~/"$i"
+				fi
+
+				ln -s "$HOME/.dotfiles/$i" ~
+				e_success "Link to $i created"
+			fi
 		fi
 	done
 
-	source ~/.bash_profile
+	for entry in ".config"/*
+	do
+		if [ ! -L "$HOME/$entry" ] ; then
+			echo "$entry"
+			ln -s ~/.dotfiles/"$entry" "$HOME/.config/"
+		fi
+	done
+
+	source "$HOME/.zshrc"
 }

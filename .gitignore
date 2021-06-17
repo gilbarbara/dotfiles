@@ -80,8 +80,10 @@ xcuserdata/
 ######################
 .DS_Store
 .DS_Store?
+Brewfile.lock.json
 thumbs.db
 Desktop.ini
 # REMINDER: do not edit Icon^M^M Carriage Returns
-Icon[]
+Icon[
+]
 #REMINDER

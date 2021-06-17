@@ -1,24 +1,22 @@
+# Prefer US English and use UTF-8
+export LC_ALL="en_US.UTF-8"
+export LANG="en_US"
+
 # Make vim the default editor
 export EDITOR="vim"
 
 # Don’t clear the screen after quitting a manual page
-export MANPAGER="less -X"
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
-# Larger bash history (allow 32³ entries; default is 500)
-export HISTSIZE=32768
-export HISTFILESIZE=$HISTSIZE
-export HISTCONTROL=ignoredups
-
-# timestamps for bash history. www.debian-administration.org/users/rossen/weblog/1
-# saved for later analysis
-HISTTIMEFORMAT='%F %T '
-export HISTTIMEFORMAT
+# Set GPG TTY
+export GPG_TTY=$(tty)
 
 # Make some commands not show up in history
 export HISTIGNORE="ls:ls *:cd:cd -:pwd;exit:date:* --help"
 
-# Brew path
+# Brew options
 export HOMEBREW=/usr/local
+export HOMEBREW_CASK_OPTS="--no-quarantine"
 
 # NPM Global path
 export NODE_PATH=/usr/local/lib/node_modules

@@ -1,20 +1,32 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 run_rubygems() {
-    e_process "Updating to latest Rubygems version ..."
+    e_process "Updating to latest Rubygems version"
     gem update --system
 
-    e_process "Installing Bundler to install project-specific Ruby gems ..."
-    gem install bundler --no-document --pre
+    if [ "$(gem list -i bundler >> /dev/null)" -eq 1 ]; then
+    	e_process "Installing Bundler to install project-specific Ruby gems ..."
+			gem install bundler --no-document --pre
 
-    e_process "Configuring Bundler for faster, parallel gem installation ..."
-    number_of_cores=$(sysctl -n hw.ncpu)
-    bundle config --global jobs $((number_of_cores - 1))
+			e_process "Configuring Bundler for faster, parallel gem installation ..."
+			number_of_cores=$(sysctl -n hw.ncpu)
+			bundle config --global jobs $((number_of_cores - 1))
+    fi
 
-    e_process "Installing utils..."
-		gem install colorls
-		gem install travis
-		gem install wordmove
+    if [ "$(gem list -i colorls >> /dev/null)" -eq 1 ]; then
+    	e_process "Installing colorls"
+    	gem install colorls
+    fi
+
+    if [ "$(gem list -i travis >> /dev/null)" -eq 1 ]; then
+    	e_process "Installing travis"
+    	gem install travis
+    fi
+
+    if [ "$(gem list -i wordmove >> /dev/null)" -eq 1 ]; then
+    	e_process "Installing wordmove"
+    	gem install wordmove
+    fi
 
     [[ $? ]] && e_success "Done"
 }

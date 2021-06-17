@@ -70,10 +70,10 @@ alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
 alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
 
 # Canonical hex dump; some systems have this symlinked
-type -t hd > /dev/null || alias hd="hexdump -C"
+type hd > /dev/null || alias hd="hexdump -C"
 
 # OS X has no `md5sum`, so use `md5` as a fallback
-type -t md5sum > /dev/null || alias md5sum="md5"
+type md5sum > /dev/null || alias md5sum="md5"
 
 # Trim new lines and copy to clipboard
 alias trimcopy="tr -d '\n' | pbcopy"
@@ -90,7 +90,6 @@ alias undopush="git push -f origin HEAD^:master"
 
 #git aliases
 alias g="git"
-complete -F _complete_alias g
 alias ghd="github"
 alias gl="git log --oneline --all --graph --decorate"
 alias gr='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`'
@@ -99,7 +98,6 @@ alias gsl="git stash list"
 alias gsp="git stash pop"
 alias gss="git stash save"
 alias stash='git stash'
-complete -F _complete_alias stash
 
 # npm aliases
 alias ns='npm search'
@@ -110,7 +108,6 @@ alias ni='npm install'
 alias nid='npm install --save-dev'
 alias nu='npm update'
 alias nrm='npm rm'
-complete -F _complete_alias nrm
 
 alias start='npm start'
 alias watch='npm run watch'
@@ -140,7 +137,7 @@ alias pks='package-size'
 
 alias dk='cd ~/Desktop'
 alias ~f='open ~/'
-alias reload='source ~/.bashrc'
+alias reload='source ~/.zshrc'
 
 alias unused='depcheck'
 alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'

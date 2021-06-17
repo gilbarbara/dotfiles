@@ -1,59 +1,18 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
-npm_packages=(
-	@babel/core
-	@babel/cli
-	@babel/node
-	@babel/preset-env
-	@babel/preset-react
-	@babel/register
-	@storybook/cli
-	aws-sam-local
-	babel-upgrade
-	bundle-phobia-cli
-	codesandbox
-	create-react-app
-	depcheck
-	dotenv
-	eslint
-	expo-cli
-	gatsby-cli
-	gitbook-cli
-	gulp
-	iectrl
-	jscodeshift
-	json
-	nodemon
-	now
-	npm-check-updates
-	npm-consider
-	ntl
-	pm2
-	prettier
-	react
-	react-dom
-	react-native-cli
-	release
-	serve
-	serverless
-	source-map-explorer
-	surge
-	svgo
-	tldr
-	ts-node
-	webpack-bundle-analyzer
-	yarn
-)
+IFS=$'\n' npm_packages=($(cat NPMfile))
+# read -d'\n' -r npm_packages < NPMfile
 
 # Install node packages
 run_npm() {
   e_process "Getting installed packages"
-  packages=$(npm -j -g --depth=0 ls 2>/dev/null)
+  packages=$(npm ls -g -j --depth=0 2>/dev/null)
 
   for i in "${npm_packages[@]}"; do
     version=$(echo "$packages" | jq -r '.dependencies."'"$i"'".version')
     peerMissing=$(echo "$packages" | jq -r '.dependencies."'"$i"'".peerMissing')
 
+echo "$i"
     if [[ "$version" == "null" ]] && [[ "$peerMissing" == "null" ]]; then
       e_process "Installing $i"
       npm install -g "$i"
