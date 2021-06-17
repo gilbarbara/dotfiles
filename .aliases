@@ -11,47 +11,29 @@ alias -- -="cd -"
 alias please=sudo
 alias hosts='sudo $EDITOR /etc/hosts'   # yes I occasionally 127.0.0.1 twitter.com ;)
 
-# Detect which `ls` flavor is in use
-if ls --color > /dev/null 2>&1; then # GNU `ls`
-	colorflag="--color"
-else # OS X `ls`
-	colorflag="-G"
-fi
+# List files horizontally including dotfiles
+alias lh='exa -aF'
 
-# List files vertically colorized
-# alias l='ls -lh ${colorflag}'
-alias l='colorls --tree=1'
+# List files horizontally and across including dotfiles
+alias lha='exa -aFx'
 
-# List all files horizontally
-# alias la='ls -lah ${colorflag}'
-alias la='colorls -A --tree=1'
+# List files vertically
+alias l='exa -lFh --git'
 
-# List all files including dot files
-alias lh='colorls -A'
+# List files vertically including dotfiles
+alias la='exa -laFh --git'
 
 # List all files colorized in long format, including dot files
 alias ll='colorls -Al'
 
 # List only directories
-alias ld='colorls -d --tree=1'
+alias lsd='exa -laFDh --git'
 
 # List only files
-alias lf='colorls -f --tree=1'
+alias lf='exa -laFh --git'
 
 # List order by time desc
-alias lt='colorls -tlA'
-
-# Always use color output for `ls`
-if [[ "$OSTYPE" =~ ^darwin ]]; then
-	alias ls="command ls -G"
-else
-	alias ls="command ls --color"
-	export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.avi=01;35:*.fli=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.ogg=01;35:*.mp3=01;35:*.wav=01;35:'
-fi
-
-# `cat` with beautiful colors. requires Pygments installed.
-# 							   sudo easy_install Pygments
-alias c='pygmentize -O style=monokai -f console256 -g'
+alias lt='exa -laFh --git --sort=oldest'
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
@@ -97,7 +79,7 @@ alias gs="git status"
 alias gsl="git stash list"
 alias gsp="git stash pop"
 alias gss="git stash save"
-alias stash='git stash'
+alias gptags="git push && git push --tags"
 
 # npm aliases
 alias ns='npm search'
@@ -110,6 +92,7 @@ alias nu='npm update'
 alias nrm='npm rm'
 
 alias start='npm start'
+alias dev='npm run dev'
 alias watch='npm run watch'
 alias build='npm run build'
 alias deploy='npm run deploy'
@@ -119,7 +102,8 @@ alias validate='npm run validate'
 alias lint='npm run lint'
 alias slint='npm run lint:styles'
 
-alias ncus=' ncu --dep=prod,dev'
+alias ncus='ncu --dep=prod,dev'
+alias ncup='ncu -ui --dep=prod,dev'
 
 alias t='npm test'
 alias tc='npm run test:coverage'
