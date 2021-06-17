@@ -22,6 +22,7 @@
 	excludesfile = ~/.gitignore
 	attributesfile = ~/.gitattributes
 	autocrlf = input
+	pager = 
 [color "branch"]
 	current = yellow reverse
 	local = yellow
