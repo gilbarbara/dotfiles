@@ -82,15 +82,19 @@ alias gss="git stash save"
 alias gptags="git push && git push --tags"
 
 # npm aliases
-alias ns='npm search'
-alias np='npm prune'
-alias nig='npm install -g'
-alias nug='npm update -g'
 alias ni='npm install'
 alias nid='npm install --save-dev'
+alias nig='npm install -g'
 alias nu='npm update'
+alias nug='npm update -g'
+alias np='npm prune'
 alias nrm='npm rm'
+alias ns='npm search'
+alias npatch='npm version patch'
+alias nminor='npm version minor'
+alias nmajor='npm version major'
 
+# npm scripts aliases
 alias start='npm start'
 alias dev='npm run dev'
 alias watch='npm run watch'
@@ -98,16 +102,17 @@ alias build='npm run build'
 alias deploy='npm run deploy'
 alias publish='npm run publish'
 alias format='npm run format'
+alias typecheck='npm run typecheck'
 alias validate='npm run validate'
 alias lint='npm run lint'
 alias slint='npm run lint:styles'
 
-alias ncus='ncu --dep=prod,dev'
-alias ncup='ncu -ui --dep=prod,dev'
-
 alias t='npm test'
 alias tc='npm run test:coverage'
 alias tw='npm run test:watch'
+
+alias ncus='ncu --dep=prod,dev'
+alias ncup='ncu -ui --dep=prod,dev'
 
 alias pipup='pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U'
 
