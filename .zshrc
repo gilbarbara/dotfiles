@@ -5,10 +5,9 @@ for file in ~/.{zshrc_config,exports,aliases,functions,extra}; do
 done
 unset file
 
-# init nvm
-export NVM_DIR=/usr/local/nvm
-export NVM_SYMLINK_CURRENT=true
-source $(brew --prefix nvm)/nvm.sh
+# init fnm
+export FNM_DIR=/usr/local/fnm
+eval "$(fnm env)"
 
 ### Paths
 
