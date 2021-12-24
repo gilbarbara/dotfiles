@@ -22,10 +22,9 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 # You could just use `-g` instead, but I like being explicit
 complete -W "NSGlobalDomain" defaults
 
-# init nvm
-export NVM_DIR=/usr/local/nvm
-export NVM_SYMLINK_CURRENT=true
-source $(brew --prefix nvm)/nvm.sh
+# init fnm
+export FNM_DIR=/usr/local/fnm
+eval "$(fnm env)"
 
 # Ruby paths
 export RUBY_PATH="$(brew --prefix)/opt/ruby/bin"
@@ -47,8 +46,6 @@ if hash fasd 2>/dev/null; then
 	eval "$(fasd --init auto)"
 	_fasd_bash_hook_cmd_complete sb
 fi
-
-eval "$(gulp --completion=bash)"
 
 eval "$(hub alias -s)"
 
