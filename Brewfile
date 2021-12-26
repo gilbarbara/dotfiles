@@ -31,6 +31,7 @@ brew "fzf"
 brew "gem-completion"
 brew "gh"
 brew "git"
+brew "git-delta"
 brew "git-extras"
 brew "git-lfs"
 brew "gnupg", link: false

@@ -1,108 +1,138 @@
 [alias]
-	br = branch
-	c = commit -am
-	ci = ci-status
-	co = checkout
-	cp = cherry-pick
-	df = diff --color --color-words --abbrev
-	dl = pull
-	f = "!git ls-files | grep -i"
-	ignored = ls-files -o -i --exclude-standard
-	la = "!git config -l | grep alias | cut -c 7-"
-	ll = log --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --numstat
-	ls = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-	open = browse
-	prune = fetch --prune
-	s = status -s
-	undo = reset --soft HEAD^
-	up = push
+  amend = commit --amend
+  br = branch
+  c = commit -am
+  co = checkout
+  cp = cherry-pick
+  df = diff --color --color-words --abbrev
+  dl = pull
+  f = "!git ls-files | grep -i"
+  ignored = ls-files -o -i --exclude-standard
+  la = "!git config -l | grep alias | cut -c 7-"
+  ll = log --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --numstat
+  ls = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  oops = commit --amend --no-edit
+  open = browse
+  out = log @{u}..
+  prune = fetch --prune
+  s = status -s
+  tags = tag -l
+  undo = reset --soft HEAD^
+  # Remove file(s) from Git but not from disk
+  untrack = rm --cache --
+  up = push
 [color]
-	ui = always
+  ui = always
 [core]
-	excludesfile = ~/.gitignore
-	attributesfile = ~/.gitattributes
-	autocrlf = input
-	pager = 
+  attributesfile = ~/.gitattributes
+  autocrlf = input
+  excludesfile = ~/.gitignore
+  pager = delta
 [color "branch"]
-	current = yellow reverse
-	local = yellow
-	remote = green
+  current = yellow reverse
+  local = yellow
+  remote = green
 [color "diff"]
-	meta = yellow bold
-	frag = magenta bold
-	old = red bold
-	new = green bold
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
 [color "status"]
-	added = yellow
-	changed = green
-	untracked = cyan
+  added = yellow
+  changed = green
+  untracked = cyan
 [commit]
-	# "people can trust that the changes you've made really were made by you"
-  # https://help.github.com/articles/about-gpg/
-  # https://git-scm.com/docs/git-config#git-config-commitgpgSign
   gpgSign = true
-[url "git@github.com:"]
-	insteadOf = "gh:"
-	pushInsteadOf = "github:"
-	pushInsteadOf = "git://github.com/"
-[url "git://github.com/"]
-	insteadOf = "github:"
-[url "git@gist.github.com:"]
-	insteadOf = "gst:"
-	pushInsteadOf = "gist:"
-	pushInsteadOf = "git://gist.github.com/"
-[url "git://gist.github.com/"]
-	insteadOf = "gist:"
-[url "git@github.com:gilbarbara/"]
-  insteadOf = "git://github.com/gilbarbara/"
-[user]
-	name = Gil Barbara
-	email = gilbarbara@gmail.com
-	signingkey = 9F0A7FD258FF96E5
-[filter "media"]
-	required = true
-	clean = git media clean %f
-	smudge = git media smudge %f
 [credential]
-	helper = osxkeychain
-[push]
-	# "push the current branch back to the branch whose changes are usually integrated into the current branch"
-  # "refuse to push if the upstream branch’s name is different from the local one"
-  # https://git-scm.com/docs/git-config#git-config-pushdefault
-	default = simple
+  helper = osxkeychain
+[delta "interactive"]
+  keep-plus-minus-markers = false
+[delta "decorations"]
+  commit-decoration-style = blue ol
+  commit-style = raw
+  file-style = omit
+  hunk-header-decoration-style = blue box
+  hunk-header-file-style = red
+  hunk-header-line-number-style = "#067a00"
+  hunk-header-style = file line-number syntax
 [diff]
-	algorithm = patience
+  algorithm = patience
+  # Use better, descriptive initials (c, i, w) instead of a/b.
+  mnemonicPrefix = true
+  # Show renames/moves as such
+  renames = true
 [difftool]
-	prompt = false
+  prompt = false
 [difftool "kaleidoscope"]
-	cmd = ksdiff \"$LOCAL\" \"$REMOTE\"
+  cmd = ksdiff \"$LOCAL\" \"$REMOTE\"
+[filter "hawser"]
+  clean = git hawser clean %f
+  smudge = git hawser smudge %f
+  required = true
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  required = true
+  process = git-lfs filter-process
+[filter "media"]
+  required = true
+  clean = git media clean %f
+  smudge = git media smudge %f
+[grep]
+  break = true
+  heading = true
+  lineNumber = true
+  # Consider most regexes to be ERE
+  extendedRegexp = true
+[init]
+  defaultBranch = main
+[interactive]
+  diffFilter = delta --color-only --features=interactive
 [merge]
   # I pretty much never mean to do a real merge, since I use a rebase workflow.
   # Note: this global option applies to all merges, including those done during a git pull
   # https://git-scm.com/docs/git-config#git-config-mergeff
-	ff = only
-	# Standard diff is two sets of final changes. This introduces the original text before each side's changes.
+  ff = only
+  # Standard diff is two sets of final changes. This introduces the original text before each side's changes.
   # https://git-scm.com/docs/git-config#git-config-mergeconflictStyle
   conflictstyle = diff3
-	log = true
-	tool = kaleidoscope
+  log = true
+  tool = kaleidoscope
 [mergetool]
-	keepBackup = false
+  keepBackup = false
 [mergetool "kaleidoscope"]
-	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustExitCode = true
-[filter "hawser"]
-	clean = git hawser clean %f
-	smudge = git hawser smudge %f
-	required = true
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	required = true
-	process = git-lfs filter-process
-[tag]
-	sort = version:refname
+  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+  trustExitCode = true
 [pull]
-	rebase = true
-[init]
-	defaultBranch = main
+  rebase = true
+[push]
+  # "push the current branch back to the branch whose changes are usually integrated into the current branch"
+  # "refuse to push if the upstream branch’s name is different from the local one"
+  # https://git-scm.com/docs/git-config#git-config-pushdefault
+  default = simple
+[rebase]
+  autoStash = true
+#[rerere]
+  # If, like me, you like rerere, uncomment these
+  # autoupdate = true
+  # enabled = true
+[tag]
+  sort = version:refname
+[url "git@github.com:"]
+  insteadOf = "gh:"
+  pushInsteadOf = "github:"
+  pushInsteadOf = "git://github.com/"
+[url "git://github.com/"]
+  insteadOf = "github:"
+[url "git@gist.github.com:"]
+  insteadOf = "gst:"
+  pushInsteadOf = "gist:"
+  pushInsteadOf = "git://gist.github.com/"
+[url "git://gist.github.com/"]
+  insteadOf = "gist:"
+[url "git@github.com:gilbarbara/"]
+  insteadOf = "git://github.com/gilbarbara/"
+[user]
+  name = Gil Barbara
+  email = gilbarbara@gmail.com
+  signingkey = 9F0A7FD258FF96E5
