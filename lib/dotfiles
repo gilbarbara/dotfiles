@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-dotfiles=(.ackrc .aliases .bash_colors .bash_completion .bash_profile .bash_prompt .bashrc .editorconfig .exports .functions .gitattributes .gitconfig .gitignore .inputrc .nanorc .npmrc .osx .vim .vimrc .zshrc .zshrc_config)
+dotfiles=(.ackrc .aliases .bash_colors .bash_completion .bash_profile .bash_prompt .bashrc .editorconfig .exports .functions .gitattributes .gitconfig .gitignore .inputrc .nanorc .npmrc .osx .vim .vimrc .zprofile .zshrc .zshrc_config)
 
 # TODO: update .config setup, create the directory if doesn't exist and symlink the files in this repo
 

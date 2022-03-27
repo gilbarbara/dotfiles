@@ -17,7 +17,8 @@ export GEM_HOME="$(brew --prefix)/opt/gems"
 export GEM_PATH="$GEM_HOME/bin"
 
 # PHP path
-export PHP_PATH="$(brew --prefix)/opt/php/bin"
+# export PHP_PATH="$(brew --prefix)/opt/php/bin"
+export PHP_PATH="$(brew --prefix)/opt/php@7.4/bin"
 
 PATH="./node_modules/.bin:$PATH"
 PATH="$(brew --prefix)/sbin:$PATH"
@@ -53,3 +54,4 @@ PATH="$GEM_PATH:$PATH"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+eval "$(pyenv init -)"

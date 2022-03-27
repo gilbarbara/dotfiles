@@ -75,6 +75,7 @@ xcuserdata/
 .config/hub
 .config/gatsby
 .config/firebase
+.config/thefuck
 
 # OS generated files #
 ######################
