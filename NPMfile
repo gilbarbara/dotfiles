@@ -7,9 +7,9 @@ aws4
 bundle-phobia-cli
 check-side-effects
 codesandbox
+corepack
 create-next-app
 depcheck
-eslint
 firebase-tools
 gitbook-cli
 graphql-introspection-json-to-sdl
