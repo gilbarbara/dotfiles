@@ -1,6 +1,3 @@
-@aws-amplify/cli
-@storybook/cli
-@svgr/cli
 @types/node
 aws-sdk
 aws4
@@ -12,13 +9,13 @@ create-next-app
 depcheck
 firebase-tools
 gitbook-cli
-graphql-introspection-json-to-sdl
 graphqurl
 hopa
 iectrl
 jscodeshift
 json
 lerna
+netlify-cli
 node-dev
 nodemon
 np
@@ -29,7 +26,6 @@ ntl
 package-size
 pm2
 prettier
-react-native-cli
 release
 serve
 serverless
@@ -39,6 +35,7 @@ svgo
 tldr
 ts-node
 tsm
+tsx
 typescript
 uuid
 vercel

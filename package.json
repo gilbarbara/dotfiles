@@ -15,7 +15,7 @@
     "url": "https://github.com/gilbarbara/dotfiles/issues"
   },
   "homepage": "https://github.com/gilbarbara/dotfiles#readme",
-	"scripts": {
-		"dump": "brew bundle dump --force && npmdump"
-	}
+  "scripts": {
+    "dump": "brew bundle dump --force && npmdump"
+  }
 }
