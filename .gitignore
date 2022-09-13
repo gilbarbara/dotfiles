@@ -70,7 +70,7 @@ xcuserdata/
 .Trashes
 
 # Sensitive data
-.npmrc
+~/.npmrc
 .config/configstore
 .config/hub
 .config/gatsby

@@ -1,33 +1,11 @@
+# Fig pre block. Keep at the top of this file.
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 # Load ~/.extra, ~/.bash_prompt, ~/.exports, ~/.aliases and ~/.functions
 # ~/.extra can be used for settings you don’t want to commit
 for file in ~/.{zshrc_config,exports,aliases,functions,extra}; do
 	[ -r "$file" ] && source "$file"
 done
 unset file
-
-# init fnm
-export FNM_DIR=/usr/local/fnm
-eval "$(fnm env)"
-
-### Paths
-
-# Ruby paths
-export RUBY_PATH="$(brew --prefix)/opt/ruby/bin"
-export GEM_HOME="$(brew --prefix)/opt/gems"
-export GEM_PATH="$GEM_HOME/bin"
-
-# PHP path
-# export PHP_PATH="$(brew --prefix)/opt/php/bin"
-export PHP_PATH="$(brew --prefix)/opt/php@7.4/bin"
-
-PATH="./node_modules/.bin:$PATH"
-PATH="$(brew --prefix)/sbin:$PATH"
-PATH="$(brew --prefix)/opt/coreutils/libexec/gnubin:$PATH"
-PATH="$PHP_PATH:$PATH"
-PATH="$RUBY_PATH:$PATH"
-PATH="$GEM_PATH:$PATH"
-
-### Completions
 
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2)" scp sftp ssh
@@ -54,4 +32,12 @@ PATH="$GEM_PATH:$PATH"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-eval "$(pyenv init -)"
+# bun completions
+[ -s "/Users/gilbarbara/.bun/_bun" ] && source "/Users/gilbarbara/.bun/_bun"
+
+# bun
+export BUN_INSTALL="/Users/gilbarbara/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Fig post block. Keep at the bottom of this file.
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"

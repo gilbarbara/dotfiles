@@ -15,7 +15,6 @@ export GPG_TTY=$(tty)
 export HISTIGNORE="ls:ls *:cd:cd -:pwd;exit:date:* --help"
 
 # Brew options
-export HOMEBREW=/usr/local
 export HOMEBREW_CASK_OPTS="--no-quarantine"
 
 # NPM Global path
