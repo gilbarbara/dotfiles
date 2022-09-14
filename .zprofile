@@ -31,6 +31,8 @@ PATH="$PHP_PATH:$PATH"
 PATH="$RUBY_PATH:$PATH"
 PATH="$GEM_PATH:$PATH"
 PATH="$GOPATH:$PATH"
+PATH="/usr/local/bin:$PATH"
+
 # Volta paths
 # export VOLTA_HOME="$HOME/.volta"
 # PATH="$VOLTA_HOME/bin:$PATH"

@@ -7,25 +7,25 @@ run_tools() {
 	fi
 
 	e_process "Installing chmodr"
-	sudo cp -p ./bin/chmodr.sh /usr/local/bin/chmodr
+	sudo cp -p ./bin/chmodr.sh $(brew --prefix)/bin/chmodr
 
 	e_process "Installing colors"
-	sudo cp -p ./bin/colors.sh /usr/local/bin/colors
+	sudo cp -p ./bin/colors.sh $(brew --prefix)/bin/colors
 
 	e_process "Installing create-certificate"
-	sudo cp ./bin/create-certificate.sh /usr/local/bin/create-certificate
+	sudo cp ./bin/create-certificate.sh $(brew --prefix)/bin/create-certificate
 
 	e_process "Installing docker-start"
-	sudo cp -p ./bin/docker-start.sh /usr/local/bin/docker-start
+	sudo cp -p ./bin/docker-start.sh $(brew --prefix)/bin/docker-start
 
 	e_process "Installing npmdump"
-	sudo cp -p ./bin/npmdump.js /usr/local/bin/npmdump
+	sudo cp -p ./bin/npmdump.js $(brew --prefix)/bin/npmdump
 
 	e_process "Installing search"
-	sudo cp -p ./bin/search.sh /usr/local/bin/search
+	sudo cp -p ./bin/search.sh $(brew --prefix)/bin/search
 
 	e_process "Installing service"
-	sudo cp -p ./bin/service.sh /usr/local/bin/service
+	sudo cp -p ./bin/service.sh $(brew --prefix)/bin/service
 
 	[[ $? ]] && e_success "Done"
 }

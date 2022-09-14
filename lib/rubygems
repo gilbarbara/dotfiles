@@ -2,7 +2,7 @@
 
 run_rubygems() {
     e_process "Updating to latest Rubygems version"
-    gem update --system
+    sudo gem update --system
 
     if [ "$(gem list -i bundler >> /dev/null)" -eq 1 ]; then
     	e_process "Installing Bundler to install project-specific Ruby gems ..."
