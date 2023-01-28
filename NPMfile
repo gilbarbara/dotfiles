@@ -1,11 +1,8 @@
 @types/node
-aws-sdk
-aws4
 bundle-phobia-cli
 check-side-effects
 codesandbox
 corepack
-create-next-app
 depcheck
 firebase-tools
 gitbook-cli
@@ -39,4 +36,3 @@ tsx
 typescript
 uuid
 vercel
-webpack-bundle-analyzer

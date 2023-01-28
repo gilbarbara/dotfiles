@@ -18,11 +18,6 @@ run_rubygems() {
     	gem install colorls
     fi
 
-    if [ "$(gem list -i travis >> /dev/null)" -eq 1 ]; then
-    	e_process "Installing travis"
-    	gem install travis
-    fi
-
     if [ "$(gem list -i wordmove >> /dev/null)" -eq 1 ]; then
     	e_process "Installing wordmove"
     	gem install wordmove

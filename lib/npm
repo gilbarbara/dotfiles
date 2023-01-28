@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-IFS=$'\n' npm_packages=($(cat NPMfile))
+IFS=$'\n' npm_packages=("$(cat NPMfile)")
 # read -d'\n' -r npm_packages < NPMfile
 
 # Install node packages
