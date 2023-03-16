@@ -1,3 +1,5 @@
+@githubnext/github-copilot-cli
+@skypack/package-check
 @types/node
 bundle-phobia-cli
 check-side-effects

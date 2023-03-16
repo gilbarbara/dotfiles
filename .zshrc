@@ -41,6 +41,9 @@ unset file
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+# Install GitHub Copilot alises
+eval "$(github-copilot-cli alias -- "$0")"
+
 # bun completions
 [ -s "/Users/gilbarbara/.bun/_bun" ] && source "/Users/gilbarbara/.bun/_bun"
 

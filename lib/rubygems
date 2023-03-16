@@ -18,10 +18,5 @@ run_rubygems() {
     	gem install colorls
     fi
 
-    if [ "$(gem list -i wordmove >> /dev/null)" -eq 1 ]; then
-    	e_process "Installing wordmove"
-    	gem install wordmove
-    fi
-
     [[ $? ]] && e_success "Done"
 }
