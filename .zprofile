@@ -1,6 +1,11 @@
 # Fig pre block. Keep at the top of this file.
 [[ -f "$HOME/.fig/shell/zprofile.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zprofile.pre.zsh"
-eval "$(/opt/homebrew/bin/brew shellenv)"
+
+if type /opt/homebrew/bin/brew >/dev/null 2>&1; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+else
+  eval "$(/usr/local/bin/brew shellenv)"
+fi
 
 # init fnm
 export FNM_DIR=/usr/local/fnm
@@ -36,6 +41,9 @@ PATH="/usr/local/bin:$PATH"
 # Volta paths
 # export VOLTA_HOME="$HOME/.volta"
 # PATH="$VOLTA_HOME/bin:$PATH"
+
+# Added by OrbStack: command-line tools and integration
+source ~/.orbstack/shell/init.zsh 2>/dev/null || :
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zprofile.post.zsh" ]] && builtin source "$HOME/.fig/shell/zprofile.post.zsh"
