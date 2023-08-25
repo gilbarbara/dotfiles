@@ -1,24 +1,43 @@
 #!/usr/bin/env node
 
-const { spawn } = require('child_process');
+const { execSync, spawn } = require('child_process');
 const { writeFileSync } = require('fs');
 
-const dump = spawn('npm', ['ls', '-g', '--depth=0', '--json']);
+(() => {
+  try {
+    const list = execSync('pnpm ls -g --depth=0 --json').toString();
 
-dump.stdout.on('data', (data) => {
-	const packages = JSON.parse(data);
+    const [result] = JSON.parse(list);
 
-	const entries = Object.entries(packages.dependencies)
-		.filter(([key, value]) => key !== 'npm' && !value.resolved)
-		.map(([key]) => key);
+    const packages = Object.keys(result.dependencies)
 
-	writeFileSync('NPMfile', entries.join('\n'), 'utf-8')
-});
+	  writeFileSync('NPMfile', packages.join('\n'), 'utf-8')
 
-dump.stderr.on('data', (data) => {
-	console.error(data);
-});
+    process.exit(0);
+  } catch (error) {
+    console.error(error);
+    process.exit(1);
+  }
+})();
 
-dump.on('close', (code) => {
-	process.exit(code);
-});
+// const dump = spawn('pnpm', ['ls', '-g', '--depth=0', '--json']);
+//
+// dump.stdout.on('data', (data) => {
+//   // console.log(data.toString());
+//   return;
+// 	const packages = JSON.parse(data)[0];
+//
+// 	const entries = Object.entries(packages.dependencies)
+// 		.filter(([key, value]) => key !== 'npm' && !value.resolved)
+// 		.map(([key]) => key);
+//
+// 	writeFileSync('NPMfile', entries.join('\n'), 'utf-8')
+// });
+//
+// dump.stderr.on('data', (data) => {
+// 	console.error(data);
+// });
+//
+// dump.on('close', (code) => {
+// 	process.exit(code);
+// });

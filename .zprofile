@@ -11,6 +11,14 @@ fi
 export FNM_DIR=/usr/local/fnm
 eval "$(fnm env)"
 
+# pnpm
+export PNPM_HOME="/Users/gilbarbara/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"

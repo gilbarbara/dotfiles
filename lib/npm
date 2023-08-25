@@ -1,23 +1,23 @@
 #!/usr/bin/env zsh
 
-IFS=$'\n' npm_packages=("$(cat NPMfile)")
-# read -d'\n' -r npm_packages < NPMfile
+NPM_PACKAGES=("$(cat NPMfile)")
 
 # Install node packages
 run_npm() {
   e_process "Getting installed packages"
-  packages=$(npm ls -g -j --depth=0 2>/dev/null)
 
-  for i in "${npm_packages[@]}"; do
-    version=$(echo "$packages" | jq -r '.dependencies."'"$i"'".version')
-    peerMissing=$(echo "$packages" | jq -r '.dependencies."'"$i"'".peerMissing')
+  INSTALLED_PACKAGES=$(pnpm ls -g -j --depth=0 2>/dev/null)
 
-echo "$i"
-    if [[ "$version" == "null" ]] && [[ "$peerMissing" == "null" ]]; then
-      e_process "Installing $i"
-      npm install -g "$i"
+  while IFS= read -r package; do
+    version=$(echo "$INSTALLED_PACKAGES" | jq -r '.[0].dependencies."'"$package"'".version')
+
+    echo "$package"
+
+    if [[ "$version" == "null" ]]; then
+      e_process "Installing"
+      pnpm install -g -s "$package"
     else
-      e_warning "$i already installed"
+      e_warning "Already installed"
     fi
-  done
+  done <<< "$NPM_PACKAGES"
 }
