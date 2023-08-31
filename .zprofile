@@ -12,7 +12,7 @@ export FNM_DIR=/usr/local/fnm
 eval "$(fnm env)"
 
 # pnpm
-export PNPM_HOME="/Users/gilbarbara/Library/pnpm"
+export PNPM_HOME="/usr/local/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
@@ -35,7 +35,7 @@ export GEM_PATH="$GEM_HOME/bin"
 # export PHP_PATH="$(brew --prefix)/opt/php/bin"
 export PHP_PATH="$(brew --prefix)/opt/php@7.4/bin"
 
-export GOPATH="/Users/gilbarbara/Documents/Go"
+export GOPATH="$HOME/Documents/Go"
 
 PATH="./node_modules/.bin:$PATH"
 PATH="$(brew --prefix)/sbin:$PATH"
@@ -45,10 +45,6 @@ PATH="$RUBY_PATH:$PATH"
 PATH="$GEM_PATH:$PATH"
 PATH="$GOPATH:$PATH"
 PATH="/usr/local/bin:$PATH"
-
-# Volta paths
-# export VOLTA_HOME="$HOME/.volta"
-# PATH="$VOLTA_HOME/bin:$PATH"
 
 # Added by OrbStack: command-line tools and integration
 source ~/.orbstack/shell/init.zsh 2>/dev/null || :

@@ -115,6 +115,7 @@ alias tw='npm run test:watch'
 
 alias ncus='ncu --dep=prod,dev'
 alias ncup='ncu -ui --dep=prod,dev --format group'
+alias ncug='ncu -g -p pnpm'
 
 alias coverage='open coverage/lcov-report/index.html'
 alias reinstall='rm -rf node_modules package-lock.json && npm i'
