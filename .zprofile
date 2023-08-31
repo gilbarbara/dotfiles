@@ -38,13 +38,10 @@ export PHP_PATH="$(brew --prefix)/opt/php@7.4/bin"
 export GOPATH="$HOME/Documents/Go"
 
 PATH="./node_modules/.bin:$PATH"
-PATH="$(brew --prefix)/sbin:$PATH"
-# PATH="$(brew --prefix)/opt/coreutils/libexec/gnubin:$PATH"
 PATH="$PHP_PATH:$PATH"
 PATH="$RUBY_PATH:$PATH"
 PATH="$GEM_PATH:$PATH"
 PATH="$GOPATH:$PATH"
-PATH="/usr/local/bin:$PATH"
 
 # Added by OrbStack: command-line tools and integration
 source ~/.orbstack/shell/init.zsh 2>/dev/null || :
