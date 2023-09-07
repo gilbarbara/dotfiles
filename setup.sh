@@ -133,4 +133,7 @@ run_npm
 e_process "Installing Tools"
 run_tools
 
+e_process "Installing Bun"
+curl -fsSL https://bun.sh/install | bash
+
 e_success "Your Mac is ready to rock!"
