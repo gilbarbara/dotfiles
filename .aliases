@@ -23,9 +23,6 @@ alias l='exa -lFh --git'
 # List files vertically including dotfiles
 alias la='exa -laFh --git'
 
-# List all files colorized in long format, including dot files
-alias ll='colorls -Al'
-
 # List only directories
 alias lsd='exa -laFDh --git'
 

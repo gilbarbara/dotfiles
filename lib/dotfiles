@@ -1,37 +1,39 @@
 #!/usr/bin/env zsh
 
-dotfiles=(.ackrc .aliases .bash_colors .bash_completion .bash_profile .bash_prompt .bashrc .editorconfig .exports .functions .gitattributes .gitconfig .gitignore .inputrc .nanorc .npmrc .osx .vim .vimrc .zprofile .zshrc .zshrc_config)
-
-# TODO: update .config setup, create the directory if doesn't exist and symlink the files in this repo
+dotfiles=(.ackrc .aliases .bash_colors .bash_completion .bash_profile .bash_prompt .bashrc .editorconfig .exports .functions .gitattributes .gitconfig .gitignore .inputrc .nanorc .osx .vim .vimrc .zprofile .zshrc .zshrc_config)
 
 # Install dotfiles
 run_dotfiles() {
+  if [ -f "$HOME/.npmrc" ]; then
+		e_warning ".npmrc already exists, do it manually"
+	else
+		cp "$HOME/.dotfiles/.npmrc" ~
+		e_success ".npmrc created"
+	fi
+
 	for i in "${dotfiles[@]}"; do
-		if [[ "$i" == ".gitconfig" && -f ~/.gitconfig && "$USER" != "gilbarbara" ]]; then
-			e_warning ".gitconfig already exists, do it manually"
-		elif [[ "$i" == ".npmrc" && -f ~/.npmrc && "$USER" != "gilbarbara" ]]; then
-			e_warning ".npmrc already exists, do it manually"
-		else
-			if [ ! -L "$HOME/$i" ] ; then
-				if [ -e "$HOME/$i" ]; then
-					e_warning "Removing $i"
+    if [ ! -L "$HOME/$i" ] ; then
+      if [ -f "$HOME/$i" ]; then
+        e_warning "Removing $i"
 
-					rm -rf ~/"$i"
-				fi
+        rm -rf ~/"$i"
+      fi
 
-				ln -s "$HOME/.dotfiles/$i" ~
-				e_success "Link to $i created"
-			fi
-		fi
+      ln -s "$HOME/.dotfiles/$i" ~
+      e_success "Link to $i created"
+    fi
 	done
+
+  if [ ! -d "$HOME/config" ] ; then
+    echo "Creating ~/.config"
+    mkdir -p "$HOME/.config"
+  fi
 
 	for entry in ".config"/*
 	do
 		if [ ! -L "$HOME/$entry" ] ; then
-			echo "$entry"
-			ln -s ~/.dotfiles/"$entry" "$HOME/.config/"
+			echo "Linking $entry"
+			ln -s "$HOME/.dotfiles/$entry" "$HOME/.config/"
 		fi
 	done
-
-	source "$HOME/.zshrc"
 }

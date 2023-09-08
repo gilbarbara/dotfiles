@@ -16,7 +16,7 @@ for i in "${libs[@]}"; do
 done
 
 if ! type_exists gcc; then
-	echo "GCC"
+	echo "GCC is missing"
 fi
 
 if array_contains "$1" "${libs[@]}"; then
@@ -25,6 +25,8 @@ if array_contains "$1" "${libs[@]}"; then
     if is_confirmed; then
         run_"$1"
     fi
+
+  	source "$HOME/.zshrc"
     exit
 else
   seek_confirmation "Do you want to proceed with the installation"
@@ -37,12 +39,11 @@ fi
 echo "Authentication required..."
 
 sudo -v
-# sudo chown -R "$USER" /usr/local/
 
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
   echo "Installing oh-my-zsh..."
-  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-  ln -s ~/.dotfiles/files/kollectiv.zsh-theme ~/.oh-my-zsh/themes/kollectiv.zsh-theme
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+  ln -s "$HOME/.dotfiles/files/kollectiv.zsh-theme" ~/.oh-my-zsh/themes/kollectiv.zsh-theme
 fi
 
 #        __      __  _____ __
@@ -72,12 +73,18 @@ fi
 #   (__  ) /_/ /  / /_/ / /__/ /_/ /_/ / /  /  __/
 #  /____/\__/_/   \__,_/\___/\__/\__,_/_/   \___/
 
-mkdir -p ~/code
-mkdir -p ~/demos
-mkdir -p ~/forks
-mkdir -p ~/packages
-mkdir -p ~/repos
-mkdir -p ~/works
+mkdir -p "$HOME/code"
+mkdir -p "$HOME/demos"
+mkdir -p "$HOME/forks"
+mkdir -p "$HOME/packages"
+mkdir -p "$HOME/repos"
+mkdir -p "$HOME/works"
+
+sudo mkdir -p /usr/local/pnpm
+sudo chown -R $(whoami) /usr/local/pnpm
+
+sudo mkdir -p /usr/local/fnm
+sudo chown -R $(whoami) /usr/local/fnm
 
 # Before relying on Homebrew, check that packages can be compiled
 if ! type_exists 'gcc'; then
@@ -137,3 +144,5 @@ e_process "Installing Bun"
 curl -fsSL https://bun.sh/install | bash
 
 e_success "Your Mac is ready to rock!"
+
+exec zsh -l
