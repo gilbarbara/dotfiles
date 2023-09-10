@@ -35,13 +35,6 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 # Install GitHub Copilot alises
 eval "$(github-copilot-cli alias -- "$0")"
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
-# bun completions
-[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
-
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '$HOME/code/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/code/google-cloud-sdk/path.zsh.inc'; fi
