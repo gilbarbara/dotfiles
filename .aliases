@@ -80,6 +80,12 @@ alias gptags="git push && git push --tags"
 
 alias recursive-pull="find . -type d -name .git -exec git --git-dir={} --work-tree=\$PWD/{}/.. pull \;"
 
+# pnpm aliases
+alias pni='pnpm install'
+alias pna='pnpm add'
+alias pnad='pnpm add -D'
+alias pnrm='pnpm remove'
+
 # npm aliases
 alias ni='npm install'
 alias nid='npm install --save-dev'
@@ -136,7 +142,7 @@ alias unused='depcheck'
 alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
 
 # ping only once and die
-alias pi="ping -o"
+alias pio="ping -o"
 
 # File size
 alias fs="stat -f \"%z bytes\""
