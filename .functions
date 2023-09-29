@@ -29,7 +29,7 @@ function ff() {
 
 # List octal permissions with stat
 function lo() {
-  stat -c "%A %a %n" "${1-*}"
+  stat -f "%A %a %n" "${1-*}"
 }
 
 # Add octal permission to ls
@@ -41,7 +41,7 @@ function cdf() { # short for cdfinder
 }
 
 # git log with per-commit cmd-clickable GitHub URLs (iTerm)
-function gf() {
+function gfc() {
   local remote="$(git remote -v | awk '/^origin.*\(push\)$/ {print $2}')"
   [[ "$remote" ]] || return
   local user_repo="$(echo "$remote" | perl -pe 's/.*://;s/\.git$//')"
@@ -90,28 +90,10 @@ function body() {
   fi
 }
 
-function cask() {
-  if [ "$1" == "search" ]; then
-    brew search "$2"
-  elif [ -z "$2" ]; then
-    brew cask "$1"
-  else
-    brew cask "$1" "$2"
-  fi
-}
-
 # take this repo and copy it to somewhere else minus the .git stuff.
 function gitexport() {
   mkdir -p "$1"
   git archive master | tar -x -C "$1"
-}
-
-function cra() {
-  npx create-react-app "$@" --use-npm --template cra-template-pwa
-}
-
-function crats() {
-  npx create-react-app "$@" --use-npm --template cra-template-pwa-typescript
 }
 
 # get gzipped size
@@ -186,4 +168,18 @@ function extract() {
 docker-cleanup() {
   docker rm -v "$(docker ps --filter status=exited -q 2>/dev/null)" 2>/dev/null
   docker rmi "$(docker images --filter dangling=true -q 2>/dev/null)" 2>/dev/null
+}
+
+function p() {
+  if [[ -f bun.lockb ]]; then
+    command bun "$@"
+  elif [[ -f pnpm-lock.yaml ]]; then
+    command pnpm "$@"
+  elif [[ -f yarn.lock ]]; then
+    command yarn "$@"
+  elif [[ -f package-lock.json ]]; then
+    command npm "$@"
+  else
+    command pnpm "$@"
+  fi
 }
