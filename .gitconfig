@@ -1,20 +1,23 @@
 [alias]
   amend = commit --amend
   br = branch
+  bra = branch -a
   c = commit -am
   co = checkout
+  conf = config --global --edit
   cp = cherry-pick
   df = diff --color --color-words --abbrev
-  dl = pull
+  dl = pull --rebase
   f = "!git ls-files | grep -i"
   ignored = ls-files -o -i --exclude-standard
   la = "!git config -l | grep alias | cut -c 7-"
   ll = log --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --numstat
   ls = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-  oops = commit --amend --no-edit
+  oops = commit -a --amend --no-edit
   open = browse
   out = log @{u}..
   prune = fetch --prune
+  rh = reset HEAD
   s = status -s
   tags = tag -l
   undo = reset --soft HEAD^
