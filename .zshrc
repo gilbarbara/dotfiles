@@ -1,6 +1,3 @@
-# Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
-
 if type brew &>/dev/null
 then
   FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
@@ -40,7 +37,3 @@ eval "$(github-copilot-cli alias -- "$0")"
 if [ -f '$HOME/code/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/code/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '$HOME/code/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/code/google-cloud-sdk/completion.zsh.inc'; fi
-
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
