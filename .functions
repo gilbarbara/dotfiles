@@ -5,9 +5,9 @@ function md() {
 
 function tree() {
   if [ -z "$1" ]; then
-    exa -a --long --tree --level=2
+    eza -a --long --tree --level=2
   else
-    exa -a --long --tree --level="$1"
+    eza -a --long --tree --level="$1"
   fi
 }
 

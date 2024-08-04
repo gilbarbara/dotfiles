@@ -30,7 +30,7 @@ brew "docker-clean"
 brew "docker-machine", restart_service: true
 brew "duf"
 brew "dust"
-brew "exa"
+brew "eza"
 brew "findutils"
 brew "fnm"
 brew "fzf"

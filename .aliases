@@ -11,26 +11,20 @@ alias -- -="cd -"
 alias please=sudo
 alias hosts='sudo $EDITOR /etc/hosts'   # yes I occasionally 127.0.0.1 twitter.com ;)
 
-# List files horizontally including dotfiles
-alias lh='exa -aF'
-
-# List files horizontally and across including dotfiles
-alias lha='exa -aFx'
-
 # List files vertically
-alias l='exa -lFh --git'
+alias l='eza -lh --git'
 
 # List files vertically including dotfiles
-alias la='exa -laFh --git'
+alias la='eza -lah --git'
 
 # List only directories
-alias lsd='exa -laFDh --git'
+alias lsd='eza -laDh --git'
 
 # List only files
-alias lf='exa -laFh --git'
+alias lf='eza -lah --git'
 
 # List order by time desc
-alias lt='exa -laFh --git --sort=oldest'
+alias lt='eza -lah --git --sort=oldest'
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
