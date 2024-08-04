@@ -67,6 +67,6 @@ ZSH_THEME="kollectiv"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(alias-finder aws bbedit brew docker dotenv flutter fnm fzf git httpie laravel npm pip thefuck wp-cli yarn zoxide)
+plugins=(alias-finder aws bbedit brew dirhistory docker dotenv flutter fnm fzf git httpie laravel npm pip pnpm thefuck wp-cli yarn you-should-use zoxide zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
