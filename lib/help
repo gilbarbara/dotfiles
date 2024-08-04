@@ -6,17 +6,16 @@ cat <<EOT
 
 
 Options:
-    -h, --help		Print this help text
-    --no-log		Suppress verbose logging
-    --no-apps		Suppress application installs
-    apps			Install apps only
-    brew			Install brew packages
-    dotfiles		Symlink dotfiles
-    fonts			Install fonts
-    npm				Install NPM global packages
-    quicklook		Install QL plugins
-    ruby			Install gems
-    tools			Install bash tools
+    -h, --help  Print this help text
+    --no-log    Suppress verbose logging
+    --no-apps   Suppress application installs
+    brew        Install brew packages
+    dotfiles    Symlink dotfiles
+    npm         Install NPM global packages
+    oh-my-zsh   Install oh-my-zsh
+    rubygems    Install gems
+    structure   Create directory structure
+    tools       Install bash tools
 
 Documentation can be found at https://github.com/gilbarbara/dotfiles
 

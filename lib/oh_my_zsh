@@ -1,0 +1,18 @@
+#!/usr/bin/env zsh
+
+run_oh_my_zsh() {
+  if [ ! -d "$HOME/.oh-my-zsh" ]; then
+    echo "Installing oh-my-zsh..."
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+  fi
+
+  ZSH_CUSTOM=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}
+
+  echo "Linking kollectiv.zsh-theme..."
+  ln -s "$HOME/.dotfiles/files/kollectiv.zsh-theme" "$ZSH_CUSTOM/themes/kollectiv.zsh-theme"
+
+  echo "Downloading plugins..."
+  git clone --depth=1 https://github.com/ntnyq/omz-plugin-pnpm.git "$ZSH_CUSTOM/plugins/pnpm"
+  git clone https://github.com/MichaelAquilina/zsh-you-should-use.git "$ZSH_CUSTOM/plugins/you-should-use"
+  git clone https://github.com/zsh-users/zsh-autosuggestions "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
+}

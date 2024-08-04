@@ -1,6 +1,9 @@
 #!/usr/bin/env zsh
 
-libs=(brew dotfiles npm rubygems tools)
+libs=(brew dotfiles oh_my_zsh npm rubygems structure tools)
+
+# Load utils
+source ./lib/utils
 
 # Help text
 source ./lib/help
@@ -9,15 +12,18 @@ if [[ "$1" == "-h" || "$1" == "--help" ]]; then
     exit
 fi
 
-source ./lib/utils
 # Source the necessary files and helper scripts
 for i in "${libs[@]}"; do
     source ./lib/"$i"
 done
 
 if ! type_exists gcc; then
-	echo "GCC is missing"
+    echo "GCC is missing"
 fi
+
+echo "Authentication required..."
+
+sudo -v
 
 if array_contains "$1" "${libs[@]}"; then
     seek_confirmation "Do you want to install $1"
@@ -29,21 +35,21 @@ if array_contains "$1" "${libs[@]}"; then
   	source "$HOME/.zshrc"
     exit
 else
-  seek_confirmation "Do you want to proceed with the installation"
+    seek_confirmation "Do you want to proceed with the installation"
 
-  if ! is_confirmed; then
-    exit
-  fi
+    if ! is_confirmed; then
+      exit
+    fi
 fi
 
-echo "Authentication required..."
+seek_confirmation "Install oh-my-zsh, plugins and themes"
 
-sudo -v
+if is_confirmed; then
+    # Symlink all necessary files
 
-if [ ! -d "$HOME/.oh-my-zsh" ]; then
-  echo "Installing oh-my-zsh..."
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-  ln -s "$HOME/.dotfiles/files/kollectiv.zsh-theme" ~/.oh-my-zsh/themes/kollectiv.zsh-theme
+    run_oh_my_zsh
+
+    e_success "Oh-my-zsh has been installed"
 fi
 
 #        __      __  _____ __
@@ -73,18 +79,13 @@ fi
 #   (__  ) /_/ /  / /_/ / /__/ /_/ /_/ / /  /  __/
 #  /____/\__/_/   \__,_/\___/\__/\__,_/_/   \___/
 
-mkdir -p "$HOME/code"
-mkdir -p "$HOME/demos"
-mkdir -p "$HOME/forks"
-mkdir -p "$HOME/packages"
-mkdir -p "$HOME/repos"
-mkdir -p "$HOME/works"
+seek_confirmation "Setup HOME directory structure and global links?"
 
-sudo mkdir -p /usr/local/pnpm
-sudo chown -R $(whoami) /usr/local/pnpm
+if is_confirmed; then
+    run_structure
 
-sudo mkdir -p /usr/local/fnm
-sudo chown -R $(whoami) /usr/local/fnm
+    e_success "Structure completed"
+fi
 
 # Before relying on Homebrew, check that packages can be compiled
 if ! type_exists 'gcc'; then

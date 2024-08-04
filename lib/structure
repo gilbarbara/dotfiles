@@ -1,0 +1,16 @@
+#!/usr/bin/env zsh
+
+run_structure() {
+  mkdir -p "$HOME/code"
+  mkdir -p "$HOME/demos"
+  mkdir -p "$HOME/forks"
+  mkdir -p "$HOME/packages"
+  mkdir -p "$HOME/repos"
+  mkdir -p "$HOME/works"
+
+  sudo mkdir -p /usr/local/pnpm
+  sudo chown -R $(whoami) /usr/local/pnpm
+
+  sudo mkdir -p /usr/local/fnm
+  sudo chown -R $(whoami) /usr/local/fnm
+}
