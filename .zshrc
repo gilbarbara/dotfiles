@@ -8,7 +8,7 @@ fi
 
 # Load ~/.extra, ~/.bash_prompt, ~/.exports, ~/.aliases and ~/.functions
 # ~/.extra can be used for settings you don’t want to commit
-for file in ~/.{zshrc_config,exports,aliases,functions,extra}; do
+for file in ~/.{oh-my-zsh-config,zshrc-config,exports,aliases,functions,extra}; do
 	[ -r "$file" ] && source "$file"
 done
 unset file
@@ -30,9 +30,6 @@ unset file
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-# Install GitHub Copilot alises
-eval "$(github-copilot-cli alias -- "$0")"
-
 # tabtab source for packages
 # uninstall by removing these lines
 [[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
@@ -42,3 +39,6 @@ if [ -f '/Users/gilbarbara/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/gilb
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/gilbarbara/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/gilbarbara/google-cloud-sdk/completion.zsh.inc'; fi
+
+# Add GH Copilot aliases
+eval "$(gh copilot alias -- zsh)"
