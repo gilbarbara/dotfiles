@@ -8,6 +8,11 @@
 out/
 local.properties
 
+# AI Ignores #
+##############
+.claude/*
+.agent/*
+
 # Modules and Caches
 ###########################
 .sass-cache
@@ -55,6 +60,7 @@ Thumbs.db
 #######
 .svn
 .svn/
+.local/
 CVS
 
 # XCode 4 #
@@ -85,6 +91,5 @@ Brewfile.lock.json
 thumbs.db
 Desktop.ini
 # REMINDER: do not edit Icon^M^M Carriage Returns
-Icon[
-]
+Icon?
 #REMINDER
