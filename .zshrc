@@ -8,7 +8,7 @@ fi
 
 # Load ~/.extra, ~/.bash_prompt, ~/.exports, ~/.aliases and ~/.functions
 # ~/.extra can be used for settings you don’t want to commit
-for file in ~/.{oh-my-zsh-config,zshrc-config,exports,aliases,functions,extra}; do
+for file in ~/.{oh-my-zsh-config,exports,aliases,functions,extra}; do
 	[ -r "$file" ] && source "$file"
 done
 unset file
