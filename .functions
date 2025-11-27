@@ -5,9 +5,9 @@ function md() {
 
 function tree() {
   if [ -z "$1" ]; then
-    eza -a --long --tree --level=2
+    eza --tree --level=1
   else
-    eza -a --long --tree --level="$1"
+    eza --tree --level="$1"
   fi
 }
 
@@ -165,9 +165,15 @@ function extract() {
   fi
 }
 
-docker-cleanup() {
+function dcc() {
   docker rm -v "$(docker ps --filter status=exited -q 2>/dev/null)" 2>/dev/null
   docker rmi "$(docker images --filter dangling=true -q 2>/dev/null)" 2>/dev/null
+}
+
+function dre() {
+  docker-compose stop $1 2>/dev/null
+  docker-compose start $1 2>/dev/null
+  echo "Restarted the $1 container"
 }
 
 function p() {
