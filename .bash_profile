@@ -118,6 +118,4 @@ eval "$(hub alias -s)"
 
 eval "$(pyenv init --path)"
 
-eval $(thefuck --alias)
-
 eval "$(/opt/homebrew/bin/brew shellenv)"

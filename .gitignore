@@ -76,7 +76,6 @@ xcuserdata/
 .config/hub
 .config/gatsby
 .config/firebase
-.config/thefuck
 
 # OS generated files #
 ######################
@@ -86,5 +85,6 @@ Brewfile.lock.json
 thumbs.db
 Desktop.ini
 # REMINDER: do not edit Icon^M^M Carriage Returns
-Icon[]
+Icon[
+]
 #REMINDER
