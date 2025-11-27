@@ -20,15 +20,12 @@ alias la='eza -lah --git'
 # List only directories
 alias lsd='eza -laDh --git'
 
-# List only files
-alias lf='eza -lah --git'
-
 # List order by time desc
 alias lt='eza -lah --git --sort=oldest'
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias localip="ipconfig getifaddr en1"
+alias localip="ipconfig getifaddr en0"
 alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 
 # Enhanced WHOIS lookups
@@ -39,8 +36,8 @@ alias flush="sudo killall -HUP mDNSResponder"
 #alias flush="dscacheutil -flushcache"
 
 # View HTTP traffic
-alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
-alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
+alias sniff="sudo ngrep -d 'en0' -t '^(GET|POST) ' 'tcp and port 80'"
+alias httpdump="sudo tcpdump -i en0 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
 
 # Canonical hex dump; some systems have this symlinked
 type hd > /dev/null || alias hd="hexdump -C"
@@ -151,7 +148,5 @@ alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && k
 # PlistBuddy alias, because sometimes `defaults` just doesn’t cut it
 alias plistbuddy="/usr/libexec/PlistBuddy"
 
-# One of @janmoesen’s ProTip™s
-for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
-	alias "$method"="lwp-request -m '$method'"
-done
+# Unlock GPG
+alias ungpg="echo "test" | gpg --clearsign > /dev/null 2>&1"
