@@ -44,13 +44,11 @@ bower_components
 *.rar
 *.tar
 
-# Logs and databases #
+# Logs and environments #
 ######################
 .env
 log/
 *.log
-*.sql
-*.sqlite
 
 # Thumbnail cache files
 ._*
