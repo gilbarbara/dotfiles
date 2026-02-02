@@ -5,7 +5,7 @@ claude_plugins=(code-review commit-commands frontend-design pr-review-toolkit py
 claude_skills=(
   "agent-browser vercel-labs/agent-browser"
   "web-design-guidelines vercel-labs/agent-skills -s web-design-guidelines"
-  "vercel-react-best-practices vercel-labs/agent-skills -s react-best-practices"
+  "vercel-react-best-practices vercel-labs/agent-skills -s vercel-react-best-practices"
   "frontend-design anthropics/skills -s frontend-design"
   "dokploy clawdbot/skills -s dokploy"
   "find-skills vercel-labs/skills -s find-skills"
