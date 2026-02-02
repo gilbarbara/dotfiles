@@ -15,4 +15,5 @@ run_oh_my_zsh() {
   git clone --depth=1 https://github.com/ntnyq/omz-plugin-pnpm.git "$ZSH_CUSTOM/plugins/pnpm"
   git clone https://github.com/MichaelAquilina/zsh-you-should-use.git "$ZSH_CUSTOM/plugins/you-should-use"
   git clone https://github.com/zsh-users/zsh-autosuggestions "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
+  npx zsh-pnpm-completions --no-aliases
 }
