@@ -24,7 +24,7 @@ run_dotfiles() {
     fi
 	done
 
-  if [ ! -d "$HOME/config" ] ; then
+  if [ ! -d "$HOME/.config" ] ; then
     echo "Creating ~/.config"
     mkdir -p "$HOME/.config"
   fi
