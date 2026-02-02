@@ -15,14 +15,8 @@ run_tools() {
 	e_process "Installing create-certificate"
 	sudo cp ./bin/create-certificate.sh $(brew --prefix)/bin/create-certificate
 
-	e_process "Installing docker-start"
-	sudo cp -p ./bin/docker-start.sh $(brew --prefix)/bin/docker-start
-
 	e_process "Installing npmdump"
 	sudo cp -p ./bin/npmdump.js $(brew --prefix)/bin/npmdump
-
-	e_process "Installing search"
-	sudo cp -p ./bin/search.sh $(brew --prefix)/bin/search
 
 	e_process "Installing service"
 	sudo cp -p ./bin/service.sh $(brew --prefix)/bin/service
