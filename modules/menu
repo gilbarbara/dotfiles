@@ -1,0 +1,194 @@
+#!/usr/bin/env zsh
+
+# Restore cursor on exit
+cleanup() {
+    printf '\e[?25h'
+}
+trap cleanup EXIT
+trap 'cleanup; exit 130' INT TERM
+
+# Draw the multi-select menu
+draw_menu() {
+    local current=$MENU_CURRENT
+    local total=${#MODULE_ORDER[@]}
+
+    printf '\e[?25l'
+
+    for i in {1..$total}; do
+        local module="${MODULE_ORDER[$i]}"
+        local desc="${MODULE_DESCRIPTIONS[$module]}"
+        local checkbox=" "
+
+        if (( ${MENU_SELECTED[(I)$module]} )); then
+            checkbox="✓"
+        fi
+
+        printf '\e[2K\r'
+        if [[ $((i - 1)) -eq $current ]]; then
+            printf "$(tput setaf 6)▶ [${checkbox}] $(tput bold)%-12s$(tput sgr0)$(tput setaf 6) %s$(tput sgr0)\n" "$module" "$desc"
+        else
+            printf "  [${checkbox}] %-12s %s\n" "$module" "$desc"
+        fi
+    done
+
+    printf "\n\e[2K\r$(tput setaf 3)↑/↓ Navigate  SPACE Toggle  a All  n None  ENTER Confirm  q Quit$(tput sgr0)"
+}
+
+# Clear menu lines to redraw
+clear_menu() {
+    local lines=$(( ${#MODULE_ORDER[@]} + 1 ))
+    printf '\e[2K'
+    for i in {1..$lines}; do
+        printf '\e[1A\e[2K'
+    done
+    printf '\r'
+}
+
+# Interactive multi-select menu
+# Sets global SELECTED_MODULES array
+show_module_menu() {
+    MENU_CURRENT=0
+    MENU_SELECTED=("${MODULE_ORDER[@]}")
+    local total=${#MODULE_ORDER[@]}
+
+    printf "\n$(tput setaf 7)Select modules to install:$(tput sgr0)\n\n"
+
+    draw_menu
+
+    while true; do
+        read -s -k 1 key
+
+        case "$key" in
+            $'\e')
+                read -s -k 2 -t 0.1 rest
+                case "$rest" in
+                    '[A') # Up
+                        (( MENU_CURRENT-- ))
+                        [[ $MENU_CURRENT -lt 0 ]] && MENU_CURRENT=$((total - 1))
+                        ;;
+                    '[B') # Down
+                        (( MENU_CURRENT++ ))
+                        [[ $MENU_CURRENT -ge $total ]] && MENU_CURRENT=0
+                        ;;
+                esac
+                clear_menu
+                draw_menu
+                ;;
+            ' ') # Toggle
+                local module="${MODULE_ORDER[$((MENU_CURRENT + 1))]}"
+                if (( ${MENU_SELECTED[(I)$module]} )); then
+                    MENU_SELECTED=("${(@)MENU_SELECTED:#$module}")
+                else
+                    MENU_SELECTED+=("$module")
+                fi
+                clear_menu
+                draw_menu
+                ;;
+            a|A) # Select all
+                MENU_SELECTED=("${MODULE_ORDER[@]}")
+                clear_menu
+                draw_menu
+                ;;
+            n|N) # Select none
+                MENU_SELECTED=()
+                clear_menu
+                draw_menu
+                ;;
+            $'\n') # Confirm
+                clear_menu
+                printf '\e[?25h'
+                SELECTED_MODULES=("${MENU_SELECTED[@]}")
+                return 0
+                ;;
+            q|Q) # Quit
+                clear_menu
+                printf '\e[?25h'
+                exit 0
+                ;;
+        esac
+    done
+}
+
+# Resolve dependencies and build execution order
+# Reads SELECTED_MODULES, sets SORTED_MODULES
+resolve_dependencies() {
+    local -a result=()
+
+    for module in "${MODULE_ORDER[@]}"; do
+        if (( ${SELECTED_MODULES[(I)$module]} )); then
+            # Check deps
+            local deps="${MODULE_DEPS[$module]}"
+            if [[ -n "$deps" ]]; then
+                for dep in ${(s: :)deps}; do
+                    if ! (( ${SELECTED_MODULES[(I)$dep]} )); then
+                        e_warning "'$module' requires '$dep', adding it"
+                        SELECTED_MODULES+=("$dep")
+                    fi
+                    # Add dep to result if not already there
+                    if ! (( ${result[(I)$dep]} )); then
+                        result+=("$dep")
+                    fi
+                done
+            fi
+
+            if ! (( ${result[(I)$module]} )); then
+                result+=("$module")
+            fi
+        fi
+    done
+
+    SORTED_MODULES=("${result[@]}")
+}
+
+# Execute selected modules in order
+execute_modules() {
+    printf "\n$(tput setaf 7)Will install:$(tput sgr0)\n"
+    for module in "${SORTED_MODULES[@]}"; do
+        printf "  • %s - %s\n" "$module" "${MODULE_DESCRIPTIONS[$module]}"
+    done
+    printf "\n"
+
+    seek_confirmation "Proceed with installation"
+    if ! is_confirmed; then
+        exit 0
+    fi
+
+    echo "Authentication required..."
+    sudo -v
+
+    for module in "${SORTED_MODULES[@]}"; do
+        case "$module" in
+            brew)
+                if ! type_exists 'gcc'; then
+                    e_error "The XCode Command Line Tools must be installed first"
+                    printf "  run 'xcode-select --install' and follow the instructions\n"
+                    printf "  Then run this setup script again.\n"
+                    exit 1
+                fi
+
+                if ! type_exists 'brew'; then
+                    e_process "Installing Homebrew"
+                    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+                    eval "$(/opt/homebrew/bin/brew shellenv)"
+                fi
+
+                e_process "Installing Homebrew packages"
+                run_brew
+                ;;
+            dotfiles)
+                seek_confirmation "Overwrite your existing dotfiles"
+                if is_confirmed; then
+                    run_dotfiles
+                    e_success "All files have been symlinked"
+                else
+                    e_warning "Skipping dotfiles"
+                fi
+                ;;
+            *)
+                e_process "Installing ${module}"
+                run_"${module}"
+                e_success "${module} completed"
+                ;;
+        esac
+    done
+}

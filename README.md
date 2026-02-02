@@ -7,15 +7,12 @@ Inspired by [Mathias's dotfiles](https://github.com/mathiasbynens/dotfiles/), [P
 ## Installation
 
 ```bash
-git clone https://github.com/gilbarbara/dotfiles.git ~/.dotfiles && cd ~/.dotfiles && ./setup.sh
+git clone https://github.com/gilbarbara/dotfiles.git ~/.dotfiles && cd ~/.dotfiles && ./install
 ```
 
-Install individual modules:
-```bash
-./setup.sh module_name
-```
+Launches an interactive multi-select menu to choose which modules to install.
 
-Modules: `brew`, `dotfiles`, `npm`, `oh_my_zsh`, `rubygems`, `structure`, `tools`
+Modules: `brew`, `claude`, `dotfiles`, `npm`, `oh_my_zsh`, `rubygems`, `structure`, `tools`
 
 ## Private config
 

@@ -9,17 +9,8 @@ Personal dotfiles for macOS setup. Manages shell configuration (zsh with oh-my-z
 ## Setup Commands
 
 ```bash
-# Full installation (interactive, prompts for each step)
-./setup.sh
-
-# Install individual modules
-./setup.sh brew       # Homebrew packages (uses Brewfile)
-./setup.sh dotfiles   # Symlink dotfiles to home directory
-./setup.sh npm        # Global npm packages (uses NPMfile)
-./setup.sh oh_my_zsh  # Oh-my-zsh with plugins/themes
-./setup.sh rubygems   # Ruby gems
-./setup.sh structure  # Create ~/code, ~/repos, etc. directories
-./setup.sh tools      # Additional tools
+# Interactive multi-select menu
+./install
 
 # Apply macOS system preferences
 ./.osx
@@ -42,7 +33,7 @@ Personal dotfiles for macOS setup. Manages shell configuration (zsh with oh-my-z
 ### Key Files
 - `Brewfile` - Homebrew packages, casks, Mac App Store apps, VS Code extensions
 - `NPMfile` - Global npm packages (installed via pnpm)
-- `lib/` - Installation scripts for each module
+- `modules/` - Installation scripts for each module
 - `files/kollectiv.zsh-theme` - Custom oh-my-zsh theme
 
 ### Package Managers

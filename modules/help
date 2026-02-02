@@ -5,17 +5,24 @@ run_help() {
 cat <<EOT
 
 
+Usage: ./install [options]
+
+  Running without arguments launches an interactive multi-select menu.
+
 Options:
     -h, --help  Print this help text
     --no-log    Suppress verbose logging
     --no-apps   Suppress application installs
+
+Modules:
     brew        Install brew packages
+    claude      Setup Claude Code
     dotfiles    Symlink dotfiles
     npm         Install NPM global packages
     oh-my-zsh   Install oh-my-zsh
     rubygems    Install gems
     structure   Create directory structure
-    tools       Install bash tools
+    tools       Install shell tools
 
 Documentation can be found at https://github.com/gilbarbara/dotfiles
 

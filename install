@@ -1,0 +1,65 @@
+#!/usr/bin/env zsh
+
+libs=(brew claude dotfiles oh_my_zsh npm rubygems structure tools)
+
+# Module metadata
+declare -A MODULE_DESCRIPTIONS=(
+    [oh_my_zsh]="Oh-my-zsh with plugins and themes"
+    [dotfiles]="Symlink dotfiles to home directory"
+    [structure]="Create ~/code, ~/repos, etc. directories"
+    [brew]="Homebrew packages from Brewfile"
+    [rubygems]="Ruby gems (bundler, colorls)"
+    [npm]="Global npm packages via pnpm"
+    [tools]="Custom shell tools to Homebrew bin"
+    [claude]="Claude Code with plugins and skills"
+)
+
+declare -A MODULE_DEPS=(
+    [oh_my_zsh]=""
+    [dotfiles]=""
+    [structure]=""
+    [brew]=""
+    [rubygems]="brew"
+    [npm]="brew"
+    [tools]="brew"
+    [claude]="brew"
+)
+
+MODULE_ORDER=(oh_my_zsh dotfiles structure brew rubygems npm tools claude)
+
+# Load utils
+source ./modules/utils
+
+# Help text
+source ./modules/help
+if [[ "$1" == "-h" || "$1" == "--help" ]]; then
+    run_help
+    exit
+fi
+
+# Source the necessary files and helper scripts
+for i in "${libs[@]}"; do
+    source ./modules/"$i"
+done
+
+# Source menu
+source ./modules/menu
+
+if ! type_exists gcc; then
+    e_warning "GCC/XCode Command Line Tools not detected"
+fi
+
+# Interactive menu
+show_module_menu
+
+if [[ ${#SELECTED_MODULES[@]} -eq 0 ]]; then
+    e_error "No modules selected"
+    exit 1
+fi
+
+resolve_dependencies
+execute_modules
+
+e_success "Your Mac is ready to rock!"
+
+exec zsh -l
