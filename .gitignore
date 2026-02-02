@@ -13,6 +13,9 @@ local.properties
 .claude/*
 .agent/*
 
+# Beads stealth mode
+.beads/
+
 # Modules and Caches
 ###########################
 .sass-cache
@@ -89,5 +92,5 @@ Brewfile.lock.json
 thumbs.db
 Desktop.ini
 # REMINDER: do not edit Icon^M^M Carriage Returns
-Icon?
-#REMINDER
+Icon
+# REMINDER

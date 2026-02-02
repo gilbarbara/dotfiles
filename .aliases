@@ -110,7 +110,6 @@ alias reinstall='rm -rf node_modules package-lock.json && npm i'
 
 alias pipup='pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U'
 
-alias crna='expo init'
 alias bp='bundle-phobia'
 alias rl='release'
 
@@ -118,6 +117,7 @@ alias v="vim"
 
 alias run='serve -o'
 alias pks='package-size'
+alias br='agent-browser'
 
 alias dk='cd ~/Desktop'
 alias ~f='open ~/'
