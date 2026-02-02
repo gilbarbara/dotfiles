@@ -41,7 +41,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "afplay ~/Music/Sounds/taxi-whistle.mp3"
+            "command": "afplay ~/claude/sounds/stop.mp3"
           }
         ]
       }
