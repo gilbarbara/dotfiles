@@ -1,0 +1,59 @@
+#!/usr/bin/env zsh
+
+claude_plugins=(code-review commit-commands frontend-design pr-review-toolkit pyright-lsp typescript-lsp)
+
+claude_skills=(
+  "agent-browser vercel-labs/agent-browser"
+  "web-design-guidelines vercel-labs/agent-skills -s web-design-guidelines"
+  "vercel-react-best-practices vercel-labs/agent-skills -s react-best-practices"
+  "frontend-design anthropics/skills -s frontend-design"
+  "dokploy clawdbot/skills -s dokploy"
+  "find-skills vercel-labs/skills -s find-skills"
+  "skill-creator anthropics/skills -s skill-creator"
+)
+
+run_claude() {
+  if ! type_exists 'claude'; then
+    e_process "Installing Claude Code"
+    curl -fsSL https://claude.ai/install.sh | sh
+  fi
+
+  if [ ! -d "$HOME/.claude" ]; then
+    mkdir -p "$HOME/.claude"
+    e_success "Created ~/.claude"
+  fi
+
+  for entry in "claude"/*; do
+    if [ ! -L "$HOME/.claude/$(basename $entry)" ]; then
+      echo "Linking $entry"
+      ln -s "$HOME/.dotfiles/$entry" "$HOME/.claude/"
+    fi
+  done
+
+  e_success "Claude config files linked"
+
+  for plugin in "${claude_plugins[@]}"; do
+    e_process "Installing Claude plugin: $plugin"
+    claude plugin install "$plugin"
+  done
+
+  e_success "Claude plugins installed"
+
+  if type_exists 'npx'; then
+    for skill in "${claude_skills[@]}"; do
+      local skill_name="${skill%% *}"
+      local skill_args="${skill#* }"
+
+      if [ -d "$HOME/.claude/skills/$skill_name" ] || [ -L "$HOME/.claude/skills/$skill_name" ]; then
+        e_success "Skill $skill_name already installed"
+      else
+        e_process "Installing skill: $skill_name"
+        npx skills add ${=skill_args} -g -a claude-code -y
+      fi
+    done
+
+    e_success "Claude skills installed"
+  else
+    e_warning "npx not found, skipping skill install"
+  fi
+}

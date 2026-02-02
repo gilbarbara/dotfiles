@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-libs=(brew dotfiles oh_my_zsh npm rubygems structure tools)
+libs=(brew claude dotfiles oh_my_zsh npm rubygems structure tools)
 
 # Load utils
 source ./lib/utils
@@ -140,6 +140,16 @@ run_npm
 
 e_process "Installing Tools"
 run_tools
+
+#    ________                __
+#   / ____/ /___ ___  ______/ /__
+#  / /   / / __ `/ / / / __  / _ \
+# / /___/ / /_/ / /_/ / /_/ /  __/
+# \____/_/\__,_/\__,_/\__,_/\___/
+#
+
+e_process "Setting up Claude Code"
+run_claude
 
 e_success "Your Mac is ready to rock!"
 
