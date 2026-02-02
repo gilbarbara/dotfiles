@@ -116,17 +116,18 @@ resolve_dependencies() {
 
     for module in "${MODULE_ORDER[@]}"; do
         if (( ${SELECTED_MODULES[(I)$module]} )); then
-            # Check deps
-            local deps="${MODULE_DEPS[$module]}"
-            if [[ -n "$deps" ]]; then
-                for dep in ${(s: :)deps}; do
-                    if ! (( ${SELECTED_MODULES[(I)$dep]} )); then
-                        e_warning "'$module' requires '$dep', adding it"
-                        SELECTED_MODULES+=("$dep")
-                    fi
-                    # Add dep to result if not already there
-                    if ! (( ${result[(I)$dep]} )); then
-                        result+=("$dep")
+            local prereqs="${MODULE_PREREQS[$module]}"
+            if [[ -n "$prereqs" ]]; then
+                for bin in ${(s: :)prereqs}; do
+                    if ! type_exists "$bin"; then
+                        e_warning "'$module' requires '$bin' (not found), adding brew"
+                        if ! (( ${SELECTED_MODULES[(I)brew]} )); then
+                            SELECTED_MODULES+=(brew)
+                        fi
+                        if ! (( ${result[(I)brew]} )); then
+                            result+=(brew)
+                        fi
+                        break
                     fi
                 done
             fi

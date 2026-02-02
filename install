@@ -14,15 +14,15 @@ declare -A MODULE_DESCRIPTIONS=(
     [claude]="Claude Code with plugins and skills"
 )
 
-declare -A MODULE_DEPS=(
+declare -A MODULE_PREREQS=(
     [oh_my_zsh]=""
     [dotfiles]=""
     [structure]=""
     [brew]=""
-    [rubygems]="brew"
-    [npm]="brew"
+    [rubygems]="gem"
+    [npm]="pnpm jq"
     [tools]="brew"
-    [claude]="brew"
+    [claude]="npx"
 )
 
 MODULE_ORDER=(oh_my_zsh dotfiles structure brew rubygems npm tools claude)
