@@ -16,8 +16,8 @@
   },
   "homepage": "https://github.com/gilbarbara/dotfiles#readme",
   "scripts": {
-    "dump": "npm run brewdump && npm run npmdump",
+    "dump": "pnpm brewdump && pnpm pnpmdump",
     "brewdump": "brew bundle dump --force",
-    "npmdump": "npmdump"
+    "pnpmdump": "./bin/pnpmdump.js"
   }
 }

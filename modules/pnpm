@@ -1,9 +1,9 @@
 #!/usr/bin/env zsh
 
-NPM_PACKAGES=("$(cat NPMfile)")
+PNPM_PACKAGES=("$(cat PNPMfile)")
 
 # Install node packages
-run_npm() {
+run_pnpm() {
   e_process "Getting installed packages"
 
   INSTALLED_PACKAGES=$(pnpm ls -g -j --depth=0 2>/dev/null)
@@ -19,5 +19,5 @@ run_npm() {
     else
       e_warning "Already installed"
     fi
-  done <<< "$NPM_PACKAGES"
+  done <<< "$PNPM_PACKAGES"
 }

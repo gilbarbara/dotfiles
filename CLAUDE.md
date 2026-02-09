@@ -32,7 +32,7 @@ Personal dotfiles for macOS setup. Manages shell configuration (zsh with oh-my-z
 
 ### Key Files
 - `Brewfile` - Homebrew packages, casks, Mac App Store apps, VS Code extensions
-- `NPMfile` - Global npm packages (installed via pnpm)
+- `PNPMfile` - Global pnpm packages
 - `modules/` - Installation scripts for each module
 - `files/kollectiv.zsh-theme` - Custom oh-my-zsh theme
 

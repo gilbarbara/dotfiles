@@ -12,7 +12,7 @@ git clone https://github.com/gilbarbara/dotfiles.git ~/.dotfiles && cd ~/.dotfil
 
 Launches an interactive multi-select menu to choose which modules to install.
 
-Modules: `brew`, `claude`, `dotfiles`, `npm`, `oh_my_zsh`, `rubygems`, `structure`, `tools`
+Modules: `brew`, `claude`, `dotfiles`, `pnpm`, `oh_my_zsh`, `rubygems`, `structure`, `tools`
 
 ## Private config
 
@@ -30,7 +30,7 @@ Set sensible macOS defaults on a fresh machine:
 | File | Purpose |
 |------|---------|
 | `Brewfile` | Homebrew packages, casks, Mac App Store apps |
-| `NPMfile` | Global npm packages |
+| `PNPMfile` | Global pnpm packages |
 | `.zprofile` | Login shell setup (PATH, env vars) |
 | `.zshrc` | Interactive shell (sources other configs) |
 | `.oh-my-zsh-config` | Oh-my-zsh theme and plugins |

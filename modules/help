@@ -18,7 +18,7 @@ Modules:
     brew        Install brew packages
     claude      Setup Claude Code
     dotfiles    Symlink dotfiles
-    npm         Install NPM global packages
+    pnpm        Install PNPM global packages
     oh-my-zsh   Install oh-my-zsh
     rubygems    Install gems
     structure   Create directory structure

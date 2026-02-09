@@ -11,7 +11,7 @@ const { readFileSync, writeFileSync } = require('fs');
 
     const packages = Object.entries(result.dependencies).filter(([key, value]) => !value.version.startsWith('link:')).map(([key, value]) => key);
 
-	  writeFileSync('NPMfile', packages.join('\n'), 'utf-8')
+	  writeFileSync('PNPMfile', packages.join('\n'), 'utf-8')
 
     process.exit(0);
   } catch (error) {
