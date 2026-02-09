@@ -1,11 +1,6 @@
 #!/usr/bin/env zsh
 
 run_tools() {
-	if ! type_exists 'push'; then
-		e_process "Installing git-friendly"
-		sudo curl -sS https://raw.githubusercontent.com/jamiew/git-friendly/master/install.sh | bash
-	fi
-
 	e_process "Installing chmodr"
 	sudo cp -p ./bin/chmodr.sh $(brew --prefix)/bin/chmodr
 
