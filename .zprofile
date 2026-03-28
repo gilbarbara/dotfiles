@@ -35,3 +35,6 @@ export LOCAL_NODE_PATH="./node_modules/.bin"
 export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
 
 PATH="$LOCAL_PATH:$LOCAL_NODE_PATH:$PNPM_HOME:$GO_PATH:$GEM_PATH:$RUBY_PATH:$PHP_PATH:$PATH"
+
+# Added by Obsidian
+export PATH="$PATH:/Applications/Obsidian.app/Contents/MacOS"

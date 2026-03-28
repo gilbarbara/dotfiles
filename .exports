@@ -18,4 +18,12 @@ export HISTIGNORE="ls:ls *:cd:cd -:pwd;exit:date:* --help"
 export HOMEBREW_CASK_OPTS="--no-quarantine"
 
 # NPM Global path
-export NODE_PATH=/usr/local/lib/node_modules
+export NODE_PATH=/usr/local/fnm/aliases/default/lib/node_modules
+
+# XDG Base Directory Specification
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
+
+# Zoxide data directory
+export _ZO_DATA_DIR="$HOME/.config/zoxide"
