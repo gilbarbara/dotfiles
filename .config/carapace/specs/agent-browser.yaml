@@ -1,0 +1,265 @@
+# yaml-language-server: $schema=https://carapace.sh/schemas/command.json
+name: agent-browser
+description: fast browser automation CLI for AI agents
+persistentflags:
+  --session=: isolated session name
+  --profile=: persistent browser profile path
+  --state=: storage state JSON file path
+  --headers=: HTTP headers JSON
+  --executable-path=: custom browser executable
+  --extension=*: browser extension path (repeatable)
+  --args=: browser launch args
+  --user-agent=: custom User-Agent
+  --proxy=: proxy server URL
+  --proxy-bypass=: bypass proxy for hosts
+  --ignore-https-errors: ignore HTTPS cert errors
+  --allow-file-access: allow file:// URLs
+  --json: JSON output
+  -f, --full: full page screenshot
+  --annotate: annotated screenshot
+  --headed: show browser window
+  --cdp=: CDP port
+  --auto-connect: auto-discover running Chrome
+  --session-name=: auto-save/restore session state
+  --config=: custom config file path
+  --debug: debug output
+  -V, --version: show version
+completion:
+  persistentflag:
+    profile: ["$directories"]
+    state: ["$files([.json])"]
+    config: ["$files([.json])"]
+    executable-path: ["$files"]
+    extension: ["$directories"]
+commands:
+  # Core commands
+  - name: open
+    description: navigate to URL
+  - name: click
+    description: click element (or @ref)
+  - name: dblclick
+    description: double-click element
+  - name: type
+    description: type into element
+  - name: fill
+    description: clear and fill element
+  - name: press
+    description: press key (Enter, Tab, Control+a)
+  - name: hover
+    description: hover element
+  - name: focus
+    description: focus element
+  - name: check
+    description: check checkbox
+  - name: uncheck
+    description: uncheck checkbox
+  - name: select
+    description: select dropdown option
+  - name: drag
+    description: drag and drop
+  - name: upload
+    description: upload files
+    completion:
+      positional:
+        - []
+        - ["$files"]
+  - name: download
+    description: download file by clicking element
+    completion:
+      positional:
+        - []
+        - ["$directories"]
+  - name: scroll
+    description: scroll direction and optional pixels
+    completion:
+      positional:
+        - ["up", "down", "left", "right"]
+  - name: scrollintoview
+    description: scroll element into view
+  - name: wait
+    description: wait for element or time
+    flags:
+      --load=: wait for load state
+    completion:
+      flag:
+        load: ["networkidle", "load", "domcontentloaded"]
+  - name: screenshot
+    description: take screenshot
+    completion:
+      positional:
+        - ["$files([.png,.jpg,.jpeg,.webp])"]
+  - name: pdf
+    description: save as PDF
+    completion:
+      positional:
+        - ["$files([.pdf])"]
+  - name: snapshot
+    description: accessibility tree with refs (for AI)
+    flags:
+      -i, --interactive: only interactive elements
+      -c, --compact: remove empty structural elements
+      -d, --depth=: limit tree depth
+      -s, --selector=: scope to CSS selector
+  - name: eval
+    description: run JavaScript
+  - name: connect
+    description: connect to browser via CDP
+  - name: close
+    description: close browser
+  - name: install
+    description: install browser binaries
+    flags:
+      --with-deps: also install system dependencies (Linux)
+
+  # Navigation
+  - name: back
+    description: go back
+  - name: forward
+    description: go forward
+  - name: reload
+    description: reload page
+
+  # Get info
+  - name: get
+    description: get element info
+    completion:
+      positional:
+        - ["text\tget text content", "html\tget HTML content", "value\tget input value", "attr\tget attribute value", "title\tget page title", "url\tget page URL", "count\tget element count", "box\tget bounding box", "styles\tget computed styles"]
+
+  # Check state
+  - name: is
+    description: check element state
+    completion:
+      positional:
+        - ["visible\tcheck if visible", "enabled\tcheck if enabled", "checked\tcheck if checked"]
+
+  # Find elements
+  - name: find
+    description: find elements by locator
+    completion:
+      positional:
+        - ["role", "text", "label", "placeholder", "alt", "title", "testid", "first", "last", "nth"]
+
+  # Mouse
+  - name: mouse
+    description: mouse actions
+    commands:
+      - name: move
+        description: move mouse to x y
+      - name: down
+        description: press mouse button
+      - name: up
+        description: release mouse button
+      - name: wheel
+        description: mouse wheel scroll
+
+  # Browser settings
+  - name: set
+    description: browser settings
+    commands:
+      - name: viewport
+        description: set viewport width and height
+      - name: device
+        description: set device emulation
+      - name: geo
+        description: set geolocation
+      - name: offline
+        description: toggle offline mode
+        completion:
+          positional:
+            - ["on", "off"]
+      - name: headers
+        description: set HTTP headers (JSON)
+      - name: credentials
+        description: set credentials (user pass)
+      - name: media
+        description: set media features
+        completion:
+          positional:
+            - ["dark", "light"]
+            - ["reduced-motion"]
+
+  # Network
+  - name: network
+    description: network actions
+    commands:
+      - name: route
+        description: intercept URL
+        flags:
+          --abort: abort matching requests
+          --body=: respond with body (JSON)
+      - name: unroute
+        description: remove URL interception
+      - name: requests
+        description: list captured requests
+        flags:
+          --clear: clear captured requests
+          --filter=: filter pattern
+
+  # Storage
+  - name: cookies
+    description: manage cookies
+    flags:
+      --url=: cookie URL
+      --domain=: cookie domain
+      --path=: cookie path
+      --httpOnly: HTTP only
+      --secure: secure flag
+      --sameSite=: SameSite attribute
+      --expires=: expiration
+    completion:
+      positional:
+        - ["get\tget cookies", "set\tset cookie", "clear\tclear cookies"]
+      flag:
+        sameSite: ["Strict", "Lax", "None"]
+  - name: storage
+    description: manage web storage
+    completion:
+      positional:
+        - ["local\tlocalStorage", "session\tsessionStorage"]
+
+  # Tabs
+  - name: tab
+    description: manage tabs
+    completion:
+      positional:
+        - ["new\topen new tab", "list\tlist tabs", "close\tclose tab"]
+
+  # Debug
+  - name: trace
+    description: record Playwright trace
+    completion:
+      positional:
+        - ["start\tstart recording", "stop\tstop recording"]
+  - name: profiler
+    description: record Chrome DevTools profile
+    completion:
+      positional:
+        - ["start\tstart profiling", "stop\tstop profiling"]
+  - name: record
+    description: video recording
+    commands:
+      - name: start
+        description: start video recording (WebM)
+        completion:
+          positional:
+            - ["$files([.webm])"]
+      - name: stop
+        description: stop and save video
+  - name: console
+    description: view console logs
+    flags:
+      --clear: clear console logs
+  - name: errors
+    description: view page errors
+    flags:
+      --clear: clear page errors
+  - name: highlight
+    description: highlight element
+
+  # Sessions
+  - name: session
+    description: session management
+    commands:
+      - name: list
+        description: list active sessions

@@ -1,6 +1,6 @@
 # Load ~/.extra, ~/.bash_prompt, ~/.exports, ~/.aliases and ~/.functions
 # ~/.extra can be used for settings you don’t want to commit
-for file in ~/.{oh-my-zsh-config,exports,aliases,functions,extra}; do
+for file in ~/.{oh-my-zsh-config,aliases,exports,extra,functions}; do
 	[ -r "$file" ] && source "$file"
 done
 unset file
@@ -16,3 +16,6 @@ if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-clou
 
 # Docker CLI completions (compinit already run by oh-my-zsh)
 fpath=($HOME/.docker/completions $fpath)
+
+# Carapace shell completions
+source <(carapace _carapace zsh)
