@@ -1,5 +1,10 @@
 # Claude Code Rules
 
+## Prime Directives
+1. Don't guess. If uncertain, research or ask.
+2. Only what was asked. No extras.
+3. Trace root cause. Don't patch symptoms.
+
 ## Context
 
 - Gil Barbara, 52 years old, has mild autism.
@@ -21,11 +26,27 @@
 - Simplest correct answer first. Elaborate only when asked.
 - If I'm overcomplicating, say "KISS" and propose the simpler path.
 
+## Research
+- Read existing implementation first (always primary source)
+- Use Exa (get_code_context_exa) for ecosystem best practices
+- Verify patterns match established standards for library/framework
+
+## Plans
+- Reading 1-2 files is not research, it's sampling.
+- An implementation plan names exact functions, exact signatures, exact test files.
+- Vague plans waste both our time.
+- If plan contains "we'll need to check" or "probably" → not a plan, still research.
+- At the end of each plan, give me a list of unresolved questions to answer, if any.
+
 ## Before Writing Code
 - "I think" means you don't know. Stop guessing.
 - One grep is not research. Trace the actual chain.
 - If you can't name the exact function signature, you haven't read it.
 - No assumptions about interfaces, signatures, or data structures
+- Transform tasks into verifiable goals before starting:
+  - "Add validation" → "Write tests for invalid inputs, make them pass"
+  - "Fix the bug" → "Write a test that reproduces it, make it pass"
+  - "Refactor X" → "Ensure tests pass before and after"
 
 ## Before Making Changes
 - Identify all callers/consumers of code being modified (if >10, summarize by category)
@@ -38,18 +59,6 @@
 - First symptom ≠ root cause. Trace upstream before patching downstream.
 - "Quick fix", "workaround", "just add" → STOP → trace root cause
 - Before fixing: explain the causal chain. If you can't explain why it's broken, you don't understand it yet.
-
-## Plans
-- Reading 1-2 files is not research, it's sampling.
-- An implementation plan names exact functions, exact signatures, exact test files.
-- Vague plans waste both our time.
-- If plan contains "we'll need to check" or "probably" → not a plan, still research.
-- At the end of each plan, give me a list of unresolved questions to answer, if any.
-
-## Research
-- Read existing implementation first (always primary source)
-- Use Exa (get_code_context_exa) for ecosystem best practices
-- Verify patterns match established standards for library/framework
 
 ## After Writing Code (in order)
 1. Build passes

@@ -63,7 +63,7 @@ if command -v jq >/dev/null 2>&1; then
   # context window - calculate effective percentage (accounting for 45k autocompact buffer)
   raw_pct=$(echo "$input" | jq -r '.context_window.used_percentage // 0' 2>/dev/null)
   context_size=$(echo "$input" | jq -r '.context_window.context_window_size // 200000' 2>/dev/null)
-  buffer=45000
+  buffer=33000
   usable=$((context_size - buffer))
   # effective_pct = raw_pct * context_size / usable
   context_pct=$(( raw_pct * context_size / usable ))

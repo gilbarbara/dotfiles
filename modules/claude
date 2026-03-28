@@ -3,13 +3,16 @@
 claude_plugins=(code-review commit-commands frontend-design pr-review-toolkit pyright-lsp typescript-lsp)
 
 claude_skills=(
-  "agent-browser vercel-labs/agent-browser"
-  "web-design-guidelines vercel-labs/agent-skills -s web-design-guidelines"
-  "vercel-react-best-practices vercel-labs/agent-skills -s vercel-react-best-practices"
-  "frontend-design anthropics/skills -s frontend-design"
+  "agent-browser vercel-labs/agent-browser -s agent-browser"
   "dokploy clawdbot/skills -s dokploy"
   "find-skills vercel-labs/skills -s find-skills"
+  "frontend-design anthropics/skills -s frontend-design"
+  "grill-me mattpocock/skills/grill-me"
+  "improve-codebase-architecture mattpocock/skills/improve-codebase-architecture"
+  "playwright-skill sickn33/antigravity-awesome-skills -s playwright-skill"
   "skill-creator anthropics/skills -s skill-creator"
+  "vercel-react-best-practices vercel-labs/agent-skills -s vercel-react-best-practices"
+  "web-design-guidelines vercel-labs/agent-skills -s web-design-guidelines"
 )
 
 run_claude() {
