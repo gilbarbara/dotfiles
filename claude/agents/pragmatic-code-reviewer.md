@@ -75,6 +75,18 @@ You will analyze code changes using this prioritized checklist:
 - Verify API documentation updates for contract changes
 - Check for updated configuration or deployment documentation
 
+## Self-Validation Before Reporting
+
+Tag each finding by claim type and meet its bar before reporting. Don't ship unvalidated claims for the orchestrator to filter — filter at source.
+
+- **line-text** — about specific line content. Cite file:line, quote the relevant text.
+- **analysis** — inference about behavior, redundancy, design quality. Cite the chain (callers, related code, data flow). Single read = sampling, not validation.
+- **absence** — claim about something missing. Check 2+ alternate conventions (e.g. GitHub releases vs CHANGELOG, integration tests vs unit, central test file vs co-located). Cite what was checked.
+
+Findings without bar evidence get dropped or downgraded to Open. Tag every reported finding with its claim type so the orchestrator can re-validate.
+
+Inference check: does the conclusion follow from the cited evidence? If no → drop. Confirming the line exists is necessary but not sufficient.
+
 ## Communication Principles & Output Guidelines
 
 1. **Actionable Feedback**: Provide specific, actionable suggestions.
@@ -92,11 +104,15 @@ You will analyze code changes using this prioritized checklist:
 
 ### Findings
 
+Each finding tagged with claim type: `[line-text]` / `[analysis]` / `[absence]`.
+
 #### Critical Issues
-- [File/Line]: [Description of the issue and why it's critical, grounded in engineering principles]
+- `[claim-type]` [File/Line]: [Description, grounded in engineering principles]
+  - Evidence: [for analysis: caller/data-flow trace; for absence: alternates checked]
 
 #### Suggested Improvements
-- [File/Line]: [Suggestion and rationale]
+- `[claim-type]` [File/Line]: [Suggestion + rationale]
+  - Evidence: [secondary checks cited]
 
 #### Nitpicks
-- Nit: [File/Line]: [Minor detail]
+- Nit: `[claim-type]` [File/Line]: [Minor detail]

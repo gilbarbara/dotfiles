@@ -1,15 +1,15 @@
 ---
-description: Validate plan against implementation and best practices
+description: Validate plan against source. Same gate for all items.
 argument-hint: [additional-instructions]
 ---
 
-Validate the entire plan by:
+Validate the current plan against actual source.
 
-1) Checking the actual source implementation
-2) Researching best practices via Exa for real-world examples (**if needed**)
-3) Identifying potential edge cases and failure modes
-4) Confirming compatibility with existing systems.
+For each item in the plan:
+1. Open named files at named lines. Confirm claim matches source.
+2. If function/signature/behavior named: grep for it, read the implementation.
+3. If best practice cited: confirm against current docs (Exa/Ref) only when source ambiguous.
 
-Provide a detailed, production-ready plan with no workarounds or temporary fixes.
+@~/.claude/snippets/review-rigor.md
 
 $ARGUMENTS

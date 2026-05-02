@@ -7,41 +7,16 @@
   },
   "attribution": {
     "commit": "",
-    "pr": ""
+    "pr": "",
+    "sessionUrl": false
   },
   "permissions": {
-    "allow": [
-      "Bash(cat:*)",
-      "Bash(chmod:*)",
-      "Bash(curl:*)",
-      "Bash(find:*)",
-      "Bash(gh:*)",
-      "Bash(git:*)",
-      "Bash(grep:*)",
-      "Bash(grpcurl:*)",
-      "Bash(ls:*)",
-      "Bash(mkdir:*)",
-      "Bash(mv:*)",
-      "Bash(node:*)",
-      "Bash(npm:*)",
-      "Bash(npx:*)",
-      "Bash(pnpm:*)",
-      "Bash(pnpx:*)",
-      "Bash(pkill:*)",
-      "Bash(rg:*)",
-      "Bash(rm:*)",
-      "Bash(timeout:*)",
-      "Bash(uv:*)",
-      "WebFetch(domain:*)",
-      "mcp__agent-hub:*",
-      "mcp__Ref:*",
-      "WebSearch"
-    ],
     "deny": [
       "Bash(rm -rf:*)",
-      "Bash(git checkout:*)"
+      "Bash(git checkout:*)",
+      "Read(~/.extra)"
     ],
-    "defaultMode": "bypassPermissions"
+    "defaultMode": "plan"
   },
   "hooks": {
     "Stop": [
@@ -55,28 +30,68 @@
       }
     ]
   },
+  "worktree": {
+    "baseRef": "fresh"
+  },
   "statusLine": {
     "type": "command",
     "command": "~/.claude/statusline.sh"
   },
   "enabledPlugins": {
+    "chrome-devtools-mcp@chrome-devtools-plugins": true,
     "code-review@claude-plugins-official": true,
     "commit-commands@claude-plugins-official": true,
+    "firebase@firebase": false,
     "frontend-design@claude-plugins-official": true,
+    "posthog@claude-plugins-official": true,
     "pr-review-toolkit@claude-plugins-official": true,
     "pyright-lsp@claude-plugins-official": true,
     "typescript-lsp@claude-plugins-official": true,
-    "firebase@firebase": true
+    "context-bar@claude-code-mods": true,
+    "mission-control@claude-code-mods": true,
+    "next-steps@claude-code-mods": true
   },
   "extraKnownMarketplaces": {
+    "chrome-devtools-plugins": {
+      "source": {
+        "source": "github",
+        "repo": "ChromeDevTools/chrome-devtools-mcp"
+      }
+    },
+    "cloudflare": {
+      "source": {
+        "source": "github",
+        "repo": "cloudflare/skills"
+      }
+    },
     "firebase": {
       "source": {
         "source": "github",
         "repo": "firebase/agent-skills"
       }
+    },
+    "claude-code-mods": {
+      "source": {
+        "source": "github",
+        "repo": "hamzafer/claude-code-mods"
+      }
     }
   },
-  "effortLevel": "medium",
-  "voiceEnabled": true,
-  "skipDangerousModePermissionPrompt": true
+  "outputStyle": "Concise",
+  "effortLevel": "high",
+  "modelSettings": {
+    "claude-opus-5": {
+      "effortLevel": "high"
+    },
+    "claude-opus-5-5": {
+      "effortLevel": "medium"
+    }
+  },
+  "tui": "fullscreen",
+  "skipDangerousModePermissionPrompt": true,
+  "remoteControlAtStartup": true,
+  "crossSessionInbound": "accept",
+  "agentPushNotifEnabled": true,
+  "skipAutoPermissionPrompt": true,
+  "voiceEnabled": true
 }

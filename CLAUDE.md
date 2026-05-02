@@ -19,9 +19,12 @@ Personal dotfiles for macOS setup. Manages shell configuration (zsh with oh-my-z
 ## Architecture
 
 ### Shell Configuration Flow
+`.zshenv` runs for every zsh (including non-interactive scripts):
+- Prepends `~/.local/bin` (uv Python, uv tools)
+
 `.zprofile` runs once per login session:
 - Homebrew shellenv, fnm, pnpm
-- PATH setup (ruby, php, go, local bins)
+- PATH setup (ruby, php, go, local bins); re-prepends `~/.local/bin` because macOS `path_helper` demotes the `.zshenv` entry, then `typeset -U` drops the duplicate
 
 `.zshrc` sources files in order (every interactive shell):
 1. `.oh-my-zsh-config` - oh-my-zsh setup, theme (`kollectiv`), plugins
