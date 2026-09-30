@@ -1,77 +1,33 @@
-# Easier navigation: .., ..., ~ and -
+# Navigation
 alias ..="cd .."
 alias cd..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
-alias ~="cd ~" # `cd` is probably faster to type though
+alias ~="cd ~"
 alias -- -="cd -"
+alias dk='cd ~/Desktop'
 
-# be nice
-alias please=sudo
-alias hosts='sudo $EDITOR /etc/hosts'   # yes I occasionally 127.0.0.1 twitter.com ;)
-
-# List files vertically
+# Listing (eza)
 alias l='eza -lh --git'
-
-# List files vertically including dotfiles
 alias la='eza -lah --git'
-
-# List only directories
-alias lsd='eza -laDh --git'
-
-# List order by time desc
+alias lsd='eza -laDh --git'           # directories only
 alias lt='eza -lah --git --sort=oldest'
 
-# IP addresses
-alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias localip="ipconfig getifaddr en0"
-alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
-
-# Enhanced WHOIS lookups
-alias whois="whois -h whois-servers.net"
-
-# Flush Directory Service cache
-alias flush="sudo killall -HUP mDNSResponder"
-#alias flush="dscacheutil -flushcache"
-
-# View HTTP traffic
-alias sniff="sudo ngrep -d 'en0' -t '^(GET|POST) ' 'tcp and port 80'"
-alias httpdump="sudo tcpdump -i en0 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
-
-# Canonical hex dump; some systems have this symlinked
-type hd > /dev/null || alias hd="hexdump -C"
-
-# OS X has no `md5sum`, so use `md5` as a fallback
-type md5sum > /dev/null || alias md5sum="md5"
-
-# Trim new lines and copy to clipboard
-alias trimcopy="tr -d '\n' | pbcopy"
-
-# Recursively delete `.DS_Store` files
-alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
-
-# GIT STUFF
-
-# Undo a `git push`
-alias undopush="git push -f origin HEAD^:main"
-
-# SHORTCUTS
-
-#git aliases
+# Git
 alias g="git"
 alias ghd="github"
 alias gl="git log --oneline --all --graph --decorate"
 alias gr='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`'
 alias gs="git status -s"
-alias gsl="git stash list"
-alias gsp="git stash pop"
 alias gss="git stash save"
+alias gsp="git stash pop"
+alias gsl="git stash list"
 alias gptags="git push && git push --tags"
-
+alias undopush="git push -f origin HEAD^:main"
 alias recursive-pull="find . -type d -name .git -exec git --git-dir={} --work-tree=\$PWD/{}/.. pull \;"
 
-# npm aliases
+# npm packages
 alias ni='npm install'
 alias nid='npm install --save-dev'
 alias nig='npm install -g'
@@ -84,7 +40,7 @@ alias npatch='npm version patch'
 alias nminor='npm version minor'
 alias nmajor='npm version major'
 
-# npm scripts aliases
+# npm scripts
 alias start='npm start'
 alias dev='npm run dev'
 alias watch='npm run watch'
@@ -97,57 +53,68 @@ alias check='npm run check'
 alias validate='npm run validate'
 alias lint='npm run lint'
 alias slint='npm run lint:styles'
-
 alias t='npm test'
 alias tc='npm run test:coverage'
 alias tw='npm run test:watch'
-
-alias ncus='ncu --dep=prod,dev'
-alias ncup='ncu -ui --dep=prod,dev --format group'
-alias ncug='ncu -g -p pnpm'
-
 alias coverage='open coverage/lcov-report/index.html'
 alias reinstall='rm -rf node_modules package-lock.json && npm i'
 
-alias pipup='pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U'
-
+# Dependencies
+alias ncus='ncu --dep=prod,dev'
+alias ncup='ncu -ui -c 1d --dep=prod,dev --format group'
+alias ncuw='ncup --workspaces'
+alias ncug='ncu -g -p pnpm -c 1d'
+alias nau='actions-up --min-age 1'
+alias unused='depcheck'
 alias bp='bundle-phobia'
-alias rl='release'
 
+# Docker compose
+alias up='docker compose up -d'
+alias down='docker compose down'
+alias restart='docker compose restart'
+alias stop='docker compose stop'
+
+# Dev tools
+alias claude='claude --allow-dangerously-skip-permissions'
+alias br='agent-browser'
+alias cdt='chrome-devtools'
+alias kp='kill-port'
+alias rl='release'
+alias run='serve -o'
 alias v="vim"
 
-alias run='serve -o'
-alias pks='package-size'
-alias br='agent-browser'
+# Network
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip="ipconfig getifaddr en0"
+alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
+alias whois="whois -h whois-servers.net"
+# Flush Directory Service cache
+alias flush="sudo killall -HUP mDNSResponder"
+#alias flush="dscacheutil -flushcache"
+# View HTTP traffic
+alias sniff="sudo ngrep -d 'en0' -t '^(GET|POST) ' 'tcp and port 80'"
+alias httpdump="sudo tcpdump -i en0 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
+alias pio="ping -o"                   # ping once and exit
 
-alias dk='cd ~/Desktop'
-alias ~f='open ~/'
+# System / macOS
+alias please=sudo
+alias hosts='sudo $EDITOR /etc/hosts'
 alias reload='source ~/.zshrc'
-
-alias unused='depcheck'
-alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
-
-# ping only once and die
-alias pio="ping -o"
-
-# File size
+# Canonical hex dump; some systems have this symlinked
+type hd > /dev/null || alias hd="hexdump -C"
+# OS X has no `md5sum`, so use `md5` as a fallback
+type md5sum > /dev/null || alias md5sum="md5"
+alias trimcopy="tr -d '\n' | pbcopy"
+alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
 alias fs="stat -f \"%z bytes\""
-
 alias duh="du -hcs"
 alias dh="df -h"
-
-# ROT13-encode text. Works for decoding, too! ;)
 alias rot13='tr a-zA-Z n-za-mN-ZA-M'
-
 # Empty the Trash on all mounted volumes and the main HDD
 alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; rm -rfv ~/.Trash"
-
 # Hide/show all desktop icons (useful when presenting)
 alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
 alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
-
-# PlistBuddy alias, because sometimes `defaults` just doesn’t cut it
 alias plistbuddy="/usr/libexec/PlistBuddy"
-
 # Unlock GPG
 alias ungpg="echo "test" | gpg --clearsign > /dev/null 2>&1"

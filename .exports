@@ -11,8 +11,12 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 # Set GPG TTY
 export GPG_TTY=$(tty)
 
-# Make some commands not show up in history
-export HISTIGNORE="ls:ls *:cd:cd -:pwd;exit:date:* --help"
+# Make some commands not show up in the history file
+HISTORY_IGNORE="(ls|ls *|cd|cd -|pwd|exit|date|* --help)"
+
+# History retention (overrides oh-my-zsh's 10000)
+export HISTSIZE=100000
+export SAVEHIST=100000
 
 # Brew options
 export HOMEBREW_CASK_OPTS="--no-quarantine"
