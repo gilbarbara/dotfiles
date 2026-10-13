@@ -1,0 +1,52 @@
+#!/bin/bash
+# Global Git hook: post-checkout
+# Automatically copy .env files to new worktrees (including nested directories)
+# Skips gitignored directories (node_modules, vendor, dist, etc.)
+
+# Only run when a worktree is created: git passes the null ref as $1 for
+# `git worktree add` and `git clone`; regular switches pass the previous HEAD.
+if [ "$3" != "1" ] || [[ ! "$1" =~ ^0+$ ]]; then
+    exit 0
+fi
+
+GIT_DIR_ABS=$(git rev-parse --path-format=absolute --git-dir)
+GIT_COMMON_DIR=$(git rev-parse --path-format=absolute --git-common-dir)
+
+# git-dir equals git-common-dir everywhere except linked worktrees (e.g. clones)
+if [ "$GIT_DIR_ABS" = "$GIT_COMMON_DIR" ]; then
+    exit 0
+fi
+
+MAIN_REPO=$(dirname "$GIT_COMMON_DIR")
+CURRENT_DIR=$(git rev-parse --show-toplevel)
+
+echo "📋 Worktree detected: $CURRENT_DIR"
+
+# Build a list of gitignored directories to prune from traversal
+# This prevents find from even entering node_modules/, dist/, etc.
+prune_args=(-name ".git" -prune)
+while IFS= read -r dir; do
+    [ -z "$dir" ] && continue
+    prune_args+=(-o -path "$MAIN_REPO/$dir" -prune)
+done < <(
+    find "$MAIN_REPO" -mindepth 1 -maxdepth 3 -type d -not -path "*/.git/*" -not -name ".git" \
+        | sed "s|^$MAIN_REPO/||" \
+        | git -C "$MAIN_REPO" check-ignore --stdin 2>/dev/null
+)
+
+# Find .env* files, skipping pruned (gitignored) directories
+find "$MAIN_REPO" \( "${prune_args[@]}" \) -o -name ".env*" -type f -print | while IFS= read -r envfile; do
+    relpath="${envfile#$MAIN_REPO/}"
+
+    # Copy preserving directory structure
+    target="$CURRENT_DIR/$relpath"
+    if [ ! -f "$target" ]; then
+        mkdir -p "$(dirname "$target")"
+        cp "$envfile" "$target"
+        echo "  ✓ Copied $relpath"
+    else
+        echo "  ⊘ Skipped $relpath (already exists)"
+    fi
+done
+
+echo "✅ Environment files synced!"

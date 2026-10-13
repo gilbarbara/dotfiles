@@ -12,9 +12,10 @@ local.properties
 ##############
 .claude/*
 .agent/*
+CLAUDE.local*
+dogfood-*/
+graphify-out
 
-# Beads stealth mode
-.beads/
 
 # Modules and Caches
 ###########################

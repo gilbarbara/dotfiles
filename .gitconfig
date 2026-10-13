@@ -31,6 +31,7 @@
   autocrlf = input
   excludesfile = ~/.gitignore
   pager = delta
+	hooksPath = /Users/gilbarbara/.git-hooks
 [color "branch"]
   current = yellow reverse
   local = yellow
