@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-dotfiles=(.ackrc .aliases .editorconfig .exports .functions .gitattributes .gitconfig .gitignore .inputrc .nanorc .oh-my-zsh-config .osx .vim .vimrc .zprofile .zshrc)
+dotfiles=(.ackrc .aliases .editorconfig .exports .functions .gitattributes .gitconfig .gitignore .inputrc .nanorc .ncurs.js.oh-my-zsh-config .osx .vim .vimrc .zprofile .zshenv .zshrc)
 
 # Install dotfiles
 run_dotfiles() {
