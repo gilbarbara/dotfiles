@@ -29,8 +29,10 @@ Set sensible macOS defaults on a fresh machine:
 
 | File | Purpose |
 |------|---------|
-| `Brewfile` | Homebrew packages, casks, Mac App Store apps |
+| `Brewfile` | Homebrew packages, casks, Mac App Store apps, VS Code extensions |
 | `PNPMfile` | Global pnpm packages |
+| `claude/` | Claude Code config (symlinked into `~/.claude`) |
+| `.zshenv` | Every zsh, including scripts (`~/.local/bin` on PATH) |
 | `.zprofile` | Login shell setup (PATH, env vars) |
 | `.zshrc` | Interactive shell (sources other configs) |
 | `.oh-my-zsh-config` | Oh-my-zsh theme and plugins |
@@ -39,9 +41,16 @@ Set sensible macOS defaults on a fresh machine:
 | `.exports` | Environment variables |
 | `.extra` | Private config (not in repo) |
 
+## Updating package lists
+
+Regenerate `Brewfile` and `PNPMfile` from the current machine:
+```bash
+pnpm run dump
+```
+
 ## GPG setup
 
-Add to `~/.gnupg/gpg-agent.conf`:
+Set the pinentry program:
 ```bash
-pinentry-program $(brew --prefix)/bin/pinentry-mac
+echo "pinentry-program $(brew --prefix)/bin/pinentry-mac" >> ~/.gnupg/gpg-agent.conf
 ```
