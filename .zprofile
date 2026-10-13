@@ -20,7 +20,7 @@ FPATH="$BREW_PREFIX/share/zsh/site-functions:${FPATH}"
 export PNPM_HOME="/usr/local/pnpm"
 
 # PHP path
-export PHP_PATH="$BREW_PREFIX/opt/php@7.4/bin"
+export PHP_PATH="$BREW_PREFIX/opt/php/bin"
 
 export GO_PATH="$HOME/Documents/Go"
 export LOCAL_PATH="$HOME/.local/bin"

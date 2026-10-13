@@ -11,15 +11,13 @@ Usage: ./install [options]
 
 Options:
     -h, --help  Print this help text
-    --no-log    Suppress verbose logging
-    --no-apps   Suppress application installs
 
 Modules:
     brew        Install brew packages
     claude      Setup Claude Code
     dotfiles    Symlink dotfiles
     pnpm        Install PNPM global packages
-    oh-my-zsh   Install oh-my-zsh
+    oh_my_zsh   Install oh-my-zsh
     structure   Create directory structure
     tools       Install shell tools
 

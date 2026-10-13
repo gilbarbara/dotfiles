@@ -1,4 +1,4 @@
-# Load ~/.extra, ~/.bash_prompt, ~/.exports, ~/.aliases and ~/.functions
+# Load ~/.oh-my-zsh-config, ~/.aliases, ~/.exports, ~/.extra and ~/.functions
 # ~/.extra can be used for settings you don’t want to commit
 for file in ~/.{oh-my-zsh-config,aliases,exports,extra,functions}; do
 	[ -r "$file" ] && source "$file"
