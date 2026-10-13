@@ -27,11 +27,11 @@ declare -A MODULE_PREREQS=(
 
 MODULE_ORDER=(oh_my_zsh dotfiles structure brew rubygems pnpm tools claude)
 
-# Load utils
-source ./modules/utils
+# Load helpers
+source ./utils/helpers
 
 # Help text
-source ./modules/help
+source ./utils/help
 if [[ "$1" == "-h" || "$1" == "--help" ]]; then
     run_help
     exit
@@ -43,7 +43,7 @@ for i in "${libs[@]}"; do
 done
 
 # Source menu
-source ./modules/menu
+source ./utils/menu
 
 if ! type_exists gcc; then
     e_warning "GCC/XCode Command Line Tools not detected"
