@@ -16,11 +16,6 @@ BREW_PREFIX="$(brew --prefix)"
 # Brew completions (FPATH must be set before oh-my-zsh runs compinit)
 FPATH="$BREW_PREFIX/share/zsh/site-functions:${FPATH}"
 
-# Ruby paths
-export RUBY_PATH="$BREW_PREFIX/opt/ruby/bin"
-export GEM_HOME="$BREW_PREFIX/opt/gems"
-export GEM_PATH="$GEM_HOME/bin"
-
 # pnpm
 export PNPM_HOME="/usr/local/pnpm"
 
@@ -34,7 +29,7 @@ export LOCAL_NODE_PATH="./node_modules/.bin"
 # Antigravity
 export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
 
-PATH="$LOCAL_PATH:$LOCAL_NODE_PATH:$PNPM_HOME/bin:$GO_PATH:$GEM_PATH:$RUBY_PATH:$PHP_PATH:$PATH"
+PATH="$LOCAL_PATH:$LOCAL_NODE_PATH:$PNPM_HOME/bin:$GO_PATH:$PHP_PATH:$PATH"
 
 # Added by Obsidian
 export PATH="$PATH:/Applications/Obsidian.app/Contents/MacOS"

@@ -231,9 +231,6 @@ au BufRead,BufNewFile *.json set ft=json syntax=javascript
 " Jade
 au BufRead,BufNewFile *.jade set ft=jade syntax=jade
 
-" Common Ruby files
-au BufRead,BufNewFile Rakefile,Capfile,Gemfile,.autotest,.irbrc,*.treetop,*.tt set ft=ruby syntax=ruby
-
 " Nu
 au BufNewFile,BufRead *.nu,*.nujson,Nukefile setf nu
 

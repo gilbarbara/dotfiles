@@ -20,7 +20,6 @@ Modules:
     dotfiles    Symlink dotfiles
     pnpm        Install PNPM global packages
     oh-my-zsh   Install oh-my-zsh
-    rubygems    Install gems
     structure   Create directory structure
     tools       Install shell tools
 

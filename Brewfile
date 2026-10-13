@@ -135,8 +135,6 @@ brew "pyright"
 brew "ripgrep"
 # AI-powered command-line workflow tool for developers
 brew "qwen-code"
-# Powerful, clean, object-oriented scripting language
-brew "ruby"
 # Safe, concurrent, practical language
 brew "rust"
 # Security health metrics for Open Source
@@ -371,7 +369,6 @@ vscode "naumovs.color-highlight"
 vscode "orta.vscode-twoslash-queries"
 vscode "pnp.polacode"
 vscode "redhat.vscode-yaml"
-vscode "shopify.ruby-lsp"
 vscode "sleistner.vscode-fileutils"
 vscode "streetsidesoftware.code-spell-checker"
 vscode "vscode-icons-team.vscode-icons"

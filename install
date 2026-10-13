@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-libs=(brew claude dotfiles oh_my_zsh pnpm rubygems structure tools)
+libs=(brew claude dotfiles oh_my_zsh pnpm structure tools)
 
 # Module metadata
 declare -A MODULE_DESCRIPTIONS=(
@@ -8,7 +8,6 @@ declare -A MODULE_DESCRIPTIONS=(
     [dotfiles]="Symlink dotfiles to home directory"
     [structure]="Create ~/code, ~/repos, etc. directories"
     [brew]="Homebrew packages from Brewfile"
-    [rubygems]="Ruby gems (bundler, colorls)"
     [pnpm]="Global pnpm packages"
     [tools]="Custom shell tools to Homebrew bin"
     [claude]="Claude Code with plugins and skills"
@@ -19,13 +18,12 @@ declare -A MODULE_PREREQS=(
     [dotfiles]=""
     [structure]=""
     [brew]=""
-    [rubygems]="gem"
     [pnpm]="pnpm jq"
     [tools]="brew"
     [claude]="npx"
 )
 
-MODULE_ORDER=(oh_my_zsh dotfiles structure brew rubygems pnpm tools claude)
+MODULE_ORDER=(oh_my_zsh dotfiles structure brew pnpm tools claude)
 
 # Load helpers
 source ./utils/helpers

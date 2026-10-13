@@ -12,7 +12,7 @@ git clone https://github.com/gilbarbara/dotfiles.git ~/.dotfiles && cd ~/.dotfil
 
 Launches an interactive multi-select menu to choose which modules to install.
 
-Modules: `brew`, `claude`, `dotfiles`, `pnpm`, `oh_my_zsh`, `rubygems`, `structure`, `tools`
+Modules: `brew`, `claude`, `dotfiles`, `pnpm`, `oh_my_zsh`, `structure`, `tools`
 
 ## Private config
 
