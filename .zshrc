@@ -19,3 +19,6 @@ fpath=($HOME/.docker/completions $fpath)
 
 # Carapace shell completions
 source <(carapace _carapace zsh)
+
+# sentry
+fpath=("/Users/gilbarbara/.local/share/zsh/site-functions" $fpath)

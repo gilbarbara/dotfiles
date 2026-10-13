@@ -70,4 +70,8 @@ ZSH_THEME="kollectiv"
 plugins=(alias-finder aws brew dirhistory docker fnm fzf git httpie npm pip pnpm you-should-use zoxide zsh-autosuggestions zsh-pnpm-completions)
 # disabled: bbedit, dotenv, flutter, laravel, wp-cli, yarn
 
+# Keep PNPM_HOME from .zprofile; the pnpm plugin would otherwise overwrite it
+# with $HOME/Library/pnpm whenever that dir exists.
+zstyle ':omz:plugins:pnpm' global-path no
+
 source $ZSH/oh-my-zsh.sh
